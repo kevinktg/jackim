@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Document Repository | Interactive Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .chatbot-container.open {
+            transform: translateY(0);
+        }
+        
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .audio-visualizer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            height: 40px;
+        }
+        
+        .audio-bar {
+            width: 3px;
+            background: linear-gradient(to top, #667eea, #764ba2);
+            border-radius: 2px;
+            animation: audioWave 1.5s ease-in-out infinite;
+        }
+        
+        .audio-bar:nth-child(1) { animation-delay: 0s; height: 10px; }
+        .audio-bar:nth-child(2) { animation-delay: 0.1s; height: 20px; }
+        .audio-bar:nth-child(3) { animation-delay: 0.2s; height: 35px; }
+        .audio-bar:nth-child(4) { animation-delay: 0.3s; height: 20px; }
+        .audio-bar:nth-child(5) { animation-delay: 0.4s; height: 25px; }
+        
+        @keyframes audioWave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.3); }
+        }
+        
+        .section-card {
+            transition: all 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header -->
+    <header class="glass-morphism mx-4 mt-4 sticky top-4 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white animate-float">📚 Research Hub</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#reports" class="text-white/80 hover:text-white transition-colors">Reports</a>
+                <a href="#documents" class="text-white/80 hover:text-white transition-colors">Documents</a>
+                <a href="#research" class="text-white/80 hover:text-white transition-colors">Research</a>
+                <a href="#audio" class="text-white/80 hover:text-white transition-colors">Audio</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="text-center py-16 animate-slide-up">
+            <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-4">
+                Interactive Document Repository
+            </h2>
+            <p class="text-xl text-white/80 max-w-3xl mx-auto mb-8">
+                A smart template for organizing research, documents, and media with AI-powered assistance
+            </p>
+            <div class="animate-pulse-slow">
+                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="mb-16 animate-slide-up">
+            <div class="glass-morphism p-8 section-card">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                    <i class="fas fa-chart-line mr-3"></i>
+                    📄 Interactive Reports
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white/20 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-white mb-3">Email Reports</h3>
+                        <p class="text-white/80 mb-4">Concise versions optimized for email sharing</p>
+                        <ul id="email-reports-list" class="space-y-2">
+                            <li class="text-white/60"><em>No email reports found</em></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/20 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-white mb-3">Website Reports</h3>
+                        <p class="text-white/80 mb-4">Full interactive versions for web display</p>
+                        <ul id="website-reports-list" class="space-y-2">
+                            <li class="text-white/60"><em>No website reports found</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section id="documents" class="mb-16 animate-slide-up">
+            <div class="glass-morphism p-8 section-card">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                    <i class="fas fa-file-alt mr-3"></i>
+                    📋 Documents & Research
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white/20 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-white mb-3">📄 Documents</h3>
+                        <ul id="documents-list" class="space-y-2 text-sm">
+                            <li class="text-white/60"><em>No documents found</em></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/20 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-white mb-3">🔬 Research Assets</h3>
+                        <ul id="research-list" class="space-y-2 text-sm">
+                            <li class="text-white/60"><em>No research files found</em></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/20 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-white mb-3">📊 Analytics</h3>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white" id="total-files">0</div>
+                            <div class="text-white/80 text-sm">Total Files</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio Section -->
+        <section id="audio" class="mb-16 animate-slide-up">
+            <div class="glass-morphism p-8 section-card">
+                <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                    <i class="fas fa-music mr-3"></i>
+                    🎵 Audio Library
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white/20 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-white mb-4">Audio Files</h3>
+                        <ul id="audio-list" class="space-y-3">
+                            <li class="text-white/60"><em>No audio files found</em></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/20 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-white mb-4">Now Playing</h3>
+                        <div id="audio-player-container" class="hidden">
+                            <audio id="main-audio-player" controls class="w-full mb-4">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <div class="audio-visualizer mb-4">
+                                <div class="audio-bar"></div>
+                                <div class="audio-bar"></div>
+                                <div class="audio-bar"></div>
+                                <div class="audio-bar"></div>
+                                <div class="audio-bar"></div>
+                            </div>
+                            <div id="current-track" class="text-white text-center">No track selected</div>
+                        </div>
+                        <div id="audio-placeholder" class="text-center text-white/60">
+                            <i class="fas fa-headphones text-4xl mb-3"></i>
+                            <p>Add audio files to start playing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="mb-16 animate-slide-up">
+            <div class="glass-morphism p-8 section-card">
+                <h2 class="text-3xl font-bold text-white mb-6 text-center">
+                    <i class="fas fa-bolt mr-3"></i>
+                    Quick Actions
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <button onclick="runOrganizeScript()" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-lg transition-colors">
+                        <i class="fas fa-cogs text-2xl mb-2"></i>
+                        <div class="font-semibold">Organize Files</div>
+                        <div class="text-sm opacity-80">Run organization script</div>
+                    </button>
+                    <button onclick="openChatbot()" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg transition-colors">
+                        <i class="fas fa-robot text-2xl mb-2"></i>
+                        <div class="font-semibold">Ask AI</div>
+                        <div class="text-sm opacity-80">Chat about documents</div>
+                    </button>
+                    <button onclick="refreshFileList()" class="bg-purple-500 hover:bg-purple-600 text-white p-4 rounded-lg transition-colors">
+                        <i class="fas fa-sync text-2xl mb-2"></i>
+                        <div class="font-semibold">Refresh</div>
+                        <div class="text-sm opacity-80">Update file listings</div>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chatbot -->
+    <button class="chatbot-toggle" onclick="toggleChatbot()">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <div id="chatbot" class="chatbot-container glass-morphism">
+        <div class="h-full flex flex-col">
+            <div class="p-4 border-b border-white/20">
+                <h3 class="text-white font-semibold flex items-center">
+                    <i class="fas fa-robot mr-2"></i>
+                    Document Assistant
+                </h3>
+                <button onclick="toggleChatbot()" class="absolute top-4 right-4 text-white/60 hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3">
+                <div class="bg-white/20 p-3 rounded-lg">
+                    <div class="text-white/80 text-sm">AI Assistant</div>
+                    <div class="text-white">Hello! I can help you analyze documents, answer questions about your research, and provide insights. What would you like to know?</div>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/20">
+                <div class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Ask about your documents..." 
+                           class="flex-1 p-2 rounded bg-white/20 text-white placeholder-white/60 border border-white/30">
+                    <button onclick="sendMessage()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let chatbotOpen = false;
+        let audioFiles = [];
+        let currentAudioIndex = -1;
+
+        // Animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observe sections for animation
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Load initial file listings
+            refreshFileList();
+
+            // Setup audio player events
+            const audioPlayer = document.getElementById('main-audio-player');
+            audioPlayer.addEventListener('ended', () => {
+                playNextTrack();
+            });
+
+            // Chat input enter key
+            document.getElementById('chat-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
+
+        function toggleChatbot() {
+            const chatbot = document.getElementById('chatbot');
+            chatbotOpen = !chatbotOpen;
+            
+            if (chatbotOpen) {
+                chatbot.classList.add('open');
+            } else {
+                chatbot.classList.remove('open');
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            // Add user message
+            addChatMessage('You', message, 'user');
+            input.value = '';
+
+            // Simulate AI response (replace with actual AI integration)
+            setTimeout(() => {
+                const responses = [
+                    "I can help analyze your documents. Could you specify which document you'd like me to review?",
+                    "Based on your file structure, I notice you have research materials. Would you like me to summarize them?",
+                    "I can extract key insights from your documents. Which topic are you most interested in?",
+                    "Let me search through your documents for relevant information...",
+                    "I found several relevant files. Would you like me to create a summary report?"
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                addChatMessage('AI Assistant', randomResponse, 'ai');
+            }, 1000);
+        }
+
+        function addChatMessage(sender, message, type) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type === 'user' ? 'bg-blue-500/30 p-3 rounded-lg ml-8' : 'bg-white/20 p-3 rounded-lg mr-8';
+            
+            messageDiv.innerHTML = `
+                <div class="text-white/80 text-sm">${sender}</div>
+                <div class="text-white">${message}</div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function runOrganizeScript() {
+            // This would typically call the organize-files.sh script
+            alert('Organization script would run here. In a real implementation, this would execute the file organization script.');
+            setTimeout(refreshFileList, 1000);
+        }
+
+        function refreshFileList() {
+            // Simulate file discovery (replace with actual file system integration)
+            const sampleFiles = {
+                emailReports: ['email_report1.html', 'email_summary.html'],
+                websiteReports: ['website_analysis.html', 'website_dashboard.html'],
+                documents: ['research_paper.pdf', 'analysis.docx', 'notes.txt'],
+                research: ['data.csv', 'chart.png', 'results.json'],
+                audio: ['audio_interview.mp3', 'audio_presentation.wav']
+            };
+
+            updateFileList('email-reports-list', sampleFiles.emailReports);
+            updateFileList('website-reports-list', sampleFiles.websiteReports);
+            updateFileList('documents-list', sampleFiles.documents);
+            updateFileList('research-list', sampleFiles.research);
+            updateAudioList(sampleFiles.audio);
+
+            const totalFiles = Object.values(sampleFiles).flat().length;
+            document.getElementById('total-files').textContent = totalFiles;
+        }
+
+        function updateFileList(listId, files) {
+            const list = document.getElementById(listId);
+            if (files.length === 0) {
+                list.innerHTML = '<li class="text-white/60"><em>No files found</em></li>';
+                return;
+            }
+
+            list.innerHTML = files.map(file => `
+                <li class="text-white hover:text-blue-300 cursor-pointer transition-colors">
+                    <i class="fas fa-file mr-2"></i>${file}
+                </li>
+            `).join('');
+        }
+
+        function updateAudioList(files) {
+            const list = document.getElementById('audio-list');
+            audioFiles = files;
+
+            if (files.length === 0) {
+                list.innerHTML = '<li class="text-white/60"><em>No audio files found</em></li>';
+                document.getElementById('audio-player-container').classList.add('hidden');
+                document.getElementById('audio-placeholder').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('audio-player-container').classList.remove('hidden');
+            document.getElementById('audio-placeholder').classList.add('hidden');
+
+            list.innerHTML = files.map((file, index) => `
+                <li class="bg-white/10 p-3 rounded cursor-pointer hover:bg-white/20 transition-colors" 
+                    onclick="playAudio(${index})">
+                    <div class="flex items-center justify-between">
+                        <div class="text-white">
+                            <i class="fas fa-music mr-2"></i>${file}
+                        </div>
+                        <button class="text-blue-300 hover:text-blue-200">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        function playAudio(index) {
+            if (index < 0 || index >= audioFiles.length) return;
+            
+            currentAudioIndex = index;
+            const audioPlayer = document.getElementById('main-audio-player');
+            const fileName = audioFiles[index];
+            
+            // In a real implementation, this would be the actual file path
+            audioPlayer.src = `audio/${fileName}`;
+            audioPlayer.load();
+            audioPlayer.play();
+            
+            document.getElementById('current-track').textContent = fileName;
+        }
+
+        function playNextTrack() {
+            if (audioFiles.length === 0) return;
+            currentAudioIndex = (currentAudioIndex + 1) % audioFiles.length;
+            playAudio(currentAudioIndex);
+        }
+
+        function openChatbot() {
+            if (!chatbotOpen) {
+                toggleChatbot();
+            }
+        }
+    </script>
+</body>
+</html>
