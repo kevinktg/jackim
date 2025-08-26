@@ -223,15 +223,17 @@
             right: 20px;
             width: 350px;
             height: 500px;
-            z-index: 1000;
+            z-index: 999;
             transform: translateY(100%);
             transition: transform 0.3s ease-in-out;
             border-radius: 20px;
             max-width: calc(100vw - 40px);
+            visibility: hidden;
         }
         
         .chatbot-container.open {
             transform: translateY(0);
+            visibility: visible;
         }
         
         /* Chatbot toggle button with animated glow. */
@@ -261,6 +263,10 @@
                 width: calc(100vw - 40px);
                 right: 20px;
                 left: 20px;
+            }
+            .chatbot-toggle {
+                right: 20px;
+                bottom: 20px;
             }
         }
         
@@ -772,26 +778,26 @@
                  
                  <!-- Roadmap -->
                  <div class="glass-morphism liquid-glass-demo p-8 rounded-xl mb-16">
-                     <h3 class="text-2xl font-bold text-white text-center mb-4 card-text-shadow">Roadmap to Nomination</h3>
-                     <ol class="space-y-3 text-white/90">
-                         <li>
-                             <span class="font-semibold">Phase 1: Portfolio Development (Months 1–3)</span>
-                             <div class="text-white/70 text-sm">English tests, documents, and Strategic Evidence Portfolio.</div>
-                         </li>
-                         <li>
-                             <span class="font-semibold">Phase 2: Skills Assessment (Months 4–7)</span>
-                             <div class="text-white/70 text-sm">VETASSESS lodgements aligned with ANZSCO.</div>
-                         </li>
-                         <li>
-                             <span class="font-semibold">Phase 3: EOI & ROI (Month 8)</span>
-                             <div class="text-white/70 text-sm">Submit EOI and high-quality ROI to Victoria.</div>
-                         </li>
-                         <li>
-                             <span class="font-semibold">Phase 4: Invitation & Lodgement (Month 9+)</span>
-                             <div class="text-white/70 text-sm">Lodge Subclass 491 within 60 days after invitation.</div>
-                         </li>
-                     </ol>
-                </div>
+                     <h3 class="text-2xl font-bold text-white text-center mb-6 card-text-shadow">Roadmap to Nomination</h3>
+                     <div class="space-y-4">
+                         <div class="p-4 bg-white/5 rounded-lg border-l-4 border-blue-400">
+                             <div class="font-semibold text-white card-text-shadow">Phase 1: Portfolio Development (Months 1–3)</div>
+                             <div class="text-white/80 text-sm mt-2 card-text-shadow-light">English tests, documents, and Strategic Evidence Portfolio.</div>
+                         </div>
+                         <div class="p-4 bg-white/5 rounded-lg border-l-4 border-green-400">
+                             <div class="font-semibold text-white card-text-shadow">Phase 2: Skills Assessment (Months 4–7)</div>
+                             <div class="text-white/80 text-sm mt-2 card-text-shadow-light">VETASSESS lodgements aligned with ANZSCO.</div>
+                         </div>
+                         <div class="p-4 bg-white/5 rounded-lg border-l-4 border-yellow-400">
+                             <div class="font-semibold text-white card-text-shadow">Phase 3: EOI & ROI (Month 8)</div>
+                             <div class="text-white/80 text-sm mt-2 card-text-shadow-light">Submit EOI and high-quality ROI to Victoria.</div>
+                         </div>
+                         <div class="p-4 bg-white/5 rounded-lg border-l-4 border-purple-400">
+                             <div class="font-semibold text-white card-text-shadow">Phase 4: Invitation & Lodgement (Month 9+)</div>
+                             <div class="text-white/80 text-sm mt-2 card-text-shadow-light">Lodge Subclass 491 within 60 days after invitation.</div>
+                         </div>
+                     </div>
+                 </div>
             </div>
         </section>
 
