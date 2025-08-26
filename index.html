@@ -287,6 +287,60 @@
             }
         }
 
+        /* Scrolling card animations */
+        .scroll-cards {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .scroll-cards-container {
+            display: flex;
+            animation: scrollCards 20s linear infinite;
+        }
+        
+        .scroll-card {
+            flex: 0 0 auto;
+            margin-right: 2rem;
+            min-width: 300px;
+            animation: cardFloat 3s ease-in-out infinite;
+        }
+        
+        .scroll-card:nth-child(2) { animation-delay: 1s; }
+        .scroll-card:nth-child(3) { animation-delay: 2s; }
+        .scroll-card:nth-child(4) { animation-delay: 0.5s; }
+        .scroll-card:nth-child(5) { animation-delay: 1.5s; }
+        
+        @keyframes scrollCards {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Text reveal animations */
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: textReveal 0.8s ease-out forwards;
+        }
+        
+        .text-reveal:nth-child(1) { animation-delay: 0.2s; }
+        .text-reveal:nth-child(2) { animation-delay: 0.4s; }
+        .text-reveal:nth-child(3) { animation-delay: 0.6s; }
+        .text-reveal:nth-child(4) { animation-delay: 0.8s; }
+        
+        @keyframes textReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         /* Accessibility: respect reduced motion preferences. */
         @media (prefers-reduced-motion: reduce) {
             .animate-float, .animate-pulse-slow { animation: none !important; }
@@ -295,6 +349,9 @@
                 opacity: 1 !important;
                 transform: none !important;
             }
+            .scroll-cards-container { animation: none !important; }
+            .scroll-card { animation: none !important; }
+            .text-reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
         }
     </style>
 </head>
@@ -323,8 +380,8 @@
          <section class="text-center py-24 animate-slide-up relative min-h-screen flex items-center justify-center">
              <!-- Background Image with Overlay -->
              <div class="absolute inset-0 w-full h-full z-0">
-                 <img src="assets/perth.jpg" alt="Perth City Skyline" class="w-full h-full object-cover rounded-3xl">
-                 <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80 rounded-3xl"></div>
+                 <img src="assets/perth.jpg" alt="Perth City Skyline" class="w-full h-full object-cover rounded-3xl" style="z-index: 1;">
+                 <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80 rounded-3xl" style="z-index: 2;"></div>
              </div>
              
              <!-- Content -->
@@ -364,22 +421,79 @@
              </div>
                   </section>
 
+         <!-- Spacer Section -->
+         <section class="py-16"></section>
+
+         <!-- Scrolling Cards Section -->
+         <section class="mb-16 animate-slide-up">
+             <div class="max-w-7xl mx-auto px-4">
+                 <h2 class="text-4xl font-bold text-white text-center mb-12 text-reveal">
+                     Strategic Migration Insights
+                 </h2>
+                 <div class="scroll-cards">
+                     <div class="scroll-cards-container">
+                         <div class="scroll-card glass-morphism p-6 text-center">
+                             <div class="text-4xl mb-3">🎯</div>
+                             <h3 class="text-xl font-bold text-white mb-2">Strategic Pivot</h3>
+                             <p class="text-white/80 text-sm">From NSW to Victoria: Data-driven risk mitigation</p>
+                         </div>
+                         <div class="scroll-card glass-morphism p-6 text-center">
+                             <div class="text-4xl mb-3">📈</div>
+                             <h3 class="text-xl font-bold text-white mb-2">Points Optimization</h3>
+                             <p class="text-white/80 text-sm">VIC 491 adds decisive +15 nomination points</p>
+                         </div>
+                         <div class="scroll-card glass-morphism p-6 text-center">
+                             <div class="text-4xl mb-3">🏆</div>
+                             <h3 class="text-xl font-bold text-white mb-2">Four Strategic Layers</h3>
+                             <p class="text-white/80 text-sm">AI, First Nations, Regional, Asia-Pacific alignment</p>
+                         </div>
+                         <div class="scroll-card glass-morphism p-6 text-center">
+                             <div class="text-4xl mb-3">💼</div>
+                             <h3 class="text-xl font-bold text-white mb-2">Economic Unit</h3>
+                             <p class="text-white/80 text-sm">Marketing + Design = Complete business solution</p>
+                         </div>
+                         <div class="scroll-card glass-morphism p-6 text-center">
+                             <div class="text-4xl mb-3">🌏</div>
+                             <h3 class="text-xl font-bold text-white mb-2">Regional Focus</h3>
+                             <p class="text-white/80 text-sm">Targeting Victoria's regional development priorities</p>
+                         </div>
+                         <!-- Duplicate cards for seamless loop -->
+                         <div class="scroll-card glass-morphism p-6 text-center">
+                             <div class="text-4xl mb-3">🎯</div>
+                             <h3 class="text-xl font-bold text-white mb-2">Strategic Pivot</h3>
+                             <p class="text-white/80 text-sm">From NSW to Victoria: Data-driven risk mitigation</p>
+                         </div>
+                         <div class="scroll-card glass-morphism p-6 text-center">
+                             <div class="text-4xl mb-3">📈</div>
+                             <h3 class="text-xl font-bold text-white mb-2">Points Optimization</h3>
+                             <p class="text-white/80 text-sm">VIC 491 adds decisive +15 nomination points</p>
+                         </div>
+                         <div class="scroll-card glass-morphism p-6 text-center">
+                             <div class="text-4xl mb-3">🏆</div>
+                             <h3 class="text-xl font-bold text-white mb-2">Four Strategic Layers</h3>
+                             <p class="text-white/80 text-sm">AI, First Nations, Regional, Asia-Pacific alignment</p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </section>
+
          <!-- Statistics Section -->
          <section id="stats" class="mb-16 animate-slide-up">
              <div class="max-w-6xl mx-auto">
                  <!-- Strategic Overview Cards -->
                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                     <div class="glass-morphism p-6 text-center">
+                     <div class="glass-morphism p-6 text-center text-reveal">
                          <div class="text-4xl mb-3">🎯</div>
                          <h3 class="text-xl font-bold text-white mb-2">Strategic Pivot</h3>
                          <p class="text-white/80 text-sm">From NSW to Victoria: Data-driven risk mitigation</p>
                      </div>
-                     <div class="glass-morphism p-6 text-center">
+                     <div class="glass-morphism p-6 text-center text-reveal">
                          <div class="text-4xl mb-3">📈</div>
                          <h3 class="text-xl font-bold text-white mb-2">Points Optimization</h3>
                          <p class="text-white/80 text-sm">VIC 491 adds decisive +15 nomination points</p>
                      </div>
-                     <div class="glass-morphism p-6 text-center">
+                     <div class="glass-morphism p-6 text-center text-reveal">
                          <div class="text-4xl mb-3">🏆</div>
                          <h3 class="text-xl font-bold text-white mb-2">Four Strategic Layers</h3>
                          <p class="text-white/80 text-sm">AI, First Nations, Regional, Asia-Pacific alignment</p>
