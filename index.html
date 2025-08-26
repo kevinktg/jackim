@@ -130,20 +130,21 @@
         
                  /* Glass morphism card container: blur + saturation for a frosted look. */
         .glass-morphism {
-             background: rgba(255, 255, 255, 0.08);
+             background: rgba(255, 255, 255, 0.03);
             -webkit-backdrop-filter: blur(12px) saturate(180%);
              backdrop-filter: blur(12px) saturate(180%);
             border-radius: 16px;
-             border: 1px solid rgba(255, 255, 255, 0.25);
+             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 
-                 0 8px 32px rgba(0, 0, 0, 0.25),
-                 inset 0 2px 2px rgba(255, 255, 255, 0.12),
-                 inset 0 -1px 1px rgba(0, 0, 0, 0.25);
+                 0 8px 32px rgba(0, 0, 0, 0.15),
+                 inset 0 2px 2px rgba(255, 255, 255, 0.05),
+                 inset 0 -1px 1px rgba(0, 0, 0, 0.15);
             position: relative;
             overflow: hidden;
         }
         
-        /* Decorative animated border sheen on glass cards. */
+        /* Liquid glass demo effect for all cards */
+        .liquid-glass-demo,
         .glass-morphism::before {
             content: '';
             position: absolute;
@@ -152,20 +153,24 @@
             right: 0;
             bottom: 0;
             border-radius: 16px;
-            background: linear-gradient(45deg, 
-                rgba(255, 255, 255, 0.1) 0%, 
-                rgba(255, 255, 255, 0.05) 50%, 
-                rgba(255, 255, 255, 0.1) 100%);
-            background-size: 200% 200%;
-            animation: liquidGlow 3s ease infinite;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(255, 255, 255, 0.02) 25%,
+                rgba(59, 130, 246, 0.03) 50%,
+                rgba(255, 255, 255, 0.02) 75%, 
+                rgba(255, 255, 255, 0.08) 100%);
+            background-size: 300% 300%;
+            animation: liquidGlass 4s ease-in-out infinite;
             pointer-events: none;
             z-index: -1;
         }
         
-        @keyframes liquidGlow {
-            0% { background-position: 0% 50%; opacity: 0.7; }
-            50% { background-position: 100% 50%; opacity: 1; }
-            100% { background-position: 0% 50%; opacity: 0.7; }
+        @keyframes liquidGlass {
+            0% { background-position: 0% 50%; opacity: 0.8; }
+            25% { background-position: 50% 0%; opacity: 1; }
+            50% { background-position: 100% 50%; opacity: 0.6; }
+            75% { background-position: 50% 100%; opacity: 1; }
+            100% { background-position: 0% 50%; opacity: 0.8; }
         }
         
         /* Float animation used for small motion accents. */
@@ -556,7 +561,7 @@
     <div class="site-background"></div>
     
     <!-- Header with Enhanced Glass Effect -->
-    <header class="glass-morphism mx-4 mt-4 sticky top-4 z-50" x-data="{ mobileMenu: false }">
+    <header class="glass-morphism liquid-glass-demo mx-4 mt-4 sticky top-4 z-50" x-data="{ mobileMenu: false }">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-3xl font-bold text-white">
                   <img src="media/Good.svg" alt="Migration Strategy Logo"
@@ -626,13 +631,13 @@
                      <img src="media/7.svg" alt="Good AI Logo" class="w-64 h-64" loading="lazy" width="256" height="256" style="z-index: 20; position: relative; filter: brightness(1.5) contrast(1.3);">
                 </div>
                 
-                <h2 class="text-6xl md:text-7xl font-extrabold text-white mb-8 drop-shadow-2xl text-reveal">
+                <h2 class="text-6xl md:text-7xl font-extrabold text-black mb-8 text-reveal">
                     The Brand Powerhouse Duo
                 </h2>
-                <p class="text-2xl md:text-3xl text-white max-w-3xl mx-auto mb-8 drop-shadow-xl font-medium text-reveal">
+                <p class="text-2xl md:text-3xl text-black max-w-3xl mx-auto mb-8 font-medium text-reveal">
                     A Max-Optimal Strategy for Australian Skilled Migration
                 </p>
-                <p class="text-xl text-gray-200 max-w-3xl mx-auto mb-12 drop-shadow-lg text-reveal">
+                <p class="text-xl text-gray-800 max-w-3xl mx-auto mb-12 text-reveal">
                     Interactive Migration Strategy Guide & Document Repository
                 </p>
                 
@@ -667,42 +672,42 @@
                 </h2>
                 <div class="scroll-cards">
                     <div class="scroll-cards-container">
-                        <div class="scroll-card glass-morphism p-6 text-center">
+                        <div class="scroll-card glass-morphism liquid-glass-demo p-6 text-center">
                             <div class="text-4xl mb-3">🎯</div>
                             <h3 class="text-xl font-bold text-white mb-2">Strategic Pivot</h3>
                             <p class="text-white/80 text-sm">From NSW to Victoria: Data-driven risk mitigation</p>
                         </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
+                        <div class="scroll-card glass-morphism liquid-glass-demo p-6 text-center">
                             <div class="text-4xl mb-3">📈</div>
                             <h3 class="text-xl font-bold text-white mb-2">Points Optimization</h3>
                             <p class="text-white/80 text-sm">VIC 491 adds decisive +15 nomination points</p>
                         </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
+                        <div class="scroll-card glass-morphism liquid-glass-demo p-6 text-center">
                             <div class="text-4xl mb-3">🏆</div>
                             <h3 class="text-xl font-bold text-white mb-2">Four Strategic Layers</h3>
                             <p class="text-white/80 text-sm">AI, First Nations, Regional, Asia-Pacific alignment</p>
                         </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
+                        <div class="scroll-card glass-morphism liquid-glass-demo p-6 text-center">
                             <div class="text-4xl mb-3">🎨</div>
                             <h3 class="text-xl font-bold text-white mb-2">Creative Excellence</h3>
                             <p class="text-white/80 text-sm">Portfolio showcasing design and marketing expertise</p>
                         </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
+                        <div class="scroll-card glass-morphism liquid-glass-demo p-6 text-center">
                             <div class="text-4xl mb-3">🌏</div>
                             <h3 class="text-xl font-bold text-white mb-2">Regional Focus</h3>
                             <p class="text-white/80 text-sm">Targeting Victoria's regional development priorities</p>
                         </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
+                        <div class="scroll-card glass-morphism liquid-glass-demo p-6 text-center">
                             <div class="text-4xl mb-3">🚀</div>
                             <h3 class="text-xl font-bold text-white mb-2">Digital Economy</h3>
                             <p class="text-white/80 text-sm">AI technology integration for regional businesses</p>
                         </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
+                        <div class="scroll-card glass-morphism liquid-glass-demo p-6 text-center">
                             <div class="text-4xl mb-3">🤝</div>
                             <h3 class="text-xl font-bold text-white mb-2">First Nations</h3>
                             <p class="text-white/80 text-sm">Cultural engagement and community partnerships</p>
                         </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
+                        <div class="scroll-card glass-morphism liquid-glass-demo p-6 text-center">
                             <div class="text-4xl mb-3">🌊</div>
                             <h3 class="text-xl font-bold text-white mb-2">Asia-Pacific</h3>
                             <p class="text-white/80 text-sm">Gateway to international markets and tourism</p>
@@ -717,7 +722,7 @@
              <div class="max-w-6xl mx-auto">
                  <!-- Strategic Overview Cards -->
                  <div class="mb-12">
-                    <div class="glass-morphism p-4 md:p-6 rounded-xl">
+                    <div class="p-4 md:p-6 rounded-xl" style="background: transparent;">
                         <div class="relative w-full" style="padding-top: 56.25%">
                             <video class="absolute inset-0 w-full h-full rounded-lg shadow-xl" src="media/video/video.mp4" controls playsinline muted poster="assets/aussie.jpg"></video>
                         </div>
@@ -725,7 +730,7 @@
                 </div>
                  
                  <!-- Why Brand Powerhouse Duo -->
-                 <div class="glass-morphism p-8 text-center mb-12">
+                 <div class="glass-morphism liquid-glass-demo p-8 text-center mb-12">
                      <h3 class="text-2xl font-bold text-white mb-4">Why "Brand Powerhouse Duo"?</h3>
                      <p class="text-white/90 text-lg leading-relaxed max-w-4xl mx-auto">
                          This strategy reframes two skilled professionals—a Marketing Specialist and Graphic Designer—into a single, high-value economic unit. 
@@ -742,7 +747,7 @@
                  
                  <!-- Risk Comparison and Charts -->
                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div class="glass-morphism p-6 rounded-xl">
+                    <div class="glass-morphism liquid-glass-demo p-6 rounded-xl">
                          <h3 class="text-2xl font-bold text-white mb-2">The Strategic Pivot</h3>
                          <p class="text-white/80 mb-4">NSW vs Victoria nomination risk comparison</p>
                          <div class="flex justify-around text-center">
@@ -756,7 +761,7 @@
                              </div>
                          </div>
                      </div>
-                     <div class="glass-morphism p-6 rounded-xl">
+                     <div class="glass-morphism liquid-glass-demo p-6 rounded-xl">
                          <h3 class="text-2xl font-bold text-white text-center mb-2">Points Optimisation: VIC 491</h3>
                          <p class="text-white/80 text-center mb-4">491 adds a decisive +15 points</p>
                          <div class="chart-container h-64">
@@ -766,7 +771,7 @@
                 </div>
                 
                  <!-- Alignment Chart -->
-                 <div class="glass-morphism p-6 rounded-xl mb-8">
+                 <div class="glass-morphism liquid-glass-demo p-6 rounded-xl mb-8">
                      <h3 class="text-2xl font-bold text-white text-center mb-2">Alignment with Victorian Priorities</h3>
                      <p class="text-white/80 text-center mb-4">Strategic layers vs 491 program priorities</p>
                      <div class="chart-container h-80">
@@ -775,7 +780,7 @@
                  </div>
                  
                  <!-- Roadmap -->
-                 <div class="glass-morphism p-6 rounded-xl">
+                 <div class="glass-morphism liquid-glass-demo p-6 rounded-xl">
                      <h3 class="text-2xl font-bold text-white text-center mb-4">Roadmap to Nomination</h3>
                      <ol class="space-y-3 text-white/90">
                          <li>
@@ -801,7 +806,7 @@
 
         <!-- Reports Section -->
          <section id="reports" class="mb-16 gsap-slide-up">
-            <div class="glass-morphism p-8 section-card">
+            <div class="glass-morphism liquid-glass-demo p-8 section-card">
                 <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
                     <i class="fas fa-chart-line mr-3"></i>
                     Migration Strategy Reports
@@ -829,7 +834,7 @@
 
         <!-- Documents Section -->
          <section id="documents" class="mb-16 gsap-slide-up">
-            <div class="glass-morphism p-8 section-card">
+            <div class="glass-morphism liquid-glass-demo p-8 section-card">
                 <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
                     <i class="fas fa-file-alt mr-3"></i>
                     Migration Documents & Research
@@ -862,7 +867,7 @@
 
         <!-- Audio Section -->
          <section id="audio" class="mb-16 gsap-slide-up">
-            <div class="glass-morphism p-8 section-card">
+            <div class="glass-morphism liquid-glass-demo p-8 section-card">
                 <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
                     <i class="fas fa-music mr-3"></i>
                     Interview Audio Files
@@ -901,7 +906,7 @@
 
         <!-- Quick Actions -->
          <section class="mb-16 gsap-slide-up">
-            <div class="glass-morphism p-8 section-card">
+            <div class="glass-morphism liquid-glass-demo p-8 section-card">
                 <h2 class="text-3xl font-bold text-white mb-6 text-center">
                     <i class="fas fa-bolt mr-3"></i>
                     Migration Strategy Tools
@@ -938,7 +943,7 @@
         <i class="fas fa-comments"></i>
     </button>
 
-    <div id="chatbot" class="chatbot-container glass-morphism" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
+    <div id="chatbot" class="chatbot-container glass-morphism liquid-glass-demo" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
         <div class="h-full flex flex-col">
             <div class="p-4 border-b border-white/20">
                 <h3 id="chatbot-title" class="text-white font-semibold flex items-center">
