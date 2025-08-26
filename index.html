@@ -620,6 +620,11 @@
                 observer.observe(section);
             });
 
+            // Ensure sections are not stuck hidden: remove pre-applied animate class
+            document.querySelectorAll('section.animate-slide-up').forEach(section => {
+                section.classList.remove('animate-slide-up');
+            });
+
             // Load initial file listings
             refreshFileList();
 
@@ -717,6 +722,12 @@
 
             initAlignmentChart();
             setTimeout(initAlignmentChart, 300);
+
+            // Hide debug banner after paint
+            setTimeout(() => {
+                const banner = document.getElementById('debug-banner');
+                if (banner) banner.style.display = 'none';
+            }, 1000);
         });
 
         function toggleChatbot() {
