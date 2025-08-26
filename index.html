@@ -103,11 +103,11 @@
             }
         }
         
-        /* Slide Up Animation */
+        /* Slide Up Animation: default visible to avoid hidden content if JS fails */
         .animate-slide-up {
             animation: slideUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(30px);
+            opacity: 1;
+            transform: none;
         }
         
         @keyframes slideUp {
