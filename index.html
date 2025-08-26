@@ -297,26 +297,43 @@
 
     <main class="container mx-auto px-4 py-8">
         <!-- Hero Section -->
-        <section class="text-center py-16 animate-slide-up">
-            <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-4">
-                The Brand Powerhouse Duo
-            </h2>
-            <p class="text-xl text-white/90 max-w-3xl mx-auto mb-4">
-                A Max-Optimal Strategy for Australian Skilled Migration
-            </p>
-            <p class="text-lg text-white/80 max-w-3xl mx-auto mb-8">
-                Interactive Migration Strategy Guide & Document Repository
-            </p>
-            <div class="mb-8">
-                <a href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer" 
-                   class="inline-flex items-center bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/30">
-                    <i class="fas fa-brain mr-2"></i>
-                    Enhance with NotebookLM
-                    <i class="fas fa-external-link-alt ml-2 text-sm"></i>
-                </a>
+        <section class="text-center py-16 animate-slide-up relative">
+            <!-- Background Video -->
+            <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+                <video autoplay muted loop class="w-full h-full object-cover opacity-30">
+                    <source src="media/video/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
             </div>
-            <div class="animate-pulse-slow">
-                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            
+            <!-- Content -->
+            <div class="relative z-10">
+                <!-- Logo -->
+                <div class="mb-6 flex justify-center">
+                    <img src="media/logo.jpg" alt="Migration Strategy Logo" class="w-24 h-24 rounded-full object-cover border-4 border-white/50 shadow-lg">
+                </div>
+                
+                <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-4">
+                    The Brand Powerhouse Duo
+                </h2>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-4">
+                    A Max-Optimal Strategy for Australian Skilled Migration
+                </p>
+                <p class="text-lg text-white/80 max-w-3xl mx-auto mb-8">
+                    Interactive Migration Strategy Guide & Document Repository
+                </p>
+                <div class="mb-8">
+                    <a href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/30">
+                        <i class="fas fa-brain mr-2"></i>
+                        Enhance with NotebookLM
+                        <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                    </a>
+                </div>
+                <div class="animate-pulse-slow">
+                    <i class="fas fa-chevron-down text-white text-2xl"></i>
+                </div>
             </div>
         </section>
 
