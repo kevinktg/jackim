@@ -31,17 +31,15 @@
             height: 100%;
             z-index: -1;
             overflow: hidden;
-            opacity: 0.3;
-            background: linear-gradient(45deg, #0f172a, #1e293b, #334155, #475569, #64748b, #94a3b8);
-            background-size: 300% 300%;
-            animation: backgroundMorph 12s ease infinite;
+            opacity: 0.12;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460, #533483);
+            background-size: 400% 400%;
+            animation: backgroundMorph 15s ease infinite;
         }
         
         @keyframes backgroundMorph {
             0% { background-position: 0% 50%; }
-            25% { background-position: 100% 0%; }
-            50% { background-position: 100% 100%; }
-            75% { background-position: 0% 100%; }
+            50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
         
@@ -331,26 +329,24 @@
             overflow: hidden;
             white-space: nowrap;
             position: relative;
-            width: 100%;
         }
         
         .scroll-cards-container {
             display: flex;
-            animation: scrollCardsContinuous 30s linear infinite;
-            width: max-content;
+            animation: scrollCardsContinuous 40s linear infinite;
         }
         
         .scroll-card {
             flex: 0 0 auto;
-            margin-right: 2rem;
-            min-width: 300px;
-            animation: cardFloat 6s ease-in-out infinite;
+            margin-right: 3rem;
+            min-width: 320px;
+            animation: cardFloat 4s ease-in-out infinite;
         }
         
-        .scroll-card:nth-child(2) { animation-delay: 1s; }
-        .scroll-card:nth-child(3) { animation-delay: 2s; }
-        .scroll-card:nth-child(4) { animation-delay: 3s; }
-        .scroll-card:nth-child(5) { animation-delay: 4s; }
+        .scroll-card:nth-child(2) { animation-delay: 0.8s; }
+        .scroll-card:nth-child(3) { animation-delay: 1.6s; }
+        .scroll-card:nth-child(4) { animation-delay: 2.4s; }
+        .scroll-card:nth-child(5) { animation-delay: 3.2s; }
         
         @keyframes scrollCardsContinuous {
             0% { transform: translateX(0); }
@@ -359,7 +355,7 @@
         
         @keyframes cardFloat {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
         
         /* Text reveal animations */
@@ -785,7 +781,7 @@
                 <div class="flex gap-2">
                     <input type="text" id="chat-input" placeholder="Ask about your documents..." 
                            class="flex-1 p-2 rounded bg-white/20 text-white placeholder-white/60 border border-white/30">
-                    <button onclick="sendMessage()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded" aria-label="Send message">
+                    <button onclick="sendMessage()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </div>
