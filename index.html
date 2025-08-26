@@ -227,6 +227,7 @@
             transform: translateY(100%);
             transition: transform 0.3s ease-in-out;
             border-radius: 20px;
+            max-width: calc(100vw - 40px);
         }
         
         .chatbot-container.open {
@@ -253,6 +254,14 @@
             box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
             transition: all 0.3s ease;
             animation: pulseGlow 2s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .chatbot-container {
+                width: calc(100vw - 40px);
+                right: 20px;
+                left: 20px;
+            }
         }
         
         .chatbot-toggle:hover {
@@ -580,9 +589,9 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-4 pt-16 pb-8">
+    <main class="px-4 pt-20 pb-16">
         <!-- Hero Section -->
-        <section class="text-center py-24 gsap-slide-up relative min-h-screen flex items-center justify-center">
+        <section class="text-center py-32 gsap-slide-up relative min-h-screen flex items-center justify-center">
             <!-- See-through liquid glass background -->
             <div class="absolute inset-0 w-full h-full z-0 glass-morphism liquid-glass-demo rounded-3xl"></div>
             
@@ -680,8 +689,8 @@
         </section>
 
          <!-- Statistics Section -->
-         <section id="stats" class="mb-24 gsap-slide-up">
-             <div class="max-w-6xl mx-auto px-4">
+         <section id="stats" class="mb-32 gsap-slide-up">
+             <div class="container max-w-7xl mx-auto px-6">
                  <!-- Video Overview Card -->
                  <div class="glass-morphism liquid-glass-demo p-8 mb-16">
                      <h3 class="text-2xl font-bold text-white text-center mb-6 card-text-shadow">Strategic Overview Video</h3>
@@ -787,7 +796,7 @@
         </section>
 
         <!-- Audio Section -->
-         <section id="audio" class="mb-16 gsap-slide-up">
+         <section id="audio" class="mb-32 gsap-slide-up">
             <div class="glass-morphism liquid-glass-demo p-8 section-card">
                 <h2 class="text-3xl font-bold text-white mb-6 flex items-center card-text-shadow">
                     <i class="fas fa-music mr-3"></i>
@@ -826,8 +835,8 @@
         </section>
 
         <!-- Migration Statistics Cards -->
-         <section id="migration-stats" class="mb-24 gsap-slide-up">
-            <div class="max-w-6xl mx-auto">
+         <section id="migration-stats" class="mb-32 gsap-slide-up">
+            <div class="container max-w-7xl mx-auto px-6">
                 <h2 class="text-3xl font-bold text-white text-center mb-8 card-text-shadow">
                     <i class="fas fa-chart-line mr-3"></i>
                     Migration Statistics & Data
@@ -919,8 +928,8 @@
         </section>
 
         <!-- Migration Timeline & Process Cards -->
-         <section id="migration-process" class="mb-24 gsap-slide-up">
-            <div class="max-w-6xl mx-auto">
+         <section id="migration-process" class="mb-32 gsap-slide-up">
+            <div class="container max-w-7xl mx-auto px-6">
                 <h2 class="text-3xl font-bold text-white text-center mb-8 card-text-shadow">
                     <i class="fas fa-road mr-3"></i>
                     Migration Process Timeline
@@ -1004,7 +1013,7 @@
 
 
         <!-- Quick Actions -->
-         <section class="mb-16 gsap-slide-up">
+         <section class="mb-32 gsap-slide-up">
             <div class="glass-morphism liquid-glass-demo p-8 section-card">
                 <h2 class="text-3xl font-bold text-white mb-6 text-center card-text-shadow">
                     <i class="fas fa-bolt mr-3"></i>
