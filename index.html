@@ -886,10 +886,13 @@
                     </div>
                     <div class="bg-white/20 p-6 rounded-lg">
                         <h3 class="text-xl font-semibold text-white mb-1">Website Reports</h3>
-                        <div class="text-white/80 text-sm mb-3">Count: <span id="website-reports-count">0</span></div>
+                        <div class="text-white/80 text-sm mb-3">Count: 2</div>
                         <p class="text-white/80 mb-4">Full interactive versions for web display</p>
                         <ul id="website-reports-list" class="space-y-2">
-                            <li class="text-white/60"><em>No website reports found</em></li>
+                            <li><a href="reports/statistics.html" target="_blank" class="text-white hover:text-blue-300 cursor-pointer transition-colors duration-300">
+                                <i class="fas fa-chart-bar mr-2"></i>Migration Statistics & Charts</a></li>
+                            <li><a href="reports/website_e-mail.html" target="_blank" class="text-white hover:text-blue-300 cursor-pointer transition-colors duration-300">
+                                <i class="fas fa-file-alt mr-2"></i>Complete Strategy Guide</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1262,10 +1265,10 @@
             // Show the actual migration guide file
             const sampleFiles = {
                 emailReports: ['website_e-mail.html'],
-                websiteReports: ['website_email-template.html'],
+                websiteReports: ['statistics.html', 'website_e-mail.html'],
                 documents: ['Automating GitHub repo creation with GH · GitHub Copilot.pdf', 'README.md', 'USAGE-GUIDE.md'],
                 research: ['data.csv', 'chart.png', 'results.json'],
-                audio: ['audio_interview.mp3', 'audio_presentation.wav']
+                audio: ['audio.mp3', 'audio_audio.mp3']
             };
 
             updateFileList('email-reports-list', sampleFiles.emailReports);
@@ -1276,7 +1279,7 @@
 
             // Update counts instead of showing long lists
             setCount('email-reports-count', sampleFiles.emailReports.length);
-            setCount('website-reports-count', sampleFiles.websiteReports.length);
+            // Don't override the manually set count in the HTML
             setCount('documents-count', sampleFiles.documents.length);
             setCount('research-count', sampleFiles.research.length);
             setCount('audio-count', sampleFiles.audio.length);
@@ -1358,12 +1361,15 @@
             const audioPlayer = document.getElementById('main-audio-player');
             const fileName = audioFiles[index];
             
-            // In a real implementation, this would be the actual file path
+            // Use the actual file path
             audioPlayer.src = `audio/${fileName}`;
             audioPlayer.load();
-            audioPlayer.play();
+            audioPlayer.play().catch(error => {
+                console.log('Audio playback failed:', error);
+                document.getElementById('current-track').textContent = `Error playing ${fileName}`;
+            });
             
-            document.getElementById('current-track').textContent = fileName;
+            document.getElementById('current-track').textContent = `Playing: ${fileName}`;
         }
 
         function playNextTrack() {
