@@ -314,7 +314,7 @@
             }
         }
 
-        /* Scrolling card animations */
+        /* Scrolling card animations - continuous like background text */
         .scroll-cards {
             display: flex;
             overflow: hidden;
@@ -324,29 +324,29 @@
         
         .scroll-cards-container {
             display: flex;
-            animation: scrollCards 20s linear infinite;
+            animation: scrollCardsContinuous 40s linear infinite;
         }
         
         .scroll-card {
             flex: 0 0 auto;
-            margin-right: 2rem;
-            min-width: 300px;
-            animation: cardFloat 3s ease-in-out infinite;
+            margin-right: 3rem;
+            min-width: 320px;
+            animation: cardFloat 4s ease-in-out infinite;
         }
         
-        .scroll-card:nth-child(2) { animation-delay: 1s; }
-        .scroll-card:nth-child(3) { animation-delay: 2s; }
-        .scroll-card:nth-child(4) { animation-delay: 0.5s; }
-        .scroll-card:nth-child(5) { animation-delay: 1.5s; }
+        .scroll-card:nth-child(2) { animation-delay: 0.8s; }
+        .scroll-card:nth-child(3) { animation-delay: 1.6s; }
+        .scroll-card:nth-child(4) { animation-delay: 2.4s; }
+        .scroll-card:nth-child(5) { animation-delay: 3.2s; }
         
-        @keyframes scrollCards {
+        @keyframes scrollCardsContinuous {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+            100% { transform: translateX(-50%); }
         }
         
         @keyframes cardFloat {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
         
         /* Text reveal animations */
