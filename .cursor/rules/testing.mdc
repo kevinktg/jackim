@@ -1,0 +1,21 @@
+## Testing and TDD Rules
+
+- **TDD cadence**
+
+  - Write a small failing test.
+  - Implement the minimal code to pass.
+  - Refactor safely with tests green.
+
+- **Scope**
+
+  - Prefer fast unit tests; add integration tests for critical flows.
+  - Keep tests deterministic and isolated; avoid network/FS unless mocked.
+
+- **Quality**
+
+  - Assert behavior and edge cases, not implementation details.
+  - Name tests to describe behavior succinctly.
+
+- **Automation**
+  - Run tests after substantive edits and before marking tasks complete.
+  - Fix linter/type errors before commit.

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Brand Powerhouse Duo | Australian Migration Strategy Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
@@ -283,9 +284,15 @@
                 height: 55px;
             }
         }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-float, .animate-pulse-slow, .animate-slide-up { animation: none !important; }
+        }
     </style>
 </head>
 <body class="antialiased">
+    <div id="debug-banner" style="position:fixed;top:0;left:0;right:0;background:yellow;color:black;font:12px/1.4 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:4px 8px;z-index:9999;">Site loaded</div>
     <!-- Header with Enhanced Glass Effect -->
     <header class="glass-morphism mx-4 mt-4 sticky top-4 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -308,18 +315,18 @@
         <section class="text-center py-16 animate-slide-up relative">
             <!-- Background Video -->
             <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
-                <video autoplay muted loop class="w-full h-full object-cover opacity-20">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-20">
                     <source src="media/video/video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90" style="pointer-events:none"></div>
             </div>
             
             <!-- Content -->
             <div class="relative z-10">
                 <!-- Logo -->
                 <div class="mb-6 flex justify-center">
-                    <img src="media/logo.jpg" alt="Migration Strategy Logo" class="w-24 h-24 rounded-full object-cover border-4 border-white/30 shadow-lg">
+                    <img src="media/logo.jpg" alt="Migration Strategy Logo" class="w-24 h-24 rounded-full object-cover border-4 border-white/30 shadow-lg" loading="lazy" width="96" height="96">
                 </div>
                 
                 <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
@@ -336,13 +343,70 @@
                 <div class="mb-8 max-w-4xl mx-auto">
                     <div class="glass-morphism p-6 rounded-xl">
                         <h3 class="text-2xl font-bold text-white mb-4">Featured Video</h3>
-                        <video controls class="w-full rounded-lg shadow-lg" style="max-height: 400px;">
+                        <video controls playsinline class="w-full rounded-lg shadow-lg" style="max-height: 400px;" poster="media/video/poster.jpg">
                             <source src="media/video/video.mp4" type="video/mp4">
                             Your browser does not support the video player.
                         </video>
                         <p class="text-white/80 mt-3 text-sm">Watch our strategy overview presentation</p>
                     </div>
                 </div>
+
+                <!-- Statistics Section (from reports/test-site) -->
+                <section id="stats" class="mb-10 max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-morphism p-6 rounded-xl">
+                            <h3 class="text-2xl font-bold text-white mb-2">The Strategic Pivot</h3>
+                            <p class="text-white/80 mb-4">NSW vs Victoria nomination risk comparison</p>
+                            <div class="flex justify-around text-center">
+                                <div>
+                                    <p class="text-5xl font-extrabold text-red-400">High</p>
+                                    <p class="font-semibold text-white/90">NSW Risk Level</p>
+                                </div>
+                                <div>
+                                    <p class="text-5xl font-extrabold text-green-400">Low</p>
+                                    <p class="font-semibold text-white/90">Victoria Risk Level</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-morphism p-6 rounded-xl">
+                            <h3 class="text-2xl font-bold text-white text-center mb-2">Points Optimisation: VIC 491</h3>
+                            <p class="text-white/80 text-center mb-4">491 adds a decisive +15 points</p>
+                            <div class="chart-container h-64">
+                                <canvas id="visaPointsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Alignment Chart -->
+                    <div class="glass-morphism p-6 rounded-xl mt-6">
+                        <h3 class="text-2xl font-bold text-white text-center mb-2">Alignment with Victorian Priorities</h3>
+                        <p class="text-white/80 text-center mb-4">Strategic layers vs 491 program priorities</p>
+                        <div class="chart-container h-80">
+                            <canvas id="alignmentChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- Compact Roadmap -->
+                    <div class="glass-morphism p-6 rounded-xl mt-6">
+                        <h3 class="text-2xl font-bold text-white text-center mb-4">Roadmap to Nomination</h3>
+                        <ol class="space-y-3 text-white/90">
+                            <li>
+                                <span class="font-semibold">Phase 1: Portfolio Development (Months 1–3)</span>
+                                <div class="text-white/70 text-sm">English tests, documents, and Strategic Evidence Portfolio.</div>
+                            </li>
+                            <li>
+                                <span class="font-semibold">Phase 2: Skills Assessment (Months 4–7)</span>
+                                <div class="text-white/70 text-sm">VETASSESS lodgements aligned with ANZSCO.</div>
+                            </li>
+                            <li>
+                                <span class="font-semibold">Phase 3: EOI & ROI (Month 8)</span>
+                                <div class="text-white/70 text-sm">Submit EOI and high-quality ROI to Victoria.</div>
+                            </li>
+                            <li>
+                                <span class="font-semibold">Phase 4: Invitation & Lodgement (Month 9+)</span>
+                                <div class="text-white/70 text-sm">Lodge Subclass 491 within 60 days after invitation.</div>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
                 
                 <div class="mb-8">
                     <a href="https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4" target="_blank" rel="noopener noreferrer" 
@@ -367,14 +431,16 @@
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="bg-white/20 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-white mb-3">Email Reports</h3>
+                        <h3 class="text-xl font-semibold text-white mb-1">Email Reports</h3>
+                        <div class="text-white/80 text-sm mb-3">Count: <span id="email-reports-count">0</span></div>
                         <p class="text-white/80 mb-4">Concise versions optimized for email sharing</p>
                         <ul id="email-reports-list" class="space-y-2">
                             <li class="text-white/60"><em>No email reports found</em></li>
                         </ul>
                     </div>
                     <div class="bg-white/20 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-white mb-3">Website Reports</h3>
+                        <h3 class="text-xl font-semibold text-white mb-1">Website Reports</h3>
+                        <div class="text-white/80 text-sm mb-3">Count: <span id="website-reports-count">0</span></div>
                         <p class="text-white/80 mb-4">Full interactive versions for web display</p>
                         <ul id="website-reports-list" class="space-y-2">
                             <li class="text-white/60"><em>No website reports found</em></li>
@@ -393,13 +459,15 @@
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-white/20 p-6 rounded-lg">
-                        <h3 class="text-lg font-semibold text-white mb-3">Documents</h3>
+                        <h3 class="text-lg font-semibold text-white mb-1">Documents</h3>
+                        <div class="text-white/80 text-sm mb-3">Count: <span id="documents-count">0</span></div>
                         <ul id="documents-list" class="space-y-2 text-sm">
                             <li class="text-white/60"><em>No documents found</em></li>
                         </ul>
                     </div>
                     <div class="bg-white/20 p-6 rounded-lg">
-                        <h3 class="text-lg font-semibold text-white mb-3">Research Assets</h3>
+                        <h3 class="text-lg font-semibold text-white mb-1">Research Assets</h3>
+                        <div class="text-white/80 text-sm mb-3">Count: <span id="research-count">0</span></div>
                         <ul id="research-list" class="space-y-2 text-sm">
                             <li class="text-white/60"><em>No research files found</em></li>
                         </ul>
@@ -424,7 +492,8 @@
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="bg-white/20 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-white mb-4">Audio Files</h3>
+                        <h3 class="text-xl font-semibold text-white mb-1">Audio Files</h3>
+                        <div class="text-white/80 text-sm mb-3">Count: <span id="audio-count">0</span></div>
                         <ul id="audio-list" class="space-y-3">
                             <li class="text-white/60"><em>No audio files found</em></li>
                         </ul>
@@ -488,18 +557,18 @@
     </main>
 
     <!-- Chatbot -->
-    <button class="chatbot-toggle" onclick="toggleChatbot()">
+    <button class="chatbot-toggle" onclick="toggleChatbot()" aria-label="Open chat" aria-expanded="false">
         <i class="fas fa-comments"></i>
     </button>
 
-    <div id="chatbot" class="chatbot-container glass-morphism">
+    <div id="chatbot" class="chatbot-container glass-morphism" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
         <div class="h-full flex flex-col">
             <div class="p-4 border-b border-white/20">
-                <h3 class="text-white font-semibold flex items-center">
+                <h3 id="chatbot-title" class="text-white font-semibold flex items-center">
                     <i class="fas fa-robot mr-2"></i>
                     Document Assistant
                 </h3>
-                <button onclick="toggleChatbot()" class="absolute top-4 right-4 text-white/60 hover:text-white">
+                <button onclick="toggleChatbot()" class="absolute top-4 right-4 text-white/60 hover:text-white" aria-label="Close chat">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -561,6 +630,88 @@
                     sendMessage();
                 }
             });
+
+            // Initialize visa points donut chart when Chart.js is available
+            const initPointsChart = () => {
+                const canvas = document.getElementById('visaPointsChart');
+                if (!canvas || typeof Chart === 'undefined') return;
+                const ctx = canvas.getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Base Points (Est.)', 'Partner Skills', 'VIC 491 Nomination'],
+                        datasets: [{
+                            data: [70, 10, 15],
+                            backgroundColor: ['#A9CCE3', '#AED6F1', '#60A5FA'],
+                            borderColor: '#111827',
+                            borderWidth: 0,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '60%',
+                        plugins: {
+                            legend: { position: 'bottom', labels: { color: '#E5E7EB' } },
+                            title: { display: false }
+                        }
+                    }
+                });
+            };
+
+            // Try immediately and also after a tick in case Chart loads deferred
+            initPointsChart();
+            setTimeout(initPointsChart, 300);
+
+            // Initialize alignment stacked bar chart
+            const initAlignmentChart = () => {
+                const canvas = document.getElementById('alignmentChart');
+                if (!canvas || typeof Chart === 'undefined') return;
+                const ctx = canvas.getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            'AI & Tech Advantage',
+                            'First Nations Engagement',
+                            'Remote & Regional',
+                            'Asia-Pacific Gateway'
+                        ],
+                        datasets: [
+                            {
+                                label: 'Digital Economy Priority',
+                                data: [5, 2, 4, 3],
+                                backgroundColor: 'rgba(96, 165, 250, 0.4)',
+                                borderColor: 'rgba(96, 165, 250, 1)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Tourism Priority',
+                                data: [2, 5, 4, 5],
+                                backgroundColor: 'rgba(167, 139, 250, 0.4)',
+                                borderColor: 'rgba(167, 139, 250, 1)',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: { stacked: true, ticks: { color: '#E5E7EB' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                            y: { stacked: true, beginAtZero: true, ticks: { color: '#E5E7EB' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                        },
+                        plugins: {
+                            legend: { labels: { color: '#E5E7EB' } },
+                            title: { display: false }
+                        }
+                    }
+                });
+            };
+
+            initAlignmentChart();
+            setTimeout(initAlignmentChart, 300);
         });
 
         function toggleChatbot() {
@@ -634,6 +785,13 @@
             updateFileList('research-list', sampleFiles.research);
             updateAudioList(sampleFiles.audio);
 
+            // Update counts instead of showing long lists
+            setCount('email-reports-count', sampleFiles.emailReports.length);
+            setCount('website-reports-count', sampleFiles.websiteReports.length);
+            setCount('documents-count', sampleFiles.documents.length);
+            setCount('research-count', sampleFiles.research.length);
+            setCount('audio-count', sampleFiles.audio.length);
+
             const totalFiles = Object.values(sampleFiles).flat().length;
             document.getElementById('total-files').textContent = totalFiles;
             
@@ -654,6 +812,7 @@
                 return;
             }
 
+            // For brevity, show only the first item as a representative link when applicable
             if (listId === 'email-reports-list' && files[0] === 'website_e-mail.html') {
                 list.innerHTML = `
                     <li class="text-white hover:text-blue-300 cursor-pointer transition-colors duration-300">
@@ -663,12 +822,15 @@
                     </li>
                 `;
             } else {
-                list.innerHTML = files.map(file => `
-                    <li class="text-white hover:text-blue-300 cursor-pointer transition-colors duration-300">
-                        <i class="fas fa-file mr-2"></i>${file}
-                    </li>
-                `).join('');
+                list.innerHTML = `
+                    <li class="text-white/60"><em>${files.length} item(s)</em></li>
+                `;
             }
+        }
+
+        function setCount(id, value) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = value;
         }
 
         function updateAudioList(files) {
@@ -727,5 +889,6 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

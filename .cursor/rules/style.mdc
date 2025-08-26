@@ -1,0 +1,27 @@
+## Style Rules
+
+- **Formatting**
+
+  - Match existing files’ indentation; do not convert tabs ↔ spaces.
+  - Keep line length reasonable (aim ≤ 100 unless project requires otherwise).
+  - Do not reformat unrelated lines during edits.
+
+- **Naming**
+
+  - Use descriptive, full-word names; avoid abbreviations.
+  - Functions: verbs/verb-phrases. Variables: nouns/noun-phrases.
+
+- **Control flow**
+
+  - Prefer early returns and shallow nesting.
+  - Handle edge cases first; avoid unnecessary try/catch.
+  - Never catch errors without meaningful handling.
+
+- **Comments**
+
+  - Comment only when non-obvious; explain "why", not "how".
+  - No inline narration comments inside code for editor actions.
+
+- **Consistency**
+  - Match surrounding code style and formatting.
+  - Use multi-line over dense one-liners when it improves readability.

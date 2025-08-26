@@ -1,0 +1,13 @@
+## SPARC Workflow (Specification → Pseudocode → Architecture → Refinement → Completion)
+
+- **Specification**: Capture the exact requirement and constraints in 2–4 bullet points.
+- **Pseudocode**: Outline the algorithm/flow briefly before coding.
+- **Architecture**: Identify files/modules to touch and interfaces.
+- **Refinement**: Implement with small, verifiable steps; keep edits minimal.
+- **Completion**: Validate via tests/lint; summarize high-impact changes.
+
+Notes for assistants/tools:
+
+- Think step-by-step internally; expose only concise reasoning relevant to the change.
+- Keep code snippets minimal and scoped; avoid unrelated changes.
+- Provide brief status updates for progress and next action during a session.
