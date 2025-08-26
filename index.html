@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Brand Powerhouse Duo | Australian Migration Strategy Guide</title>
+    <!-- Tailwind via CDN for quick prototyping. For production, compile a purged CSS build. -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preconnect to speed up Google Fonts; include crossorigin for optimal caching. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* 2025 Liquid Glass Gradient Background */
+        /* 2025 Liquid Glass Gradient Background: subtle animated gradient backdrop. */
         body {
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
@@ -25,14 +27,14 @@
             font-family: 'Syne', sans-serif;
         }
         
-        /* Enhanced 2025 Liquid Glass Animation */
+        /* Background gradient animation keyframes. */
         @keyframes gradientFlow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
         
-        /* Advanced Glass Morphism with 2025 enhancements */
+        /* Glass morphism card container: blur + saturation for a frosted look. */
         .glass-morphism {
             background: rgba(0, 0, 0, 0.25);
             backdrop-filter: blur(12px) saturate(180%);
@@ -47,7 +49,7 @@
             overflow: hidden;
         }
         
-        /* Liquid Glass Border Effect */
+        /* Decorative animated border sheen on glass cards. */
         .glass-morphism::before {
             content: '';
             position: absolute;
@@ -72,7 +74,7 @@
             100% { background-position: 0% 50%; opacity: 0.7; }
         }
         
-        /* Enhanced Floating Animation */
+        /* Float animation used for small motion accents. */
         .animate-float {
             animation: float 6s ease-in-out infinite;
             transform-origin: center;
@@ -87,7 +89,7 @@
             }
         }
         
-        /* Pulse Animation with Liquid Effect */
+        /* Pulse animation for subtle attention cues. */
         .animate-pulse-slow {
             animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
@@ -103,7 +105,7 @@
             }
         }
         
-        /* Slide Up Animation: default visible to avoid hidden content if JS fails */
+        /* Slide-up: default visible so content isn't hidden if JS/observer fails. */
         .animate-slide-up {
             animation: slideUp 0.8s ease-out forwards;
             opacity: 1;
@@ -117,7 +119,7 @@
             }
         }
         
-        /* Advanced Chatbot Container */
+        /* Fixed-position chatbot container. */
         .chatbot-container {
             position: fixed;
             bottom: 20px;
@@ -134,7 +136,7 @@
             transform: translateY(0);
         }
         
-        /* Enhanced Chatbot Toggle with Liquid Effect */
+        /* Chatbot toggle button with animated glow. */
         .chatbot-toggle {
             position: fixed;
             bottom: 20px;
@@ -170,7 +172,7 @@
             }
         }
         
-        /* Advanced Audio Visualizer */
+        /* Simple CSS audio visualizer bars (decorative only). */
         .audio-visualizer {
             display: flex;
             align-items: center;
@@ -198,7 +200,7 @@
             50% { transform: scaleY(0.3); }
         }
         
-        /* Enhanced Section Cards with 2025 Effects */
+        /* Interactive section card hover treatments. */
         .section-card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
@@ -238,7 +240,7 @@
             100% { transform: rotate(45deg) translateX(100%); }
         }
         
-        /* Enhanced Button Styles */
+        /* Primary action button with sheen on hover. */
         .action-button {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -272,7 +274,7 @@
             transform: translateX(100%);
         }
         
-        /* Responsive adjustments */
+        /* Responsive adjustments for small screens. */
         @media (max-width: 768px) {
             .chatbot-container {
                 width: 300px;
@@ -285,7 +287,7 @@
             }
         }
 
-        /* Respect reduced motion preferences */
+        /* Accessibility: respect reduced motion preferences. */
         @media (prefers-reduced-motion: reduce) {
             .animate-float, .animate-pulse-slow { animation: none !important; }
             .animate-slide-up {
@@ -297,8 +299,8 @@
     </style>
 </head>
 <body class="antialiased">
-    <div id="debug-banner" style="position:fixed;top:0;left:0;right:0;background:yellow;color:black;font:12px/1.4 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:4px 8px;z-index:9999;">Site loaded</div>
     <!-- Header with Enhanced Glass Effect -->
+    <!-- Sticky header on glass; high z-index to sit above hero video. -->
     <header class="glass-morphism mx-4 mt-4 sticky top-4 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-3xl font-bold text-white">
@@ -317,6 +319,7 @@
 
     <main class="container mx-auto px-4 py-8">
         <!-- Hero Section -->
+        <!-- Hero area with background video overlay and primary CTAs. -->
         <section class="text-center py-16 animate-slide-up relative">
             <!-- Background Video -->
             <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
@@ -324,6 +327,7 @@
                     <source src="media/video/video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <!-- Non-interactive overlay; pointer-events disabled so it won't block clicks. -->
                 <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90" style="pointer-events:none"></div>
             </div>
             
@@ -356,7 +360,7 @@
                     </div>
                 </div>
 
-                <!-- Statistics Section (from reports/test-site) -->
+                <!-- Statistics Section (consolidated from report/test-site): risk, points, alignment, roadmap. -->
                 <section id="stats" class="mb-10 max-w-5xl mx-auto">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="glass-morphism p-6 rounded-xl">
@@ -381,7 +385,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Alignment Chart -->
+                    <!-- Alignment Chart: stacked bars comparing layers vs priorities. -->
                     <div class="glass-morphism p-6 rounded-xl mt-6">
                         <h3 class="text-2xl font-bold text-white text-center mb-2">Alignment with Victorian Priorities</h3>
                         <p class="text-white/80 text-center mb-4">Strategic layers vs 491 program priorities</p>
@@ -389,7 +393,7 @@
                             <canvas id="alignmentChart"></canvas>
                         </div>
                     </div>
-                    <!-- Compact Roadmap -->
+                    <!-- Compact Roadmap: 4 succinct phases for the nomination journey. -->
                     <div class="glass-morphism p-6 rounded-xl mt-6">
                         <h3 class="text-2xl font-bold text-white text-center mb-4">Roadmap to Nomination</h3>
                         <ol class="space-y-3 text-white/90">
