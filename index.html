@@ -97,51 +97,51 @@
             cursor: none;
         }
         
-        /* Full site background with kangaroo image */
-        .site-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: url('assets/aussie.jpg') center center;
-            background-size: cover;
-            opacity: 0.4;
-        }
+                 /* Full site background with kangaroo image */
+         .site-background {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             z-index: -2;
+             background: url('assets/aussie.jpg') center center;
+             background-size: cover;
+             opacity: 0.3;
+         }
+         
+         /* Gradient overlay for better text readability */
+         .site-background::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(
+                 to bottom,
+                 rgba(0, 0, 0, 0.8) 0%,
+                 rgba(0, 0, 0, 0.6) 30%,
+                 rgba(0, 0, 0, 0.7) 70%,
+                 rgba(0, 0, 0, 0.9) 100%
+             );
+             z-index: -1;
+         }
         
-        /* Gradient overlay for better text readability */
-        .site-background::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0.6) 0%,
-                rgba(0, 0, 0, 0.4) 30%,
-                rgba(0, 0, 0, 0.5) 70%,
-                rgba(0, 0, 0, 0.7) 100%
-            );
-            z-index: -1;
-        }
-        
-        /* Glass morphism card container: blur + saturation for a frosted look. */
-        .glass-morphism {
-            background: rgba(59, 130, 246, 0.15);
-            -webkit-backdrop-filter: blur(12px) saturate(180%);
-            backdrop-filter: blur(12px) saturate(180%);
-            border-radius: 16px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            box-shadow: 
-                0 8px 32px rgba(59, 130, 246, 0.2),
-                inset 0 2px 2px rgba(255, 255, 255, 0.1),
-                inset 0 -1px 1px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
+                 /* Glass morphism card container: blur + saturation for a frosted look. */
+         .glass-morphism {
+             background: rgba(59, 130, 246, 0.25);
+             -webkit-backdrop-filter: blur(12px) saturate(180%);
+             backdrop-filter: blur(12px) saturate(180%);
+             border-radius: 16px;
+             border: 1px solid rgba(59, 130, 246, 0.3);
+             box-shadow: 
+                 0 8px 32px rgba(59, 130, 246, 0.3),
+                 inset 0 2px 2px rgba(255, 255, 255, 0.15),
+                 inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+             position: relative;
+             overflow: hidden;
+         }
         
         /* Decorative animated border sheen on glass cards. */
         .glass-morphism::before {
@@ -557,12 +557,12 @@
     
     <!-- Header with Enhanced Glass Effect -->
     <header class="glass-morphism mx-4 mt-4 sticky top-4 z-50" x-data="{ mobileMenu: false }">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-                         <div class="text-3xl font-bold text-white">
-                 <img src="media/Good.svg" alt="Migration Strategy Logo"
-                     class="w-20 h-20 shadow-2xl" loading="lazy" width="40" height="40" style="filter: brightness(1.2) contrast(1.1); z-index: 60;">
-             </div>
-            <h1 class="text-2xl font-bold text-white animate-float">Migration Hub</h1>
+                 <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                          <div class="text-3xl font-bold text-white">
+                  <img src="media/Good.svg" alt="Migration Strategy Logo"
+                      class="w-32 h-32" loading="lazy" width="128" height="128" style="filter: brightness(1.5) contrast(1.3); z-index: 60;">
+              </div>
+             <h1 class="text-3xl font-bold text-white animate-float drop-shadow-lg" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Migration Hub</h1>
             
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-6">
@@ -623,7 +623,7 @@
             <div class="relative z-10 max-w-4xl mx-auto px-6">
                                  <!-- Logo -->
                  <div class="mb-8 flex justify-center">
-                     <img src="media/7.svg" alt="Good AI Logo" class="w-48 h-48" loading="lazy" width="192" height="192" style="z-index: 20; position: relative; filter: brightness(1.2) contrast(1.1);">
+                     <img src="media/7.svg" alt="Good AI Logo" class="w-64 h-64" loading="lazy" width="256" height="256" style="z-index: 20; position: relative; filter: brightness(1.5) contrast(1.3);">
                  </div>
                 
                 <h2 class="text-6xl md:text-7xl font-extrabold text-white mb-8 drop-shadow-2xl text-reveal">
