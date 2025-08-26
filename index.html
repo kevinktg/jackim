@@ -10,36 +10,99 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <style>
+        /* 2025 Liquid Glass Gradient Background */
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #1de9b6, #ff6b6b);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            overflow-x: hidden;
         }
         
+        /* Enhanced 2025 Liquid Glass Animation */
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Advanced Glass Morphism with 2025 enhancements */
         .glass-morphism {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 
+                0 8px 32px rgba(31, 38, 135, 0.15),
+                inset 0 2px 2px rgba(255, 255, 255, 0.2),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
         
+        /* Liquid Glass Border Effect */
+        .glass-morphism::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 16px;
+            background: linear-gradient(45deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            background-size: 200% 200%;
+            animation: liquidGlow 3s ease infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @keyframes liquidGlow {
+            0% { background-position: 0% 50%; opacity: 0.7; }
+            50% { background-position: 100% 50%; opacity: 1; }
+            100% { background-position: 0% 50%; opacity: 0.7; }
+        }
+        
+        /* Enhanced Floating Animation */
         .animate-float {
             animation: float 6s ease-in-out infinite;
+            transform-origin: center;
         }
         
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% { 
+                transform: translateY(-20px) rotate(2deg);
+            }
+        }
+        
+        /* Pulse Animation with Liquid Effect */
         .animate-pulse-slow {
             animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
         
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Slide Up Animation */
         .animate-slide-up {
             animation: slideUp 0.8s ease-out forwards;
             opacity: 0;
             transform: translateY(30px);
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
         }
         
         @keyframes slideUp {
@@ -49,6 +112,7 @@
             }
         }
         
+        /* Advanced Chatbot Container */
         .chatbot-container {
             position: fixed;
             bottom: 20px;
@@ -58,18 +122,20 @@
             z-index: 1000;
             transform: translateY(100%);
             transition: transform 0.3s ease-in-out;
+            border-radius: 20px;
         }
         
         .chatbot-container.open {
             transform: translateY(0);
         }
         
+        /* Enhanced Chatbot Toggle with Liquid Effect */
         .chatbot-toggle {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
@@ -80,22 +146,40 @@
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            animation: pulseGlow 2s infinite;
         }
         
+        .chatbot-toggle:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+            }
+            50% { 
+                box-shadow: 0 0 0 15px rgba(102, 126, 234, 0);
+            }
+        }
+        
+        /* Advanced Audio Visualizer */
         .audio-visualizer {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 2px;
-            height: 40px;
+            gap: 3px;
+            height: 50px;
         }
         
         .audio-bar {
-            width: 3px;
+            width: 4px;
             background: linear-gradient(to top, #667eea, #764ba2);
-            border-radius: 2px;
+            border-radius: 3px;
             animation: audioWave 1.5s ease-in-out infinite;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
         }
         
         .audio-bar:nth-child(1) { animation-delay: 0s; height: 10px; }
@@ -109,26 +193,104 @@
             50% { transform: scaleY(0.3); }
         }
         
+        /* Enhanced Section Cards with 2025 Effects */
         .section-card {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: opacity 0.3s ease;
+            opacity: 0;
         }
         
         .section-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-card:hover::after {
+            opacity: 1;
+            animation: shine 1.5s ease;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+        
+        /* Enhanced Button Styles */
+        .action-button {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .action-button:hover::before {
+            transform: translateX(100%);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .chatbot-container {
+                width: 300px;
+                height: 450px;
+            }
+            
+            .chatbot-toggle {
+                width: 55px;
+                height: 55px;
+            }
         }
     </style>
 </head>
 <body class="antialiased">
-    <!-- Header -->
+    <!-- Header with Enhanced Glass Effect -->
     <header class="glass-morphism mx-4 mt-4 sticky top-4 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-white animate-float">📚 Research Hub</h1>
             <nav class="hidden md:flex space-x-6">
-                <a href="#reports" class="text-white/80 hover:text-white transition-colors">Reports</a>
-                <a href="#documents" class="text-white/80 hover:text-white transition-colors">Documents</a>
-                <a href="#research" class="text-white/80 hover:text-white transition-colors">Research</a>
-                <a href="#audio" class="text-white/80 hover:text-white transition-colors">Audio</a>
+                <a href="#reports" class="text-white/80 hover:text-white transition-colors duration-300">Reports</a>
+                <a href="#documents" class="text-white/80 hover:text-white transition-colors duration-300">Documents</a>
+                <a href="#research" class="text-white/80 hover:text-white transition-colors duration-300">Research</a>
+                <a href="#audio" class="text-white/80 hover:text-white transition-colors duration-300">Audio</a>
             </nav>
         </div>
     </header>
@@ -139,7 +301,7 @@
             <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-4">
                 Interactive Document Repository
             </h2>
-            <p class="text-xl text-white/80 max-w-3xl mx-auto mb-8">
+            <p class="text-xl text-white/90 max-w-3xl mx-auto mb-8">
                 A smart template for organizing research, documents, and media with AI-powered assistance
             </p>
             <div class="animate-pulse-slow">
@@ -250,17 +412,17 @@
                     Quick Actions
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <button onclick="runOrganizeScript()" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-lg transition-colors">
+                    <button onclick="runOrganizeScript()" class="action-button bg-green-500 hover:bg-green-600 text-white p-4 rounded-lg transition-colors">
                         <i class="fas fa-cogs text-2xl mb-2"></i>
                         <div class="font-semibold">Organize Files</div>
                         <div class="text-sm opacity-80">Run organization script</div>
                     </button>
-                    <button onclick="openChatbot()" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg transition-colors">
+                    <button onclick="openChatbot()" class="action-button bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg transition-colors">
                         <i class="fas fa-robot text-2xl mb-2"></i>
                         <div class="font-semibold">Ask AI</div>
                         <div class="text-sm opacity-80">Chat about documents</div>
                     </button>
-                    <button onclick="refreshFileList()" class="bg-purple-500 hover:bg-purple-600 text-white p-4 rounded-lg transition-colors">
+                    <button onclick="refreshFileList()" class="action-button bg-purple-500 hover:bg-purple-600 text-white p-4 rounded-lg transition-colors">
                         <i class="fas fa-sync text-2xl mb-2"></i>
                         <div class="font-semibold">Refresh</div>
                         <div class="text-sm opacity-80">Update file listings</div>
@@ -429,7 +591,7 @@
             }
 
             list.innerHTML = files.map(file => `
-                <li class="text-white hover:text-blue-300 cursor-pointer transition-colors">
+                <li class="text-white hover:text-blue-300 cursor-pointer transition-colors duration-300">
                     <i class="fas fa-file mr-2"></i>${file}
                 </li>
             `).join('');
@@ -450,7 +612,7 @@
             document.getElementById('audio-placeholder').classList.add('hidden');
 
             list.innerHTML = files.map((file, index) => `
-                <li class="bg-white/10 p-3 rounded cursor-pointer hover:bg-white/20 transition-colors" 
+                <li class="bg-white/10 p-3 rounded cursor-pointer hover:bg-white/20 transition-colors duration-300" 
                     onclick="playAudio(${index})">
                     <div class="flex items-center justify-between">
                         <div class="text-white">
