@@ -868,64 +868,177 @@
             </div>
         </section>
 
-        <!-- Reports Section -->
-         <section id="reports" class="mb-16 gsap-slide-up">
-            <div class="glass-morphism liquid-glass-demo p-8 section-card">
-                <h2 class="text-3xl font-bold text-white mb-6 flex items-center card-text-shadow">
+        <!-- Migration Statistics Cards -->
+         <section id="migration-stats" class="mb-16 gsap-slide-up">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-white text-center mb-8 card-text-shadow">
                     <i class="fas fa-chart-line mr-3"></i>
-                    Migration Strategy Reports
+                    Migration Statistics & Data
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white/20 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-white mb-1">Email Reports</h3>
-                        <div class="text-white/80 text-sm mb-3">Count: <span id="email-reports-count">0</span></div>
-                        <p class="text-white/80 mb-4">Concise versions optimized for email sharing</p>
-                        <ul id="email-reports-list" class="space-y-2">
-                            <li class="text-white/60"><em>No email reports found</em></li>
-                        </ul>
+                
+                <!-- Points Breakdown Card -->
+                <div class="glass-morphism liquid-glass-demo p-8 mb-8">
+                    <h3 class="text-2xl font-bold text-white text-center mb-6 card-text-shadow">Points Breakdown for Competitive EOI</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center p-4 bg-white/10 rounded-lg">
+                            <div class="text-4xl font-bold text-blue-400 mb-2">70</div>
+                            <div class="text-white/90 text-sm card-text-shadow-light">Base Points (Estimate)</div>
+                            <div class="text-white/70 text-xs mt-1">Age + English + Experience + Education</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/10 rounded-lg">
+                            <div class="text-4xl font-bold text-green-400 mb-2">10</div>
+                            <div class="text-white/90 text-sm card-text-shadow-light">Partner Skills</div>
+                            <div class="text-white/70 text-xs mt-1">Additional points for skilled partner</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/10 rounded-lg">
+                            <div class="text-4xl font-bold text-yellow-400 mb-2">15</div>
+                            <div class="text-white/90 text-sm card-text-shadow-light">VIC 491 Nomination</div>
+                            <div class="text-white/70 text-xs mt-1">State nomination bonus points</div>
+                        </div>
                     </div>
-                    <div class="bg-white/20 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-white mb-1">Website Reports</h3>
-                        <div class="text-white/80 text-sm mb-3">Count: 2</div>
-                        <p class="text-white/80 mb-4">Full interactive versions for web display</p>
-                        <ul id="website-reports-list" class="space-y-2">
-                            <li><a href="reports/statistics.html" target="_blank" class="text-white hover:text-blue-300 cursor-pointer transition-colors duration-300">
-                                <i class="fas fa-chart-bar mr-2"></i>Migration Statistics & Charts</a></li>
-                            <li><a href="reports/website_e-mail.html" target="_blank" class="text-white hover:text-blue-300 cursor-pointer transition-colors duration-300">
-                                <i class="fas fa-file-alt mr-2"></i>Complete Strategy Guide</a></li>
-                        </ul>
+                    <div class="text-center mt-6">
+                        <div class="text-5xl font-bold text-white mb-2">95</div>
+                        <div class="text-white/90 card-text-shadow-light">Total Points Achieved</div>
+                    </div>
+                </div>
+
+                <!-- Strategic Alignment Card -->
+                <div class="glass-morphism liquid-glass-demo p-8 mb-8">
+                    <h3 class="text-2xl font-bold text-white text-center mb-6 card-text-shadow">Strategic Alignment with Victorian Priorities</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-4 card-text-shadow">Digital Economy Priority</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/90 text-sm card-text-shadow-light">AI & Tech Advantage</span>
+                                    <div class="flex">
+                                        <div class="w-4 h-4 bg-blue-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-blue-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-blue-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-blue-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-blue-400 rounded"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/90 text-sm card-text-shadow-light">Remote & Regional</span>
+                                    <div class="flex">
+                                        <div class="w-4 h-4 bg-blue-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-blue-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-blue-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-blue-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-gray-600 rounded"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-4 card-text-shadow">Tourism Priority</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/90 text-sm card-text-shadow-light">First Nations Engagement</span>
+                                    <div class="flex">
+                                        <div class="w-4 h-4 bg-green-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-green-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-green-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-green-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-green-400 rounded"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-white/90 text-sm card-text-shadow-light">Asia-Pacific Gateway</span>
+                                    <div class="flex">
+                                        <div class="w-4 h-4 bg-green-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-green-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-green-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-green-400 rounded mr-1"></div>
+                                        <div class="w-4 h-4 bg-green-400 rounded"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Documents Section -->
-         <section id="documents" class="mb-16 gsap-slide-up">
-            <div class="glass-morphism liquid-glass-demo p-8 section-card">
-                <h2 class="text-3xl font-bold text-white mb-6 flex items-center card-text-shadow">
-                    <i class="fas fa-file-alt mr-3"></i>
-                    Migration Documents & Research
+        <!-- Migration Timeline & Process Cards -->
+         <section id="migration-process" class="mb-16 gsap-slide-up">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-white text-center mb-8 card-text-shadow">
+                    <i class="fas fa-road mr-3"></i>
+                    Migration Process Timeline
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white/20 p-6 rounded-lg">
-                        <h3 class="text-lg font-semibold text-white mb-1">Documents</h3>
-                        <div class="text-white/80 text-sm mb-3">Count: <span id="documents-count">0</span></div>
-                        <ul id="documents-list" class="space-y-2 text-sm">
-                            <li class="text-white/60"><em>No documents found</em></li>
+                
+                <!-- Timeline Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="glass-morphism liquid-glass-demo p-6 text-center">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white font-bold">1</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 card-text-shadow">Portfolio Development</h3>
+                        <div class="text-sm text-white/80 mb-3 card-text-shadow-light">Months 1-3</div>
+                        <ul class="text-xs text-white/70 space-y-1">
+                            <li>• English tests</li>
+                            <li>• Document collation</li>
+                            <li>• Strategic Evidence Portfolio</li>
                         </ul>
                     </div>
-                    <div class="bg-white/20 p-6 rounded-lg">
-                        <h3 class="text-lg font-semibold text-white mb-1">Research Assets</h3>
-                        <div class="text-white/80 text-sm mb-3">Count: <span id="research-count">0</span></div>
-                        <ul id="research-list" class="space-y-2 text-sm">
-                            <li class="text-white/60"><em>No research files found</em></li>
+                    
+                    <div class="glass-morphism liquid-glass-demo p-6 text-center">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white font-bold">2</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 card-text-shadow">Skills Assessment</h3>
+                        <div class="text-sm text-white/80 mb-3 card-text-shadow-light">Months 4-7</div>
+                        <ul class="text-xs text-white/70 space-y-1">
+                            <li>• VETASSESS applications</li>
+                            <li>• Marketing Specialist</li>
+                            <li>• Graphic Designer</li>
                         </ul>
                     </div>
-                    <div class="bg-white/20 p-6 rounded-lg">
-                        <h3 class="text-lg font-semibold text-white mb-3">Analytics</h3>
+                    
+                    <div class="glass-morphism liquid-glass-demo p-6 text-center">
+                        <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white font-bold">3</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 card-text-shadow">EOI & ROI Submission</h3>
+                        <div class="text-sm text-white/80 mb-3 card-text-shadow-light">Month 8</div>
+                        <ul class="text-xs text-white/70 space-y-1">
+                            <li>• Expression of Interest</li>
+                            <li>• Registration of Interest</li>
+                            <li>• Victoria submission</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="glass-morphism liquid-glass-demo p-6 text-center">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white font-bold">4</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 card-text-shadow">Invitation & Lodgement</h3>
+                        <div class="text-sm text-white/80 mb-3 card-text-shadow-light">Month 9+</div>
+                        <ul class="text-xs text-white/70 space-y-1">
+                            <li>• Victorian invitation</li>
+                            <li>• 491 visa application</li>
+                            <li>• 60-day timeframe</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Success Metrics Card -->
+                <div class="glass-morphism liquid-glass-demo p-8 mt-8">
+                    <h3 class="text-2xl font-bold text-white text-center mb-6 card-text-shadow">Expected Success Metrics</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-white" id="total-files">0</div>
-                            <div class="text-white/80 text-sm">Total Files</div>
+                            <div class="text-3xl font-bold text-green-400 mb-2">85%</div>
+                            <div class="text-white/90 text-sm card-text-shadow-light">VIC 491 Success Rate</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-400 mb-2">6-8</div>
+                            <div class="text-white/90 text-sm card-text-shadow-light">Months Processing Time</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-yellow-400 mb-2">High</div>
+                            <div class="text-white/90 text-sm card-text-shadow-light">Competitive Advantage</div>
                         </div>
                     </div>
                 </div>
