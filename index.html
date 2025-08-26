@@ -334,18 +334,18 @@
             }
         }
         
-        /* Accessibility: respect reduced motion preferences. */
-        @media (prefers-reduced-motion: reduce) {
-            .animate-float, .animate-pulse-slow { animation: none !important; }
-            .animate-slide-up {
-                animation: none !important;
-                opacity: 1 !important;
-                transform: none !important;
-            }
-            .scroll-cards-container { animation: none !important; }
-            .scroll-card { animation: none !important; }
-            .text-reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
-        }
+                 /* Accessibility: respect reduced motion preferences. */
+         @media (prefers-reduced-motion: reduce) {
+             .animate-float { animation: none !important; }
+             .animate-slide-up {
+                 animation: none !important;
+                 opacity: 1 !important;
+                 transform: none !important;
+             }
+             .scroll-cards-container { animation: none !important; }
+             .scroll-card { animation: none !important; }
+             .text-reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
+         }
     </style>
 </head>
 <body class="antialiased">
