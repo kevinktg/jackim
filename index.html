@@ -97,6 +97,36 @@
             cursor: none;
         }
         
+        /* Background for second half of site */
+        .site-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.7) 50%,
+                rgba(0, 0, 0, 0.9) 100%
+            );
+        }
+        
+        .site-background::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: url('assets/aussie.jpg') center center;
+            background-size: cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
         /* Glass morphism card container: blur + saturation for a frosted look. */
         .glass-morphism {
             background: rgba(59, 130, 246, 0.15);
@@ -334,7 +364,8 @@
         .scroll-cards {
             overflow: hidden;
             position: relative;
-            width: 100%;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
         }
         
         .scroll-cards-container {
@@ -438,12 +469,12 @@
         document.querySelectorAll('a, button, .section-card, .scroll-card').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 this.cursorActive = true;
-                document.body.classList.add('hide-cursor');
+                if (cursor) cursor.classList.add('hover');
             });
             
             el.addEventListener('mouseleave', () => {
                 this.cursorActive = false;
-                document.body.classList.remove('hide-cursor');
+                if (cursor) cursor.classList.remove('hover');
             });
         });
     },
@@ -520,13 +551,16 @@
         </div>
     </div>
     
+    <!-- Site background for second half -->
+    <div class="site-background"></div>
+    
     <!-- Header with Enhanced Glass Effect -->
     <header class="glass-morphism mx-4 mt-4 sticky top-4 z-50" x-data="{ mobileMenu: false }">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-3xl font-bold text-white">
-                <img src="media/Good.svg" alt="Migration Strategy Logo"
-                    class="w-64 h-64 shadow-2xl" loading="lazy" width="80" height="80" style="filter: brightness(1.2) contrast(1.1);">
-            </div>
+                         <div class="text-3xl font-bold text-white">
+                 <img src="media/Good.svg" alt="Migration Strategy Logo"
+                     class="w-20 h-20 shadow-2xl" loading="lazy" width="40" height="40" style="filter: brightness(1.2) contrast(1.1); z-index: 60;">
+             </div>
             <h1 class="text-2xl font-bold text-white animate-float">Migration Hub</h1>
             
             <!-- Desktop Navigation -->
@@ -578,7 +612,7 @@
         <section class="text-center py-24 gsap-slide-up relative min-h-screen flex items-center justify-center">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 w-full h-full z-0">
-                <img src="assets/perth.jpg" alt="Perth City Skyline" class="w-full h-full object-cover rounded-3xl" style="z-index: 1;">
+                <img src="assets/aussie.jpg" alt="Australia Landscape" class="w-full h-full object-cover rounded-3xl" style="z-index: 1;">
                 <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80 rounded-3xl" style="z-index: 2;"></div>
                 <!-- Glass morphism overlay with liquid glow -->
                 <div class="absolute inset-0 rounded-3xl glass-morphism" style="z-index: 3; background: rgba(0, 0, 0, 0.02); backdrop-filter: blur(2px) saturate(110%); -webkit-backdrop-filter: blur(2px) saturate(110%);"></div>
@@ -586,10 +620,10 @@
             
             <!-- Content -->
             <div class="relative z-10 max-w-4xl mx-auto px-6">
-                <!-- Logo -->
-                <div class="mb-8 flex justify-center">
-                    <img src="media/7.svg" alt="Good AI Logo" class="w-100 h-100" loading="lazy" width="250" height="250" style="z-index: 20; position: relative;">
-                </div>
+                                 <!-- Logo -->
+                 <div class="mb-8 flex justify-center">
+                     <img src="media/7.svg" alt="Good AI Logo" class="w-48 h-48" loading="lazy" width="192" height="192" style="z-index: 20; position: relative; filter: brightness(1.2) contrast(1.1);">
+                 </div>
                 
                 <h2 class="text-6xl md:text-7xl font-extrabold text-white mb-8 drop-shadow-2xl text-reveal">
                     The Brand Powerhouse Duo
@@ -624,9 +658,9 @@
         <!-- Spacer Section -->
         <section class="py-16"></section>
 
-        <!-- Scrolling Cards Section -->
-        <section class="mb-16 gsap-slide-up">
-            <div class="max-w-7xl mx-auto px-4">
+                 <!-- Scrolling Cards Section -->
+         <section class="mb-16 gsap-slide-up">
+             <div class="w-full px-4">
                 <h2 class="text-4xl font-bold text-white text-center mb-12 text-reveal">
                     Strategic Migration Insights
                 </h2>
