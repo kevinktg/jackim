@@ -287,7 +287,12 @@
 
         /* Respect reduced motion preferences */
         @media (prefers-reduced-motion: reduce) {
-            .animate-float, .animate-pulse-slow, .animate-slide-up { animation: none !important; }
+            .animate-float, .animate-pulse-slow { animation: none !important; }
+            .animate-slide-up {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
         }
     </style>
 </head>
