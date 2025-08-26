@@ -1,0 +1,103 @@
+/* =============================================
+   Handcrafted Design System by Kev (ktg.one)
+   Inspired by paper, earth, and warm tones.
+   ============================================= */
+
+/* 1. CSS Variables (The Color Palette)
+   ---------------------------------------------
+   All colors are defined here for easy theme management.
+*/
+:root {
+    /* Backgrounds */
+    --background-primary: #fdfaf5; /* A very light, warm off-white, like aged paper */
+    --background-secondary: #f4f1ec; /* A slightly darker paper tone for depth */
+
+    /* Text Colors */
+    --text-primary: #4a443c; /* A dark, earthy brown, not quite black */
+    --text-secondary: #7a7368; /* A softer brown for subtitles and secondary text */
+    --text-accent: #c57b57; /* A warm, terracotta orange for highlights */
+
+    /* Brand & Accent Colors */
+    --earth-brown: #8b4513; /* A solid, dependable saddle brown for borders/accents */
+    --warm-orange: #d2691e; /* A vibrant chocolate orange for buttons */
+    --gold-foil: #d4af37; /* A subtle gold for special highlights */
+
+    /* Fonts */
+    --font-primary: 'Poppins', sans-serif; /* Your chosen body font */
+    --font-headings: 'Syne', sans-serif;   /* Your chosen heading font */
+}
+
+/* 2. Base Body & Typography Styles
+   ---------------------------------------------
+   Setting the foundation for the entire page.
+*/
+body {
+    font-family: var(--font-primary);
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    color: var(--text-primary);
+    font-weight: 800; /* Bold headings are a key part of this style */
+}
+
+a {
+    color: var(--text-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--earth-brown);
+}
+
+/* 3. Handcrafted Component Styles
+   ---------------------------------------------
+   This is where the unique "paper" and "handcrafted" look comes from.
+*/
+
+/* The main "paper" card style */
+.paper-card {
+    background-color: var(--background-secondary);
+    /* Subtle noise texture to mimic paper grain */
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.07'/%3E%3C/svg%3E");
+    border: 1px solid var(--earth-brown);
+    border-radius: 8px 2px 8px 2px; /* Asymmetrical radius for a handcrafted feel */
+    box-shadow: 3px 3px 8px rgba(139, 69, 19, 0.15);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    transform: rotate(-0.5deg); /* Slight tilt for a casual, placed-on-a-desk look */
+}
+
+.paper-card:hover {
+    transform: rotate(0deg) translateY(-5px);
+    box-shadow: 5px 5px 15px rgba(139, 69, 19, 0.2);
+}
+
+/* The primary action button */
+.handcrafted-button {
+    font-family: var(--font-headings);
+    font-weight: 700;
+    color: var(--background-primary);
+    background: var(--warm-orange);
+    border: 2px solid var(--earth-brown);
+    border-radius: 8px 2px 8px 2px;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 2px 2px 5px rgba(139, 69, 19, 0.2);
+    transition: all 0.3s ease;
+    transform: rotate(-1deg);
+}
+
+.handcrafted-button:hover {
+    transform: rotate(0deg) scale(1.05);
+    background: var(--earth-brown);
+    box-shadow: 4px 4px 10px rgba(139, 69, 19, 0.3);
+}
+
+/* Text shadow for readability on textured backgrounds */
+.text-shadow-paper {
+    text-shadow: 1px 1px 2px var(--background-primary);
+}
