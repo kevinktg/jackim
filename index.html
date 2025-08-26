@@ -13,13 +13,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* 2025 Liquid Glass Gradient Background: subtle animated gradient backdrop. */
+        /* Clean background without animated gradient */
         body {
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
-            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e);
-            background-size: 400% 400%;
-            animation: gradientFlow 15s ease infinite;
+            background: #0f0c29;
             overflow-x: hidden;
         }
         
@@ -27,12 +25,7 @@
             font-family: 'Syne', sans-serif;
         }
         
-        /* Background gradient animation keyframes. */
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+
         
         /* Glass morphism card container: blur + saturation for a frosted look. */
         .glass-morphism {
