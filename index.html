@@ -304,6 +304,14 @@
             <p class="text-xl text-white/90 max-w-3xl mx-auto mb-8">
                 A smart template for organizing research, documents, and media with AI-powered assistance
             </p>
+            <div class="mb-8">
+                <a href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/30">
+                    <i class="fas fa-brain mr-2"></i>
+                    Enhance with NotebookLM
+                    <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                </a>
+            </div>
             <div class="animate-pulse-slow">
                 <i class="fas fa-chevron-down text-white text-2xl"></i>
             </div>
@@ -411,7 +419,7 @@
                     <i class="fas fa-bolt mr-3"></i>
                     Quick Actions
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <button onclick="runOrganizeScript()" class="action-button bg-green-500 hover:bg-green-600 text-white p-4 rounded-lg transition-colors">
                         <i class="fas fa-cogs text-2xl mb-2"></i>
                         <div class="font-semibold">Organize Files</div>
@@ -422,6 +430,12 @@
                         <div class="font-semibold">Ask AI</div>
                         <div class="text-sm opacity-80">Chat about documents</div>
                     </button>
+                    <a href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer" 
+                       class="action-button bg-indigo-500 hover:bg-indigo-600 text-white p-4 rounded-lg transition-colors flex flex-col items-center justify-center">
+                        <i class="fas fa-brain text-2xl mb-2"></i>
+                        <div class="font-semibold">NotebookLM</div>
+                        <div class="text-sm opacity-80">AI Research Assistant</div>
+                    </a>
                     <button onclick="refreshFileList()" class="action-button bg-purple-500 hover:bg-purple-600 text-white p-4 rounded-lg transition-colors">
                         <i class="fas fa-sync text-2xl mb-2"></i>
                         <div class="font-semibold">Refresh</div>
@@ -451,7 +465,7 @@
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3">
                 <div class="bg-white/20 p-3 rounded-lg">
                     <div class="text-white/80 text-sm">AI Assistant</div>
-                    <div class="text-white">Hello! I can help you analyze documents, answer questions about your research, and provide insights. What would you like to know?</div>
+                    <div class="text-white">Hello! I can help you analyze documents, answer questions about your research, and provide insights. For advanced AI analysis, try <a href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer" class="text-blue-300 hover:text-blue-200 underline">NotebookLM</a>. What would you like to know?</div>
                 </div>
             </div>
             <div class="p-4 border-t border-white/20">
