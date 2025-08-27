@@ -16,11 +16,11 @@
     <!-- Chart.js for data visualization -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Google Fonts & Icons -->
+    <!-- Google Fonts & Icons - 2025 Typography Stack -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Geist:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
@@ -28,25 +28,39 @@
     <link rel="stylesheet" href="assets/handcrafted-design-system.css">
     
     <style>
-        /* Base styles for the page */
+        /* 2025 Base styles with modern typography */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
             min-height: 100vh;
-            background-color: #0a1340;
-            /* Dark blue-slate background */
+            background-color: #0f172a;
             overflow-x: hidden;
             position: relative;
-            color: white;
+            color: #f8fafc;
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 400;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Inter', sans-serif;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin: 0;
+            color: #ffffff;
         }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        
+        /* Professional text hierarchy */
+        .text-body { font-size: 1rem; line-height: 1.7; }
+        .text-large { font-size: 1.125rem; line-height: 1.6; }
+        .text-small { font-size: 0.875rem; line-height: 1.5; }
         
         /* Full site background with image and gradient overlay */
          .site-background {
@@ -69,20 +83,20 @@
              left: 0;
              width: 100%;
              height: 100%;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0.8) 100%);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
              z-index: -1;
          }
         
-        /* Enhanced Glass morphism with liquid effects */
+        /* Enhanced Glass morphism with professional appearance */
         .glass-morphism {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-            -webkit-backdrop-filter: blur(15px) saturate(180%);
-            backdrop-filter: blur(15px) saturate(180%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            backdrop-filter: blur(20px) saturate(180%);
             border-radius: 20px;
-            border: 1px solid rgba(77, 65, 168, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.25),
-                inset 0 1px 20px rgba(23, 18, 174, 0.1);
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0px rgba(255, 255, 255, 0.2);
             position: relative;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -185,13 +199,20 @@
             }
         }
         
-        /* Card text shadows for better readability */
+        /* Enhanced text shadows for better readability */
         .card-text-shadow {
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            text-shadow: 
+                2px 2px 8px rgba(0, 0, 0, 0.9),
+                0px 0px 20px rgba(0, 0, 0, 0.5),
+                1px 1px 0px rgba(0, 0, 0, 1);
+            color: #ffffff;
         }
         
         .card-text-shadow-light {
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+            text-shadow: 
+                1px 1px 6px rgba(0, 0, 0, 0.8),
+                0px 0px 15px rgba(0, 0, 0, 0.4);
+            color: #f8fafc;
         }
 
         /* Liquid Glass Button Styles */
@@ -275,260 +296,200 @@
             transform: translateY(-10px) scale(1.05);
         }
 
-        /* Hero Opening Animation - Initial States */
-        .hero-title {
-            opacity: 0;
-            transform: translateY(100px) scale(0.8);
+        /* Impact Loading Sequence */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
         }
         
-        .hero-subtitle {
-            opacity: 0;
-            transform: translateX(-100px);
+        .loading-content {
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
         }
         
-        .hero-description {
+        .loading-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 1rem;
             opacity: 0;
-            transform: translateX(100px);
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
         }
         
-        .hero-buttons {
+        .loading-subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 3rem;
             opacity: 0;
-            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease-out 1s forwards;
         }
         
+        .services-list {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        .service-checkmark {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #10b981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            transform: scale(0);
+        }
+        
+        .service-text {
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.3s ease-out;
+        }
+        
+        .time-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 4.5s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Hero elements - initially hidden for loading sequence */
+        .hero-title,
+        .hero-subtitle,
+        .hero-description,
+        .hero-buttons,
         .hero-scroll-indicator {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
         }
 
-        /* Story Overlay Styles */
-        .story-overlay {
-            background: #000000;
-            width: 100vw;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-        }
-        
-        .story-line {
-            opacity: 0;
-            transform: translateY(50px);
-        }
 
-        .boom-text {
-            transform: translateY(50px) scale(0.5);
-        }
-
-        .claude-character {
-            opacity: 0;
-            transform: scale(0) rotate(180deg);
-        }
-
-        /* SVG Animation Effects */
-        .claude-character svg,
-        .claude-character img {
-            transition: all 0.3s ease;
-        }
-
-        .claude-character:hover svg path,
-        .claude-character:hover img {
-            animation: pulse-glow 4s infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { 
-                filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
-                transform: scale(1);
-            }
-            50% { 
-                filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.8));
-                transform: scale(1.05);
-            }
-        }
-
-        /* SVG specific animations */
-        .claude-character svg path {
-            transition: all 0.3s ease;
-        }
-
-        .claude-character svg:hover path {
-            fill: #3b82f6;
-            stroke: #60a5fa;
-        }
-
-        /* Speech Bubble Styles */
-        .speech-bubble {
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 1.5rem 2rem;
-            margin: 1rem auto;
-            max-width: 300px;
-            position: relative;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Mum's bubbles - warm pink/white */
-        .speech-bubble[data-line="1"] {
-            background: rgba(255, 182, 193, 0.15);
-            border: 1px solid rgba(255, 182, 193, 0.3);
-        }
-
-        /* Kev's bubbles - green */
-        .speech-bubble[data-line="2"],
-        .speech-bubble[data-line="3"],
-        .speech-bubble[data-line="5"] {
-            background: rgba(34, 197, 94, 0.15);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-
-        /* Claude's bubble - orange */
-        .speech-bubble[data-line="4"] {
-            background: rgba(255, 165, 0, 0.15);
-            border: 1px solid rgba(255, 165, 0, 0.3);
-        }
-
-        /* Speech bubble tail */
-        .speech-bubble::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-style: solid;
-        }
-
-        /* Left bubble (Mum) */
-        .left-bubble::before {
-            bottom: -15px;
-            left: 30px;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 15px solid rgba(255, 182, 193, 0.15);
-        }
-
-        /* Right bubble (Your response) */
-        .right-bubble {
-            margin-left: auto;
-            margin-right: 2rem;
-        }
-
-        .right-bubble::before {
-            bottom: -15px;
-            right: 30px;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 15px solid rgba(34, 197, 94, 0.15);
-        }
-
-        /* Center bubble (Team declaration) */
-        .center-bubble {
-            margin: 1.5rem auto;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15));
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .center-bubble::before {
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 15px solid rgba(59, 130, 246, 0.15);
-        }
-
-        /* Claude's bubble - orange */
-        .claude-bubble {
-            position: absolute;
-            top: -80px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, rgba(255, 165, 0, 0.2), rgba(255, 140, 0, 0.2));
-            border: 1px solid rgba(255, 165, 0, 0.4);
-            margin: 0;
-            opacity: 0;
-            transform: translateX(-50%) translateY(20px);
-            min-width: 250px;
-        }
-
-        .claude-bubble::before {
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid rgba(255, 165, 0, 0.2);
-        }
-
-        .claude-container {
-            display: inline-block;
-        }
-
-        /* Floating Raindrop Bubbles */
-        .floating-bubble {
-            position: absolute;
-            max-width: 400px;
-            padding: 1rem 1.5rem;
-            min-height: 60px;
-        }
-
-        /* Position bubbles - Mum left, Kev right, Claude center */
-        .floating-bubble[data-line="1"] { top: 10%; left: 10%; }
-        .floating-bubble[data-line="2"] { top: 25%; right: 10%; }
-        .floating-bubble[data-line="3"] { top: 40%; right: 10%; }
-        .floating-bubble[data-line="4"] { top: 55%; left: 50%; transform: translateX(-50%); }
-        .floating-bubble[data-line="5"] { top: 70%; right: 10%; }
-
-        /* Typewriter Effect */
-        .typewriter-text {
-            overflow: hidden;
-            border-right: 2px solid rgba(255, 255, 255, 0.7);
-            white-space: nowrap;
-            animation: blink-caret 1s infinite;
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: rgba(255, 255, 255, 0.7); }
-        }
-
-        /* Hide caret after typing is complete */
-        .typing-complete {
-            border-right: none;
-            animation: none;
-        }
-
-        /* Explosion effect for BOOM */
-        .boom-explosion {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 100;
-            background: radial-gradient(circle at center, 
-                rgba(59, 130, 246, 0.3) 0%, 
-                rgba(147, 51, 234, 0.2) 30%, 
-                rgba(236, 72, 153, 0.1) 50%, 
-                transparent 70%);
-            opacity: 0;
-        }
     </style>
 </head>
 
 <body>
     <div class="site-background"></div>
-    <div class="boom-explosion"></div>
     
-    <!-- Header with Logo -->
+    <!-- Impact Loading Sequence -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <h1 class="loading-title">JacKim Strategy Delivered</h1>
+            <p class="loading-subtitle">Complete migration strategy & analysis in record time</p>
+            
+            <div class="services-list">
+                <div class="service-item" data-delay="1.5">
+                    <div class="service-checkmark">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div class="service-text">Victoria State Nomination Analysis</div>
+                </div>
+                <div class="service-item" data-delay="2">
+                    <div class="service-checkmark">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div class="service-text">Western Australia Alternative Pathway</div>
+                </div>
+                <div class="service-item" data-delay="2.5">
+                    <div class="service-checkmark">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div class="service-text">AI-Powered Research & Documentation</div>
+                </div>
+                <div class="service-item" data-delay="3">
+                    <div class="service-checkmark">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div class="service-text">Interactive Strategy Dashboard</div>
+                </div>
+                <div class="service-item" data-delay="3.5">
+                    <div class="service-checkmark">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                    <div class="service-text">Professional LinkedIn-Ready Presentation</div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            
+            <div class="time-badge">
+                <i class="fas fa-clock mr-2"></i>
+                Completed in < 24 Hours
+            </div>
+        </div>
+    </div>
+    
+    <!-- Professional Header - 2025 Style -->
     <header id="minimal-header"
-        class="fixed top-0 left-0 right-0 z-50 bg-slate-900/30 backdrop-blur-sm transition-transform duration-300 ease-in-out">
-        <div class="flex justify-center py-3 px-6">
-            <div class="flex items-center space-x-4 text-white/80 text-sm">
-                <span class="font-medium">The Brand Powerhouse Duo</span>
-                <span class="text-white/40">|</span>
-                <span class="text-white/60">Australian Migration Strategy</span>
+        class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">JP</span>
+                    </div>
+                    <div>
+                        <h1 class="text-white font-semibold text-lg">JacKim Strategy</h1>
+                        <p class="text-white/60 text-xs">Australian Migration Consulting</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#stats" class="text-white/80 hover:text-white transition-colors text-sm font-medium">Strategy</a>
+                    <a href="https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">AI Assistant</a>
+                </nav>
             </div>
         </div>
     </header>
@@ -536,69 +497,36 @@
     <main class="relative z-10">
         <!-- Hero Section -->
         <section class="text-center min-h-screen flex items-center justify-center pt-10 pb-20 md:pt-16 relative overflow-hidden">
-            <!-- Dark Story Overlay -->
-            <div class="story-overlay z-20 bg-black">
-                <!-- Skip Button -->
-                <button id="skip-story" class="fixed top-8 right-8 z-30 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg backdrop-blur-sm border border-white/30 transition-all duration-300">
-                    Skip Intro <i class="fas fa-forward ml-2"></i>
-                </button>
-                <div class="story-text relative w-full h-full">
-                        <!-- Simple floating bubbles -->
-                        <div class="floating-bubble speech-bubble story-line" data-line="1" data-text="Aunty Cherry needs your help...">
-                            <div class="speaker-label text-xs text-white/60 mb-1">Mum:</div>
-                            <p class="text-lg text-white typewriter-text"></p>
-                        </div>
-                        <div class="floating-bubble speech-bubble story-line" data-line="2" data-text="Sure.">
-                            <div class="speaker-label text-xs text-green-300/60 mb-1">Kev:</div>
-                            <p class="text-lg text-green-400 typewriter-text"></p>
-                        </div>
-                        <div class="floating-bubble speech-bubble story-line" data-line="3" data-text="Team?">
-                            <div class="speaker-label text-xs text-green-300/60 mb-1">Kev:</div>
-                            <p class="text-lg text-green-400 typewriter-text"></p>
-                        </div>
-                        <div class="floating-bubble speech-bubble story-line" data-line="4" data-text="ME">
-                            <div class="speaker-label text-xs text-orange-300/60 mb-1">Claude:</div>
-                            <div class="claude-in-bubble opacity-0">
-                                <img src="media/claude/1.svg" alt="Claude" class="w-16 h-16 mx-auto mb-2">
-                            </div>
-                            <p class="text-lg text-orange-400 font-bold typewriter-text"></p>
-                        </div>
-                        <div class="floating-bubble speech-bubble story-line" data-line="5" data-text="Let's go Claude! 🚀">
-                            <div class="speaker-label text-xs text-green-300/60 mb-1">Kev:</div>
-                            <p class="text-lg text-blue-400 font-bold typewriter-text"></p>
-                        </div>
 
-                        <!-- Claude character positioned in bottom-right -->
-                        <div class="claude-character fixed bottom-8 right-8 z-30">
-                            <img id="claude-face" src="media/claude/1.svg" alt="Claude" class="w-24 h-24">
-                        </div>
+            <!-- Main Hero Content - Professional 2025 Design -->
+            <div class="hero-content w-full max-w-5xl mx-auto px-6">
+                <div class="text-center space-y-8">
+                    <img src="media/Good.svg" alt="JacKim Strategy Logo" class="hero-logo mx-auto w-32 h-32 mb-6">
+                    <div class="space-y-4">
+                        <h1 class="font-extrabold text-white mb-6 card-text-shadow hero-title tracking-tight">
+                            Strategic Australian Migration Planning
+                        </h1>
+                        <p class="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto font-medium card-text-shadow hero-subtitle leading-relaxed">
+                            Data-Driven Visa Strategy & Professional Consultation Services
+                        </p>
+                        <p class="text-lg text-white/80 max-w-3xl mx-auto card-text-shadow-light hero-description leading-relaxed">
+                            Comprehensive migration strategy with AI-powered research, state nomination analysis, and interactive documentation hub
+                        </p>
                     </div>
                 </div>
-            </div>
-
-            <!-- Main Hero Content -->
-            <div class="hero-content w-full max-w-6xl mx-auto opacity-0">
-                <img src="media/Good.svg" alt="Brand Logo" class="hero-logo mx-auto w-128 mb-8 opacity-0">
-                <h1 class="text-6xl md:text-7xl font-extrabold text-white mb-8 card-text-shadow hero-title">
-                    The JacKim experience
-                </h1>
-                <p class="text-2xl md:text-3xl text-white max-w-3xl mx-auto mb-8 font-medium card-text-shadow hero-subtitle">
-                    A Max-Optimal Strategy for Australian Skilled Migration
-                </p>
-                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-12 card-text-shadow-light hero-description">
-                    Interactive Migration Strategy Guide & Document Repository
-                </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 hero-buttons">
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 mb-12 hero-buttons">
                     <a href="#stats"
-                        class="liquid-glass-btn inline-flex items-center bg-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold">
-                        <i class="fas fa-chart-line mr-3"></i>
-                        View Strategy
+                        class="group bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 backdrop-blur-sm inline-flex items-center">
+                        <i class="fas fa-chart-line mr-3 text-blue-400"></i>
+                        View Strategy Analysis
+                        <i class="fas fa-arrow-right ml-3 text-sm group-hover:translate-x-1 transition-transform"></i>
                     </a>
                     <a href="https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4" target="_blank" rel="noopener noreferrer" 
-                        class="liquid-glass-btn-primary inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold">
-                        <i class="fas fa-brain mr-3"></i>
-                        AI Research Assistant
+                        class="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center">
+                        <i class="fas fa-robot mr-3"></i>
+                        AI Research Hub
+                        <i class="fas fa-external-link-alt ml-3 text-sm group-hover:scale-110 transition-transform"></i>
                     </a>
                 </div>
                 
@@ -675,7 +603,7 @@
                  <!-- Audio Section -->
                  <div class="max-w-4xl mx-auto mb-20">
                      <div class="glass-morphism p-8 text-center">
-                         <h2 class="text-3xl font-bold mb-4 card-text-shadow"><i class="fas fa-headphones mr-3"></i>Audio Interviews</h2>
+                         <h2 class="text-3xl font-bold mb-4 card-text-shadow"><i class="fas fa-headphones mr-3"></i>Audio Overview (Click me after video)</h2>
                          <div class="relative bg-black/30 rounded-xl overflow-hidden shadow-2xl p-4">
                              <audio class="w-full" src="audio/audio.mp3" controls preload="metadata">
                                  Your browser does not support the audio element.
@@ -821,11 +749,250 @@
                 </div>
             </div>
         </section>
-        <!-- WA Infographic Embed -->
+        <!-- Western Australia Comprehensive Strategy -->
         <section id="wa-section" class="mb-32 gsap-slide-up">
-            <h2 class="text-4xl font-bold text-center mb-8 card-text-shadow">Western Australia Strategy Infographic</h2>
-            <div class="w-full" style="height:2000px;">
-                <iframe src="reports/wa2.html" class="w-full h-full border-0 rounded-xl shadow-2xl"></iframe>
+            <div class="container mx-auto px-4">
+                <!-- Core Challenge -->
+                <div class="glass-morphism p-8 mb-16">
+                    <h2 class="text-4xl font-bold text-center mb-8 card-text-shadow text-white">Western Australia Alternative Pathway</h2>
+                    <div class="max-w-4xl mx-auto mb-8">
+                        <h3 class="text-2xl font-bold text-center mb-6 card-text-shadow text-white">The Core Challenge: Pathway Blocked</h3>
+                        <p class="text-white/90 text-center mb-8 card-text-shadow-light text-lg leading-relaxed">
+                            The primary obstacle for creative professionals (Marketing, Design) is that their occupations are not listed on the 
+                            Western Australian Skilled Migration Occupation List (WASMOL). This creates a fundamental eligibility barrier for 
+                            direct application through the standard State Nominated Migration Program (SNMP).
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="text-center p-6 bg-red-500/10 rounded-lg border border-red-500/20">
+                                <div class="text-6xl mb-4">🚫</div>
+                                <h4 class="text-xl font-bold text-red-400 mb-3">No Direct Entry</h4>
+                                <p class="text-white/80">'Marketing Specialist' & 'Graphic Designer' are absent from the WASMOL, creating a fundamental eligibility barrier.</p>
+                            </div>
+                            <div class="text-center p-6 bg-white/5 rounded-lg border border-white/20">
+                                <div class="text-6xl mb-4">📊</div>
+                                <h4 class="text-xl font-bold text-white mb-3">Occupation List Analysis</h4>
+                                <p class="text-white/80">95% of WASMOL occupations are technical/medical roles, with only 5% covering creative professions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategic Solution -->
+                <div class="glass-morphism p-8 mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 card-text-shadow text-white">The Strategic Pivot: Two Pathways to WA</h3>
+                    <p class="text-white/90 text-center mb-8 card-text-shadow-light max-w-4xl mx-auto text-lg">
+                        The solution requires a strategic choice between two distinct pathways. Analysis compares the State Nominated 
+                        Program (requiring occupational pivot) against the highly competitive Family-Sponsored stream.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <!-- Pathway A: State Nomination -->
+                        <div class="p-8 rounded-xl border-2 border-teal-400/30 bg-teal-500/5">
+                            <h4 class="text-2xl font-bold text-center mb-6 text-teal-400">Pathway A: State Nomination (SNMP)</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <span class="text-xl mr-3 text-teal-400">✓</span>
+                                    <div>
+                                        <strong class="text-white">Action:</strong>
+                                        <p class="text-white/80">Pivot to a WASMOL-listed ICT occupation (e.g., Analyst Programmer).</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-xl mr-3 text-teal-400">✓</span>
+                                    <div>
+                                        <strong class="text-white">Advantage:</strong>
+                                        <p class="text-white/80">More predictable, aligns with state priorities, lower points threshold.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-xl mr-3 text-red-400">✗</span>
+                                    <div>
+                                        <strong class="text-white">Risk:</strong>
+                                        <p class="text-white/80">Success hinges on positive skills assessment in the new occupation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pathway B: Family Sponsored -->
+                        <div class="p-8 rounded-xl border-2 border-red-400/30 bg-red-500/5">
+                            <h4 class="text-2xl font-bold text-center mb-6 text-red-400">Pathway B: Family Sponsored</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <span class="text-xl mr-3 text-teal-400">✓</span>
+                                    <div>
+                                        <strong class="text-white">Action:</strong>
+                                        <p class="text-white/80">Use original occupation, sponsored by WA-based family.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-xl mr-3 text-teal-400">✓</span>
+                                    <div>
+                                        <strong class="text-white">Advantage:</strong>
+                                        <p class="text-white/80">Bypasses WASMOL; no need for occupational pivot.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-xl mr-3 text-red-400">✗</span>
+                                    <div>
+                                        <strong class="text-white">Risk:</strong>
+                                        <p class="text-white/80">Extremely high points (95+) required due to intense national competition.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk/Opportunity Comparison -->
+                    <div class="bg-white/5 p-6 rounded-xl">
+                        <h4 class="text-2xl font-bold text-center mb-6 text-white">Risk vs. Opportunity Analysis</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                            <div>
+                                <h5 class="text-lg font-bold text-teal-400 mb-3">State Nomination (SNMP)</h5>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <span class="text-white/80">Opportunity:</span>
+                                        <span class="text-teal-400 font-bold">85%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-white/80">Risk:</span>
+                                        <span class="text-red-400 font-bold">45%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-bold text-red-400 mb-3">Family Sponsored</h5>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <span class="text-white/80">Opportunity:</span>
+                                        <span class="text-teal-400 font-bold">30%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-white/80">Risk:</span>
+                                        <span class="text-red-400 font-bold">95%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendation -->
+                <div class="glass-morphism p-8 mb-16 text-center">
+                    <h3 class="text-3xl font-bold mb-6 card-text-shadow text-white">Definitive Recommendation</h3>
+                    <p class="text-white/90 text-lg mb-8 max-w-4xl mx-auto card-text-shadow-light">
+                        The analysis concludes that the <strong class="text-teal-400">WA State Nominated Program (SNMP) via Subclass 491 Visa</strong> 
+                        is the primary and optimal pathway. It offers greater strategic control and higher probability of success by directly 
+                        aligning with WA's economic needs.
+                    </p>
+                    <div class="inline-block bg-teal-500/10 border border-teal-400/30 rounded-xl px-8 py-6">
+                        <p class="text-2xl font-bold text-teal-400 mb-2">Primary Focus: SNMP (Subclass 491)</p>
+                        <p class="text-5xl font-extrabold text-white mb-2">+15</p>
+                        <p class="font-semibold text-white mb-2">Points for State Nomination</p>
+                        <p class="text-sm text-white/80">No job offer required from offshore</p>
+                    </div>
+                </div>
+
+                <!-- Four Pillar Value Proposition -->
+                <div class="glass-morphism p-8 mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 card-text-shadow text-white">WA-Specific Value Proposition</h3>
+                    <p class="text-white/90 text-center mb-10 card-text-shadow-light max-w-4xl mx-auto text-lg">
+                        Success depends on presenting applicants as strategic assets through a four-pillar narrative, 
+                        directly linking expertise to WA's key government policies and objectives.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="text-center p-6 bg-white/5 rounded-lg border border-white/20">
+                            <div class="text-5xl mb-4">🤖</div>
+                            <h4 class="text-xl font-bold text-white mb-3">AI & Digital Imperative</h4>
+                            <p class="text-white/80">Directly contribute to the <strong class="text-teal-400">'WA: Digitally Evolved'</strong> strategy by helping regional SMEs adopt AI and boost productivity.</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white/5 rounded-lg border border-white/20">
+                            <div class="text-5xl mb-4">💡</div>
+                            <h4 class="text-xl font-bold text-white mb-3">Innovation & Start-Up Catalyst</h4>
+                            <p class="text-white/80">Fuel the ecosystem supported by the <strong class="text-teal-400">'New Industries Fund'</strong> by mentoring early-stage founders.</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white/5 rounded-lg border border-white/20">
+                            <div class="text-5xl mb-4">🤝</div>
+                            <h4 class="text-xl font-bold text-white mb-3">First Nations Partnership</h4>
+                            <p class="text-white/80">Provide tangible support for the <strong class="text-teal-400">'Jina Plan'</strong> by offering digital marketing skills to Aboriginal tourism operators.</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white/5 rounded-lg border border-white/20">
+                            <div class="text-5xl mb-4">👨‍👩‍👧‍👦</div>
+                            <h4 class="text-xl font-bold text-white mb-3">Family & Community Anchor</h4>
+                            <p class="text-white/80">Utilize WA-based family network as verifiable proof of <strong class="text-teal-400">long-term commitment</strong> and successful settlement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Implementation Roadmap -->
+                <div class="glass-morphism p-8">
+                    <h3 class="text-3xl font-bold text-center mb-8 card-text-shadow text-white">WA Implementation Roadmap</h3>
+                    <p class="text-white/90 text-center mb-12 card-text-shadow-light max-w-4xl mx-auto text-lg">
+                        A structured, project-managed approach for executing this complex WA strategy from preparation to final visa lodgement.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <!-- Phase 1 -->
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <div class="bg-teal-500/20 border border-teal-400/30 rounded-lg p-4 text-center min-w-[200px]">
+                                <p class="text-xl font-bold text-teal-400">Phase 1</p>
+                                <p class="text-white font-semibold">Months 1-4</p>
+                            </div>
+                            <div class="flex-1 bg-white/5 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg text-white mb-2">Foundational Readiness & Skills Pivot</h4>
+                                <p class="text-white/80">Achieve 'Superior' English scores and lodge comprehensive skills assessment application for the pivoted ICT occupation.</p>
+                            </div>
+                        </div>
+
+                        <!-- Phase 2 -->
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <div class="bg-blue-500/20 border border-blue-400/30 rounded-lg p-4 text-center min-w-[200px]">
+                                <p class="text-xl font-bold text-blue-400">Phase 2</p>
+                                <p class="text-white font-semibold">Months 5-8</p>
+                            </div>
+                            <div class="flex-1 bg-white/5 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg text-white mb-2">Portfolio Completion & EOI</h4>
+                                <p class="text-white/80">Upon receiving positive skills assessments, lodge EOIs for both SNMP and Family-Sponsored streams. Finalize Strategic Evidence Portfolio.</p>
+                            </div>
+                        </div>
+
+                        <!-- Phase 3 -->
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <div class="bg-purple-500/20 border border-purple-400/30 rounded-lg p-4 text-center min-w-[200px]">
+                                <p class="text-xl font-bold text-purple-400">Phase 3</p>
+                                <p class="text-white font-semibold">Months 9+</p>
+                            </div>
+                            <div class="flex-1 bg-white/5 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg text-white mb-2">State Nomination & Invitation</h4>
+                                <p class="text-white/80">Await invitation from WA Government. Upon receipt, immediately lodge formal state nomination application with full evidence portfolio.</p>
+                            </div>
+                        </div>
+
+                        <!-- Phase 4 -->
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <div class="bg-green-500/20 border border-green-400/30 rounded-lg p-4 text-center min-w-[200px]">
+                                <p class="text-xl font-bold text-green-400">Phase 4</p>
+                                <p class="text-white font-semibold">Post-Nomination</p>
+                            </div>
+                            <div class="flex-1 bg-white/5 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg text-white mb-2">Final Visa Lodgement</h4>
+                                <p class="text-white/80">After receiving state nomination approval, lodge final Subclass 491 visa application with Department of Home Affairs within 60-day timeframe.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download CTA -->
+                    <div class="text-center mt-12">
+                        <a href="reports/WA-strat.docx" target="_blank" class="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center">
+                            <i class="fas fa-file-download mr-3"></i>
+                            Download Complete WA Strategy Document
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- Key Data Points at a Glance -->
@@ -904,11 +1071,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             gsap.registerPlugin(ScrollTrigger);
             
-            // Skip button functionality
-            document.getElementById('skip-story').addEventListener('click', skipToMainContent);
-            
-            // Dramatic Hero Opening Sequence
-            initHeroAnimation();
+            // Impact Loading Sequence
+            initImpactLoading();
             
             // Other scroll animations
             gsap.utils.toArray('.gsap-slide-up').forEach(element => {
@@ -926,125 +1090,65 @@
             initLiquidGlassEffects();
         });
 
-        function skipToMainContent() {
-            // Instantly hide story overlay and show main content
-            gsap.set('.story-overlay', { opacity: 0, pointerEvents: 'none' });
-            gsap.set('.hero-content', { opacity: 1 });
-            gsap.set('.hero-title', { opacity: 1, y: 0, scale: 1 });
-            gsap.set('.hero-subtitle', { opacity: 1, x: 0 });
-            gsap.set('.hero-description', { opacity: 1, x: 0 });
-            gsap.set('.hero-buttons', { opacity: 1, y: 0 });
-            gsap.set('.hero-scroll-indicator', { opacity: 1, y: 0 });
-            gsap.set('.hero-logo', { opacity: 1, scale: 1 });
-        }
-
-        function typeWriter(element, text, speed = 100) {
-            return new Promise((resolve) => {
-                let i = 0;
-                element.innerHTML = '';
+        function initImpactLoading() {
+            const serviceItems = document.querySelectorAll('.service-item');
+            const progressBar = document.getElementById('progressBar');
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            
+            // Animate service items with checkmarks
+            serviceItems.forEach((item, index) => {
+                const delay = parseFloat(item.dataset.delay);
+                const checkmark = item.querySelector('.service-checkmark');
                 
-                function type() {
-                    if (i < text.length) {
-                        element.innerHTML += text.charAt(i);
-                        i++;
-                        setTimeout(type, speed);
-                    } else {
-                        element.classList.add('typing-complete');
-                        setTimeout(resolve, 500); // Brief pause after typing
-                    }
-                }
-                type();
-            });
-        }
-
-        function animateClaudeEmotions() {
-            const claudeFace = document.getElementById('claude-face');
-            const emotions = ['1.svg', '2.svg', '3.svg', '4.svg'];
-            let currentEmotion = 0;
-            
-            // Start with neutral, then progress through happy emotions
-            function changeEmotion() {
-                if (currentEmotion < emotions.length - 1) {
-                    currentEmotion++;
-                    claudeFace.src = `media/claude/${emotions[currentEmotion]}`;
-                    
-                    // Add a little bounce when changing emotions
-                    gsap.to('#claude-face', {
-                        scale: 1.1,
-                        duration: 0.2,
-                        ease: 'back.out(1.5)',
-                        yoyo: true,
-                        repeat: 1
+                setTimeout(() => {
+                    // Slide in the service item
+                    gsap.to(item, {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.5,
+                        ease: 'power2.out'
                     });
-                }
-            }
-            
-            // Change emotions gradually as conversation progresses
-            setTimeout(() => changeEmotion(), 8000);   // After "Sure" finishes
-            setTimeout(() => changeEmotion(), 12000);  // After "Team?" finishes  
-            setTimeout(() => changeEmotion(), 16000);  // After "Let's go Claude!" finishes
-        }
-
-        function initHeroAnimation() {
-            const masterTL = gsap.timeline({ delay: 1.5 });
-            
-            masterTL
-                // Bubbles appear like raindrops with typewriter
-                .to('[data-line="1"]', { opacity: 1, duration: 0.5, onComplete: () => typeWriter(document.querySelector('[data-line="1"] .typewriter-text'), document.querySelector('[data-line="1"]').getAttribute('data-text'), 80) })
-                .to('[data-line="2"]', { opacity: 1, duration: 0.5, onComplete: () => typeWriter(document.querySelector('[data-line="2"] .typewriter-text'), document.querySelector('[data-line="2"]').getAttribute('data-text'), 120) }, '+=2.5')
-                .to('[data-line="3"]', { opacity: 1, duration: 0.5, onComplete: () => typeWriter(document.querySelector('[data-line="3"] .typewriter-text'), document.querySelector('[data-line="3"]').getAttribute('data-text'), 120) }, '+=1.5')
-                .to('[data-line="4"]', { 
-                    opacity: 1, 
-                    duration: 0.5, 
-                    onComplete: async () => {
-                        // First type "ME"
-                        await typeWriter(document.querySelector('[data-line="4"] .typewriter-text'), document.querySelector('[data-line="4"]').getAttribute('data-text'), 150);
+                    
+                    // Pop in the checkmark
+                    setTimeout(() => {
+                        gsap.to(checkmark, {
+                            scale: 1,
+                            duration: 0.3,
+                            ease: 'back.out(1.7)'
+                        });
                         
-                        // Then Claude appears in the bubble
-                        gsap.to('.claude-in-bubble', { 
-                            opacity: 1, 
-                            scale: 1.2,
-                            duration: 0.6, 
-                            ease: 'back.out(1.5)',
-                            onComplete: () => {
-                                // After a moment, animate to corner
-                                setTimeout(() => {
-                                    gsap.to('.claude-character', { 
-                                        opacity: 1, 
-                                        scale: 1, 
-                                        duration: 1, 
-                                        ease: 'power2.out'
-                                    });
-                                    gsap.to('.claude-in-bubble', { 
-                                        opacity: 0, 
-                                        duration: 0.5 
-                                    });
-                                    // Start floating and emotions
-                                    gsap.to('.claude-character', {
-                                        y: -8,
-                                        duration: 2,
-                                        ease: 'sine.inOut',
-                                        repeat: -1,
-                                        yoyo: true
-                                    });
-                                    animateClaudeEmotions();
-                                }, 1000);
-                            }
+                        // Update progress bar
+                        const progress = ((index + 1) / serviceItems.length) * 100;
+                        progressBar.style.width = progress + '%';
+                    }, 200);
+                }, delay * 1000);
+            });
+            
+            // Hide loading overlay and show main content after 5 seconds
+            setTimeout(() => {
+                // Fade out loading overlay
+                gsap.to(loadingOverlay, {
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    onComplete: () => {
+                        loadingOverlay.style.display = 'none';
+                        
+                        // Animate in hero content
+                        gsap.to(['.hero-title', '.hero-subtitle', '.hero-description', '.hero-buttons', '.hero-scroll-indicator'], {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            stagger: 0.2,
+                            ease: 'power2.out'
                         });
                     }
-                }, '+=1.2')
-                .to('[data-line="5"]', { opacity: 1, duration: 0.5, onComplete: () => typeWriter(document.querySelector('[data-line="5"] .typewriter-text'), document.querySelector('[data-line="5"]').getAttribute('data-text'), 80) }, '+=1')
-                
-                // Everything fades to reveal site
-                .to('.story-overlay', { opacity: 0, duration: 2, ease: 'power2.out', onComplete: ()=>{document.querySelector('.story-overlay')?.style.setProperty('pointer-events','none');} }, '+=2')
-                .to('.hero-content', { opacity: 1, duration: 1 }, '-=1')
-                .to('.hero-title', { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'elastic.out(1, 0.8)' }, '-=0.5')
-                .to('.hero-subtitle', { opacity: 1, x: 0, duration: 0.8 }, '-=0.4')
-                .to('.hero-description', { opacity: 1, x: 0, duration: 0.8 }, '-=0.6')
-                .to('.hero-buttons', { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
-                .to('.hero-scroll-indicator', { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
-                .to('.hero-logo', { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.4');
+                });
+            }, 5000);
         }
+
+
+
 
         function initLiquidGlassEffects() {
             // Enhanced liquid glass interaction for cards
