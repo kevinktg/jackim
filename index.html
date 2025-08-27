@@ -158,7 +158,8 @@
             overflow: hidden;
             position: relative;
             width: 100vw;
-            margin-left: calc(-50vw + 50%);
+            left: 50%;
+            margin-left: -50vw;
         }
         
         .scroll-cards-container {
@@ -533,11 +534,14 @@
     </header>
 
     <main class="relative z-10">
-        <div class="container mx-auto px-4">
         <!-- Hero Section -->
-        <section class="text-center min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+        <section class="text-center min-h-screen flex items-center justify-center pt-10 pb-20 md:pt-16 relative overflow-hidden">
             <!-- Dark Story Overlay -->
             <div class="story-overlay z-20 bg-black">
+                <!-- Skip Button -->
+                <button id="skip-story" class="fixed top-8 right-8 z-30 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg backdrop-blur-sm border border-white/30 transition-all duration-300">
+                    Skip Intro <i class="fas fa-forward ml-2"></i>
+                </button>
                 <div class="story-text relative w-full h-full">
                         <!-- Simple floating bubbles -->
                         <div class="floating-bubble speech-bubble story-line" data-line="1" data-text="Aunty Cherry needs your help...">
@@ -554,7 +558,8 @@
                         </div>
                         <div class="floating-bubble speech-bubble story-line" data-line="4" data-text="ME">
                             <div class="speaker-label text-xs text-orange-300/60 mb-1">Claude:</div>
-                                <img src="media/claude/1.svg" alt="Claude" class="w-80 h-80">
+                            <div class="claude-in-bubble opacity-0">
+                                <img src="media/claude/1.svg" alt="Claude" class="w-16 h-16 mx-auto mb-2">
                             </div>
                             <p class="text-lg text-orange-400 font-bold typewriter-text"></p>
                         </div>
@@ -563,15 +568,17 @@
                             <p class="text-lg text-blue-400 font-bold typewriter-text"></p>
                         </div>
 
-                        <!-- Claude in bottom-right -->
-                        <!-- Claude avatar moved out of overlay -->
+                        <!-- Claude character positioned in bottom-right -->
+                        <div class="claude-character fixed bottom-8 right-8 z-30">
+                            <img id="claude-face" src="media/claude/1.svg" alt="Claude" class="w-24 h-24">
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Main Hero Content -->
             <div class="hero-content w-full max-w-6xl mx-auto opacity-0">
-                <img src="media/Good.svg" alt="Brand Logo" class="hero-logo mx-auto w-32 mb-6 opacity-0">
+                <img src="media/Good.svg" alt="Brand Logo" class="hero-logo mx-auto w-128 mb-8 opacity-0">
                 <h1 class="text-6xl md:text-7xl font-extrabold text-white mb-8 card-text-shadow hero-title">
                     The JacKim experience
                 </h1>
@@ -600,7 +607,6 @@
                 </div>
             </div>
         </section>
-        </div>
 
                  <!-- Scrolling Cards Section -->
         <section class="mb-32 gsap-slide-up">
@@ -658,8 +664,11 @@
          <section id="stats" class="mb-32 gsap-slide-up">
                  <div class="max-w-4xl mx-auto mb-20">
                      <div class="relative bg-black/30 rounded-xl overflow-hidden shadow-2xl" style="padding-top: 56.25%">
-                         <video class="absolute inset-0 w-full h-full" src="media/video/video.mp4" controls playsinline
-                             muted poster="assets/perth.jpg"></video>
+                         <video class="absolute inset-0 w-full h-full" controls playsinline preload="metadata"
+                             poster="assets/perth.jpg">
+                             <source src="media/video/video.mp4" type="video/mp4">
+                             Your browser does not support the video tag.
+                         </video>
                      </div>
                  </div>
                  
@@ -682,7 +691,7 @@
                          equipped to contribute to Australia's priority economic sectors, specifically within a regional context.
                      </p>
                  </div>
-#START OF NARRATIVE
+
                 <!-- State Nomination Risk Analysis -->
                 <div class="glass-morphism p-8 mb-16">
                     <h3 class="text-3xl font-bold text-center mb-8 card-text-shadow">The State Nomination Gauntlet</h3>
@@ -846,7 +855,7 @@
             <h3 class="text-3xl font-bold mb-8 card-text-shadow">Document Hub</h3>
             <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-6">
                 <a href="https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">NotebookLM (Main)</a>
-                <a href="https://notebooklm.google.com/notebook/2f8d2eab-xxxx-mike-gration" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">NotebookLM – Mike Gration Immigration Extraordinaire</a>
+                <a href="https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">NotebookLM – Mike Gration Immigration Extraordinaire</a>
                 <a href="reports/SGVSAUS-strategy.pdf" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">Australia Pathway PDF</a>
                 <a href="reports/Singapore-Roadmap.docx" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">Singapore Pathway DOCX</a>
                 <a href="reports/SGVSAUS-strategy.pdf" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">Singapore vs Australia (Autism)</a>
@@ -895,6 +904,9 @@
         document.addEventListener('DOMContentLoaded', () => {
             gsap.registerPlugin(ScrollTrigger);
             
+            // Skip button functionality
+            document.getElementById('skip-story').addEventListener('click', skipToMainContent);
+            
             // Dramatic Hero Opening Sequence
             initHeroAnimation();
             
@@ -913,6 +925,18 @@
             initAlignmentChart();
             initLiquidGlassEffects();
         });
+
+        function skipToMainContent() {
+            // Instantly hide story overlay and show main content
+            gsap.set('.story-overlay', { opacity: 0, pointerEvents: 'none' });
+            gsap.set('.hero-content', { opacity: 1 });
+            gsap.set('.hero-title', { opacity: 1, y: 0, scale: 1 });
+            gsap.set('.hero-subtitle', { opacity: 1, x: 0 });
+            gsap.set('.hero-description', { opacity: 1, x: 0 });
+            gsap.set('.hero-buttons', { opacity: 1, y: 0 });
+            gsap.set('.hero-scroll-indicator', { opacity: 1, y: 0 });
+            gsap.set('.hero-logo', { opacity: 1, scale: 1 });
+        }
 
         function typeWriter(element, text, speed = 100) {
             return new Promise((resolve) => {
@@ -1012,7 +1036,7 @@
                 .to('[data-line="5"]', { opacity: 1, duration: 0.5, onComplete: () => typeWriter(document.querySelector('[data-line="5"] .typewriter-text'), document.querySelector('[data-line="5"]').getAttribute('data-text'), 80) }, '+=1')
                 
                 // Everything fades to reveal site
-                .to('.story-overlay', { opacity: 0, duration: 2, ease: 'power2.out' }, '+=2')
+                .to('.story-overlay', { opacity: 0, duration: 2, ease: 'power2.out', onComplete: ()=>{document.querySelector('.story-overlay')?.style.setProperty('pointer-events','none');} }, '+=2')
                 .to('.hero-content', { opacity: 1, duration: 1 }, '-=1')
                 .to('.hero-title', { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'elastic.out(1, 0.8)' }, '-=0.5')
                 .to('.hero-subtitle', { opacity: 1, x: 0, duration: 0.8 }, '-=0.4')
