@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Brand Powerhouse Duo | Australian Migration Strategy Guide</title>
 
-    <!-- Handcrafted Design System -->
-    <link rel="stylesheet" href="assets/handcrafted-design-system.css">
-    
     <!-- Tailwind CSS for layout utilities -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -22,72 +19,140 @@
     <!-- Google Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
+    <!-- Handcrafted Design System -->
+    <link rel="stylesheet" href="assets/handcrafted-design-system.css">
+    
     <style>
         /* Base styles for the page */
         body {
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
-            background-color: #0f172a;
+            background-color: #0a1340;
+            /* Dark blue-slate background */
             overflow-x: hidden;
             position: relative;
             color: white;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Syne', sans-serif;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Inter', sans-serif;
         }
-
-        /* Full site background with kangaroo image */
-        .site-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: url('assets/aussie.jpg') center center;
-            background-size: cover;
-            opacity: 1;
-        }
-
-        .site-background::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0.2) 0%,
-                rgba(0, 0, 0, 0.15) 30%,
-                rgba(0, 0, 0, 0.2) 70%,
-                rgba(0, 0, 0, 0.3) 100%
-            );
-            z-index: -1;
-        }
-
-        /* Glass morphism card container */
+        
+        /* Full site background with image and gradient overlay */
+         .site-background {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             z-index: -2;
+             background: url("assets/aussie.jpg") center center;
+             background-size: cover;
+            opacity: 0.5;
+            /* Soften the background image */
+         }
+         
+         .site-background::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0.8) 100%);
+             z-index: -1;
+         }
+        
+        /* Enhanced Glass morphism with liquid effects */
         .glass-morphism {
-            background: rgba(255, 255, 255, 0.05);
-            -webkit-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            backdrop-filter: blur(15px) saturate(180%);
+            border-radius: 20px;
+            border: 1px solid rgba(77, 65, 168, 0.18);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.25),
+                inset 0 1px 20px rgba(23, 18, 174, 0.1);
             position: relative;
             overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
+        /* Liquid glass morphing animation */
+        .glass-morphism::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at 50% 50%,
+                rgba(10, 63, 209, 0.03) 0%,
+                transparent 70%
+            );
+            opacity: 0;
+            transition: all 0.6s ease;
+            pointer-events: none;
+        }
+
+        .glass-morphism:hover::before {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .glass-morphism:hover {
+            transform: translateY(-8px) scale(1.02);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 2px 40px rgba(255, 255, 255, 0.15),
+                0 0 40px rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+        }
+
+        /* Liquid ripple effect */
+        .glass-morphism::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(71, 41, 153, 0.1) 0%,
+                transparent 70%
+            );
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .glass-morphism:hover::after {
+            width: 300px;
+            height: 300px;
+            opacity: 1;
+        }
+        
         /* GSAP will handle the slide-up animation */
         .gsap-slide-up {
             opacity: 0;
             transform: translateY(50px);
         }
-
+        
         /* Scrolling cards animation */
         .scroll-cards {
             overflow: hidden;
@@ -95,7 +160,7 @@
             width: 100vw;
             margin-left: calc(-50vw + 50%);
         }
-
+        
         .scroll-cards-container {
             display: flex;
             gap: 2rem;
@@ -103,73 +168,364 @@
             width: max-content;
             padding: 1rem 0;
         }
-
+        
         .scroll-card {
             min-width: 280px;
             flex-shrink: 0;
         }
-
+        
         @keyframes scrollCards {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 1rem)); }
-        }
+            0% {
+                transform: translateX(0);
+            }
 
+            100% {
+                transform: translateX(calc(-50% - 1rem));
+            }
+        }
+        
         /* Card text shadows for better readability */
         .card-text-shadow {
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
-
+        
         .card-text-shadow-light {
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
         }
 
-        /* Custom cursor effect */
-        .custom-cursor {
-            position: fixed;
-            width: 24px;
-            height: 24px;
-            background: rgba(59, 130, 246, 0.8);
+        /* Liquid Glass Button Styles */
+        .liquid-glass-btn, .liquid-glass-btn-primary {
+            position: relative;
+            overflow: hidden;
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(50, 23, 156, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-origin: center;
+        }
+
+        .liquid-glass-btn::before, .liquid-glass-btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(16, 28, 56, 0.3),
+                transparent
+            );
+            transition: left 0.6s ease;
+        }
+
+        .liquid-glass-btn::after, .liquid-glass-btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
             border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            transition: transform 0.1s ease;
+            background: radial-gradient(
+                circle,
+                rgba(40, 26, 130, 0.2) 0%,
+                transparent 70%
+            );
             transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+            opacity: 0;
         }
 
-        .custom-cursor.hover {
-            transform: translate(-50%, -50%) scale(2);
-            background: rgba(59, 130, 246, 1);
+        .liquid-glass-btn:hover, .liquid-glass-btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 20px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .hide-cursor {
-            cursor: none;
+        .liquid-glass-btn:hover::before, .liquid-glass-btn-primary:hover::before {
+            left: 100%;
         }
 
-        /* Responsive design adjustments */
-        @media (max-width: 768px) {
-            .custom-cursor {
-                display: none;
+        .liquid-glass-btn:hover::after, .liquid-glass-btn-primary:hover::after {
+            width: 200px;
+            height: 200px;
+            opacity: 1;
+        }
+
+        .liquid-glass-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .liquid-glass-btn-primary:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(37, 99, 235, 0.9));
+        }
+
+        /* Morphing animation for scroll cards */
+        .scroll-card.glass-morphism {
+            transition: all 0.3s ease;
+        }
+
+        .scroll-card.glass-morphism:hover {
+            animation-play-state: paused;
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        /* Hero Opening Animation - Initial States */
+        .hero-title {
+            opacity: 0;
+            transform: translateY(100px) scale(0.8);
+        }
+        
+        .hero-subtitle {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        
+        .hero-description {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        
+        .hero-buttons {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .hero-scroll-indicator {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Story Overlay Styles */
+        .story-overlay {
+            background: #000000;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        
+        .story-line {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .boom-text {
+            transform: translateY(50px) scale(0.5);
+        }
+
+        .claude-character {
+            opacity: 0;
+            transform: scale(0) rotate(180deg);
+        }
+
+        /* SVG Animation Effects */
+        .claude-character svg,
+        .claude-character img {
+            transition: all 0.3s ease;
+        }
+
+        .claude-character:hover svg path,
+        .claude-character:hover img {
+            animation: pulse-glow 4s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+                transform: scale(1);
             }
-            
-            .hide-cursor {
-                cursor: auto;
+            50% { 
+                filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.8));
+                transform: scale(1.05);
             }
+        }
+
+        /* SVG specific animations */
+        .claude-character svg path {
+            transition: all 0.3s ease;
+        }
+
+        .claude-character svg:hover path {
+            fill: #3b82f6;
+            stroke: #60a5fa;
+        }
+
+        /* Speech Bubble Styles */
+        .speech-bubble {
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin: 1rem auto;
+            max-width: 300px;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mum's bubbles - warm pink/white */
+        .speech-bubble[data-line="1"] {
+            background: rgba(255, 182, 193, 0.15);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        /* Kev's bubbles - green */
+        .speech-bubble[data-line="2"],
+        .speech-bubble[data-line="3"],
+        .speech-bubble[data-line="5"] {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        /* Claude's bubble - orange */
+        .speech-bubble[data-line="4"] {
+            background: rgba(255, 165, 0, 0.15);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+        }
+
+        /* Speech bubble tail */
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        /* Left bubble (Mum) */
+        .left-bubble::before {
+            bottom: -15px;
+            left: 30px;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid rgba(255, 182, 193, 0.15);
+        }
+
+        /* Right bubble (Your response) */
+        .right-bubble {
+            margin-left: auto;
+            margin-right: 2rem;
+        }
+
+        .right-bubble::before {
+            bottom: -15px;
+            right: 30px;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid rgba(34, 197, 94, 0.15);
+        }
+
+        /* Center bubble (Team declaration) */
+        .center-bubble {
+            margin: 1.5rem auto;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .center-bubble::before {
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid rgba(59, 130, 246, 0.15);
+        }
+
+        /* Claude's bubble - orange */
+        .claude-bubble {
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.2), rgba(255, 140, 0, 0.2));
+            border: 1px solid rgba(255, 165, 0, 0.4);
+            margin: 0;
+            opacity: 0;
+            transform: translateX(-50%) translateY(20px);
+            min-width: 250px;
+        }
+
+        .claude-bubble::before {
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid rgba(255, 165, 0, 0.2);
+        }
+
+        .claude-container {
+            display: inline-block;
+        }
+
+        /* Floating Raindrop Bubbles */
+        .floating-bubble {
+            position: absolute;
+            max-width: 400px;
+            padding: 1rem 1.5rem;
+            min-height: 60px;
+        }
+
+        /* Position bubbles - Mum left, Kev right, Claude center */
+        .floating-bubble[data-line="1"] { top: 10%; left: 10%; }
+        .floating-bubble[data-line="2"] { top: 25%; right: 10%; }
+        .floating-bubble[data-line="3"] { top: 40%; right: 10%; }
+        .floating-bubble[data-line="4"] { top: 55%; left: 50%; transform: translateX(-50%); }
+        .floating-bubble[data-line="5"] { top: 70%; right: 10%; }
+
+        /* Typewriter Effect */
+        .typewriter-text {
+            overflow: hidden;
+            border-right: 2px solid rgba(255, 255, 255, 0.7);
+            white-space: nowrap;
+            animation: blink-caret 1s infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: rgba(255, 255, 255, 0.7); }
+        }
+
+        /* Hide caret after typing is complete */
+        .typing-complete {
+            border-right: none;
+            animation: none;
+        }
+
+        /* Explosion effect for BOOM */
+        .boom-explosion {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 100;
+            background: radial-gradient(circle at center, 
+                rgba(59, 130, 246, 0.3) 0%, 
+                rgba(147, 51, 234, 0.2) 30%, 
+                rgba(236, 72, 153, 0.1) 50%, 
+                transparent 70%);
+            opacity: 0;
         }
     </style>
 </head>
 
-<body class="hide-cursor">
+<body>
     <div class="site-background"></div>
-
-    <!-- Custom cursor -->
-    <div class="custom-cursor"></div>
-
-    <!-- Minimal Header -->
-    <header id="minimal-header" class="fixed top-0 left-0 right-0 z-50 bg-slate-900/30 backdrop-blur-sm transition-transform duration-300 ease-in-out">
-        <div class="flex justify-center py-2">
+    <div class="boom-explosion"></div>
+    
+    <!-- Header with Logo -->
+    <header id="minimal-header"
+        class="fixed top-0 left-0 right-0 z-50 bg-slate-900/30 backdrop-blur-sm transition-transform duration-300 ease-in-out">
+        <div class="flex justify-center py-3 px-6">
             <div class="flex items-center space-x-4 text-white/80 text-sm">
-                <span class="font-medium">Brand Powerhouse Duo</span>
+                <span class="font-medium">The Brand Powerhouse Duo</span>
                 <span class="text-white/40">|</span>
                 <span class="text-white/60">Australian Migration Strategy</span>
             </div>
@@ -178,43 +534,75 @@
 
     <main class="relative z-10">
         <div class="container mx-auto px-4">
-            <!-- Hero Section -->
-            <section class="text-center min-h-screen flex items-center justify-center py-20 gsap-slide-up">
-                <div class="w-full max-w-6xl mx-auto">
-                    <div class="mb-8 flex justify-center">
-                        <img src="media/7.svg" alt="Good AI Logo" class="w-80 h-80" loading="lazy" width="320" height="320" style="z-index: 20; position: relative; filter: brightness(1.5) contrast(1.3);">
-                    </div>
+        <!-- Hero Section -->
+        <section class="text-center min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+            <!-- Dark Story Overlay -->
+            <div class="story-overlay z-20 bg-black">
+                <div class="story-text relative w-full h-full">
+                        <!-- Simple floating bubbles -->
+                        <div class="floating-bubble speech-bubble story-line" data-line="1" data-text="Aunty Cherry needs your help...">
+                            <div class="speaker-label text-xs text-white/60 mb-1">Mum:</div>
+                            <p class="text-lg text-white typewriter-text"></p>
+                        </div>
+                        <div class="floating-bubble speech-bubble story-line" data-line="2" data-text="Sure.">
+                            <div class="speaker-label text-xs text-green-300/60 mb-1">Kev:</div>
+                            <p class="text-lg text-green-400 typewriter-text"></p>
+                        </div>
+                        <div class="floating-bubble speech-bubble story-line" data-line="3" data-text="Team?">
+                            <div class="speaker-label text-xs text-green-300/60 mb-1">Kev:</div>
+                            <p class="text-lg text-green-400 typewriter-text"></p>
+                        </div>
+                        <div class="floating-bubble speech-bubble story-line" data-line="4" data-text="ME">
+                            <div class="speaker-label text-xs text-orange-300/60 mb-1">Claude:</div>
+                                <img src="media/claude/1.svg" alt="Claude" class="w-80 h-80">
+                            </div>
+                            <p class="text-lg text-orange-400 font-bold typewriter-text"></p>
+                        </div>
+                        <div class="floating-bubble speech-bubble story-line" data-line="5" data-text="Let's go Claude! 🚀">
+                            <div class="speaker-label text-xs text-green-300/60 mb-1">Kev:</div>
+                            <p class="text-lg text-blue-400 font-bold typewriter-text"></p>
+                        </div>
 
-                    <h1 class="text-6xl md:text-7xl font-extrabold text-white mb-8 card-text-shadow">
-                        The Brand Powerhouse Duo
-                    </h1>
-                    <p class="text-2xl md:text-3xl text-white max-w-3xl mx-auto mb-8 font-medium card-text-shadow">
-                        A Max-Optimal Strategy for Australian Skilled Migration
-                    </p>
-                    <p class="text-xl text-white/90 max-w-3xl mx-auto mb-12 card-text-shadow-light">
-                        Interactive Migration Strategy Guide & Document Repository
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                        <a href="#stats" class="handcrafted-button inline-flex items-center text-white px-8 py-4 rounded-full text-lg font-semibold" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
-                            <i class="fas fa-chart-line mr-3"></i>
-                            View Strategy
-                        </a>
-                        <a href="https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4" target="_blank" rel="noopener noreferrer" 
-                           class="handcrafted-button inline-flex items-center text-white px-8 py-4 rounded-full text-lg font-semibold">
-                            <i class="fas fa-brain mr-3"></i>
-                            AI Research Assistant
-                        </a>
-                    </div>
-
-                    <div class="animate-pulse">
-                        <i class="fas fa-chevron-down text-white text-3xl card-text-shadow"></i>
+                        <!-- Claude in bottom-right -->
+                        <!-- Claude avatar moved out of overlay -->
                     </div>
                 </div>
-            </section>
+            </div>
+
+            <!-- Main Hero Content -->
+            <div class="hero-content w-full max-w-6xl mx-auto opacity-0">
+                <img src="media/Good.svg" alt="Brand Logo" class="hero-logo mx-auto w-32 mb-6 opacity-0">
+                <h1 class="text-6xl md:text-7xl font-extrabold text-white mb-8 card-text-shadow hero-title">
+                    The JacKim experience
+                </h1>
+                <p class="text-2xl md:text-3xl text-white max-w-3xl mx-auto mb-8 font-medium card-text-shadow hero-subtitle">
+                    A Max-Optimal Strategy for Australian Skilled Migration
+                </p>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-12 card-text-shadow-light hero-description">
+                    Interactive Migration Strategy Guide & Document Repository
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 hero-buttons">
+                    <a href="#stats"
+                        class="liquid-glass-btn inline-flex items-center bg-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold">
+                        <i class="fas fa-chart-line mr-3"></i>
+                        View Strategy
+                    </a>
+                    <a href="https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4" target="_blank" rel="noopener noreferrer" 
+                        class="liquid-glass-btn-primary inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold">
+                        <i class="fas fa-brain mr-3"></i>
+                        AI Research Assistant
+                    </a>
+                </div>
+                
+                <div class="animate-pulse hero-scroll-indicator">
+                    <i class="fas fa-chevron-down text-white text-3xl card-text-shadow"></i>
+                </div>
+            </div>
+        </section>
         </div>
 
-        <!-- Scrolling Cards Section -->
+                 <!-- Scrolling Cards Section -->
         <section class="mb-32 gsap-slide-up">
             <div class="w-full">
                 <h2 class="text-4xl font-bold text-center mb-12 card-text-shadow container mx-auto px-4">
@@ -226,83 +614,39 @@
                         <div class="scroll-card glass-morphism p-6 text-center">
                             <div class="text-4xl mb-3">🎯</div>
                             <h3 class="text-xl font-bold mb-2 card-text-shadow">Strategic Pivot</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">From NSW to Victoria: Data-driven risk mitigation</p>
+                            <p class="text-white/80 text-sm card-text-shadow-light">From NSW to Victoria: Data-driven
+                                risk mitigation</p>
                         </div>
                         <div class="scroll-card glass-morphism p-6 text-center">
                             <div class="text-4xl mb-3">📈</div>
                             <h3 class="text-xl font-bold mb-2 card-text-shadow">Points Optimization</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">VIC 491 adds decisive +15 nomination points</p>
+                            <p class="text-white/80 text-sm card-text-shadow-light">VIC 491 adds decisive +15 nomination
+                                points</p>
                         </div>
                         <div class="scroll-card glass-morphism p-6 text-center">
                             <div class="text-4xl mb-3">🏆</div>
                             <h3 class="text-xl font-bold mb-2 card-text-shadow">Four Strategic Layers</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">AI, First Nations, Regional, Asia-Pacific alignment</p>
-                        </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
-                            <div class="text-4xl mb-3">🎨</div>
-                            <h3 class="text-xl font-bold mb-2 card-text-shadow">Creative Excellence</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Portfolio showcasing design and marketing expertise</p>
-                        </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
-                            <div class="text-4xl mb-3">🌏</div>
-                            <h3 class="text-xl font-bold mb-2 card-text-shadow">Regional Focus</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Targeting Victoria's regional development priorities</p>
-                        </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
-                            <div class="text-4xl mb-3">🚀</div>
-                            <h3 class="text-xl font-bold mb-2 card-text-shadow">Digital Economy</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">AI technology integration for regional businesses</p>
-                        </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
-                            <div class="text-4xl mb-3">🤝</div>
-                            <h3 class="text-xl font-bold mb-2 card-text-shadow">First Nations</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Cultural engagement and community partnerships</p>
-                        </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
-                            <div class="text-4xl mb-3">🌊</div>
-                            <h3 class="text-xl font-bold mb-2 card-text-shadow">Asia-Pacific</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Gateway to international markets and tourism</p>
+                            <p class="text-white/80 text-sm card-text-shadow-light">AI, First Nations, Regional,
+                                Asia-Pacific alignment</p>
                         </div>
                         <!-- Card Set 2 (Duplicate for seamless loop) -->
                         <div class="scroll-card glass-morphism p-6 text-center">
                             <div class="text-4xl mb-3">🎯</div>
                             <h3 class="text-xl font-bold mb-2 card-text-shadow">Strategic Pivot</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">From NSW to Victoria: Data-driven risk mitigation</p>
+                            <p class="text-white/80 text-sm card-text-shadow-light">From NSW to Victoria: Data-driven
+                                risk mitigation</p>
                         </div>
                         <div class="scroll-card glass-morphism p-6 text-center">
                             <div class="text-4xl mb-3">📈</div>
                             <h3 class="text-xl font-bold mb-2 card-text-shadow">Points Optimization</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">VIC 491 adds decisive +15 nomination points</p>
+                            <p class="text-white/80 text-sm card-text-shadow-light">VIC 491 adds decisive +15 nomination
+                                points</p>
                         </div>
                         <div class="scroll-card glass-morphism p-6 text-center">
                             <div class="text-4xl mb-3">🏆</div>
                             <h3 class="text-xl font-bold mb-2 card-text-shadow">Four Strategic Layers</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">AI, First Nations, Regional, Asia-Pacific alignment</p>
-                        </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
-                            <div class="text-4xl mb-3">🎨</div>
-                            <h3 class="text-xl font-bold mb-2 card-text-shadow">Creative Excellence</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Portfolio showcasing design and marketing expertise</p>
-                        </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
-                            <div class="text-4xl mb-3">🌏</div>
-                            <h3 class="text-xl font-bold mb-2 card-text-shadow">Regional Focus</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Targeting Victoria's regional development priorities</p>
-                        </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
-                            <div class="text-4xl mb-3">🚀</div>
-                            <h3 class="text-xl font-bold mb-2 card-text-shadow">Digital Economy</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">AI technology integration for regional businesses</p>
-                        </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
-                            <div class="text-4xl mb-3">🤝</div>
-                            <h3 class="text-xl font-bold mb-2 card-text-shadow">First Nations</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Cultural engagement and community partnerships</p>
-                        </div>
-                        <div class="scroll-card glass-morphism p-6 text-center">
-                            <div class="text-4xl mb-3">🌊</div>
-                            <h3 class="text-xl font-bold mb-2 card-text-shadow">Asia-Pacific</h3>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Gateway to international markets and tourism</p>
+                            <p class="text-white/80 text-sm card-text-shadow-light">AI, First Nations, Regional,
+                                Asia-Pacific alignment</p>
                         </div>
                     </div>
                 </div>
@@ -311,449 +655,532 @@
 
         <div class="container mx-auto px-4">
             <!-- Statistics & Video Section -->
-            <section id="stats" class="mb-32 gsap-slide-up">
-                <div class="max-w-4xl mx-auto mb-20">
-                    <div class="relative bg-black/30 rounded-xl overflow-hidden shadow-2xl" style="padding-top: 35%">
-                        <video class="absolute inset-0 w-full h-full" src="media/video/video.mp4" controls playsinline muted poster="assets/perth.jpg"></video>
-                    </div>
-                </div>
-
-                <div class="glass-morphism paper-card p-8 text-center mb-16">
-                    <h3 class="text-2xl font-bold text-white mb-4 card-text-shadow">A Synergistic Approach to Migration</h3>
-                    <p class="text-white/90 text-lg leading-relaxed max-w-4xl mx-auto card-text-shadow-light">
-                        This strategy reframes a standard skilled migration application for a Marketing Specialist and Graphic Designer 
-                        into a compelling narrative. It presents the couple as a single, high-value economic unit—a 'Brand Powerhouse Duo'—uniquely 
-                        equipped to contribute to Australia's priority economic sectors, specifically within a regional context.
+         <section id="stats" class="mb-32 gsap-slide-up">
+                 <div class="max-w-4xl mx-auto mb-20">
+                     <div class="relative bg-black/30 rounded-xl overflow-hidden shadow-2xl" style="padding-top: 56.25%">
+                         <video class="absolute inset-0 w-full h-full" src="media/video/video.mp4" controls playsinline
+                             muted poster="assets/perth.jpg"></video>
+                     </div>
+                 </div>
+                 
+                 <!-- Audio Section -->
+                 <div class="max-w-4xl mx-auto mb-20">
+                     <div class="glass-morphism p-8 text-center">
+                         <h2 class="text-3xl font-bold mb-4 card-text-shadow"><i class="fas fa-headphones mr-3"></i>Audio Interviews</h2>
+                         <div class="relative bg-black/30 rounded-xl overflow-hidden shadow-2xl p-4">
+                             <audio class="w-full" src="audio/audio.mp3" controls preload="metadata">
+                                 Your browser does not support the audio element.
+                             </audio>
+                         </div>
+                     </div>
+                 </div>
+                <div class="glass-morphism p-8 text-center mb-16">
+                    <h3 class="text-2xl font-bold mb-4 card-text-shadow">A Synergistic Approach to Migration</h3>
+                     <p class="text-white/90 text-lg leading-relaxed max-w-4xl mx-auto card-text-shadow-light">
+                        This strategy reframes a standard skilled migration application for a Marketing Specialist and a Graphic Designer into a
+                        compelling narrative. It presents the couple as a single, high-value economic unit—a 'Brand Powerhouse Duo'—uniquely
+                         equipped to contribute to Australia's priority economic sectors, specifically within a regional context.
+                     </p>
+                 </div>
+#START OF NARRATIVE
+                <!-- State Nomination Risk Analysis -->
+                <div class="glass-morphism p-8 mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 card-text-shadow">The State Nomination Gauntlet</h3>
+                    <p class="text-white/90 text-center mb-8 card-text-shadow-light max-w-4xl mx-auto">
+                        Securing a state nomination is the most critical hurdle. A data-driven analysis of state occupation lists and priorities reveals a clear, unavoidable strategic decision is required to mitigate risk and maximize the probability of success.
                     </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="text-center p-6 bg-white/5 rounded-lg border border-white/20">
+                            <h4 class="text-2xl font-bold text-red-400 mb-4 card-text-shadow">High Risk</h4>
+                            <p class="text-6xl font-extrabold text-red-500 mb-2">NSW</p>
+                            <p class="text-white/80 text-sm card-text-shadow-light">Occupations NOT on the official NSW Skills List, presenting a fundamental eligibility barrier.</p>
+                         </div>
+                        <div class="text-center p-6 bg-white/5 rounded-lg border border-white/20">
+                            <h4 class="text-2xl font-bold text-green-400 mb-4 card-text-shadow">Low Risk</h4>
+                            <p class="text-6xl font-extrabold text-green-500 mb-2">Victoria</p>
+                            <p class="text-white/80 text-sm card-text-shadow-light">Open occupation list and explicit priority for 'Digital Economy' and 'Tourism' sectors.</p>
+                         </div>
+                        <div class="text-center p-6 bg-white/5 rounded-lg border border-white/20">
+                            <h4 class="text-2xl font-bold text-yellow-400 mb-4 card-text-shadow">Medium Risk</h4>
+                            <p class="text-6xl font-extrabold text-yellow-500 mb-2"><a href="#wa-section" class="hover:underline">WA</a></p>
+                            <p class="text-white/80 text-sm card-text-shadow-light">Alternate pathway via WASMOL pivot</p>
+                        </div>
+                     </div>
+                 </div>
+                 
+                <!-- Points Chart - Full Width -->
+                <div class="glass-morphism p-8 mb-16">
+                    <h3 class="text-2xl font-bold text-center mb-4 card-text-shadow">Points Optimisation</h3>
+                    <p class="text-white/80 text-center mb-6 card-text-shadow-light">VIC 491 adds a decisive +15 points</p>
+                    <div class="h-80 max-w-4xl mx-auto"><canvas id="visaPointsChart"></canvas></div>
                 </div>
-
-                <div class="glass-morphism paper-card p-8 mb-16">
-                    <h3 class="text-3xl font-bold text-white text-center mb-8 card-text-shadow">The Four Layers of Strategic Advantage</h3>
+                
+                <!-- Alignment Chart - Full Width -->
+                <div class="glass-morphism p-8 mb-16">
+                    <h3 class="text-2xl font-bold text-center mb-4 card-text-shadow">Alignment with Victorian Priorities</h3>
+                    <p class="text-white/80 text-center mb-6 card-text-shadow-light">Strategic layers vs. Victorian 491 visa priorities</p>
+                    <div class="h-80 max-w-6xl mx-auto"><canvas id="alignmentChart"></canvas></div>
+                 </div>
+                 
+                <!-- Enhanced Strategic Layers -->
+                <div class="glass-morphism p-8 mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 card-text-shadow">The Four Layers of Strategic Advantage</h3>
+                    <p class="text-white/90 text-center mb-8 card-text-shadow-light max-w-4xl mx-auto">
+                        Beyond meeting basic criteria, the application is built on four pillars that demonstrate exceptional value and direct alignment with Victoria's economic and social priorities.
+                    </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="text-center p-4 bg-white/5 rounded-lg border border-white/20">
+                        <div class="text-center p-4 bg-white/5 rounded-lg border border-white/20 hover:bg-white/10 transition-all duration-300">
                             <div class="text-4xl mb-3">🤖</div>
-                            <h4 class="text-lg font-bold text-white mb-2 card-text-shadow">AI & Tech Advantage</h4>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Positioning as future-focused professionals bridging Australia's AI adoption gap in marketing and creative industries.</p>
-                        </div>
-                        <div class="text-center p-4 bg-white/5 rounded-lg border border-white/20">
+                            <h4 class="text-lg font-bold text-white mb-2 card-text-shadow">AI & Tech Imperative</h4>
+                            <p class="text-white/80 text-sm card-text-shadow-light">Positioning the duo as strategic implementers who can bridge Australia's AI adoption gap, helping regional SMEs leverage AI for productivity gains in marketing and design.</p>
+                         </div>
+                        <div class="text-center p-4 bg-white/5 rounded-lg border border-white/20 hover:bg-white/10 transition-all duration-300">
                             <div class="text-4xl mb-3">🖤💛❤️</div>
-                            <h4 class="text-lg font-bold text-white mb-2 card-text-shadow">First Nations Engagement</h4>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Supporting First Nations tourism and economic development, a key national priority.</p>
-                        </div>
-                        <div class="text-center p-4 bg-white/5 rounded-lg border border-white/20">
+                            <h4 class="text-lg font-bold text-white mb-2 card-text-shadow">First Nations Partnership</h4>
+                            <p class="text-white/80 text-sm card-text-shadow-light">Applying their skills to support funded state priorities like the 'First Peoples Tourism Growth Program'. This demonstrates a deep, researched commitment to contributing to authentic storytelling.</p>
+                         </div>
+                        <div class="text-center p-4 bg-white/5 rounded-lg border border-white/20 hover:bg-white/10 transition-all duration-300">
                             <div class="text-4xl mb-3">🌏</div>
-                            <h4 class="text-lg font-bold text-white mb-2 card-text-shadow">Remote & Regional Focus</h4>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Committing to regional areas like Geelong, contributing to local economic strategies.</p>
-                        </div>
-                        <div class="text-center p-4 bg-white/5 rounded-lg border border-white/20">
+                            <h4 class="text-lg font-bold text-white mb-2 card-text-shadow">Regional Renaissance</h4>
+                            <p class="text-white/80 text-sm card-text-shadow-light">Making a deliberate, strategic choice to relocate to a city like Geelong, aligning with its 'Clever and Creative' vision. They become the "missing piece" to help local businesses achieve government-endorsed economic goals.</p>
+                         </div>
+                        <div class="text-center p-4 bg-white/5 rounded-lg border border-white/20 hover:bg-white/10 transition-all duration-300">
                             <div class="text-4xl mb-3">🇸🇬↔️🇦🇺</div>
                             <h4 class="text-lg font-bold text-white mb-2 card-text-shadow">Asia-Pacific Gateway</h4>
-                            <p class="text-white/80 text-sm card-text-shadow-light">Leveraging expertise in Asian markets to help regional businesses access high-value inbound tourism.</p>
-                        </div>
-                    </div>
-                </div>
+                            <p class="text-white/80 text-sm card-text-shadow-light">Acting as the bridge between high-level government tourism strategies and the on-the-ground needs of regional SMEs, helping them access and profit from high-value inbound Asian tourist markets.</p>
+                         </div>
+                     </div>
+                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                    <div class="glass-morphism p-6 rounded-xl">
-                        <h3 class="text-2xl font-bold text-white mb-2 card-text-shadow">The Strategic Pivot</h3>
-                        <p class="text-white/80 mb-4 card-text-shadow-light">NSW vs Victoria nomination risk comparison</p>
-                        <div class="flex justify-around text-center">
-                            <div>
-                                <p class="text-5xl font-extrabold text-red-400">High</p>
-                                <p class="font-semibold text-white/90">NSW Risk Level</p>
-                            </div>
-                            <div>
-                                <p class="text-5xl font-extrabold text-green-400">Low</p>
-                                <p class="font-semibold text-white/90">Victoria Risk Level</p>
-                            </div>
+                <!-- Roadmap Section -->
+                <div class="glass-morphism p-8">
+                    <h3 class="text-3xl font-bold text-center mb-8 card-text-shadow">An Actionable Roadmap to Nomination</h3>
+                    <p class="text-white/90 text-center mb-8 card-text-shadow-light max-w-4xl mx-auto">
+                        A structured, project-managed approach ensures all components of this complex strategy are completed efficiently and to a high standard, culminating in a superior application for Victorian state nomination.
+                    </p>
+                    <div class="relative max-w-4xl mx-auto">
+                        <!-- Timeline Line -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-white/30"></div>
+                        
+                        <!-- Timeline Items -->
+                        <div class="space-y-12">
+                            <div class="relative">
+                                <div class="md:flex items-center md:justify-end">
+                                    <div class="md:w-1/2 md:pr-8">
+                                        <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                                            <h4 class="text-lg font-bold text-blue-400 mb-2">Phase 1: Portfolio Development</h4>
+                                            <p class="text-white/80 text-sm">Months 1-3: Sit for English tests, collate documents, and build the 'Strategic Evidence Portfolio' including case studies and concept proposals to substantiate claims.</p>
                         </div>
+                        </div>
+                        </div>
+                                <div class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-blue-500 border-4 border-white"></div>
                     </div>
-                    <div class="glass-morphism paper-card p-6 rounded-xl">
-                        <h3 class="text-2xl font-bold text-white text-center mb-2 card-text-shadow">Points Optimisation: VIC 491</h3>
-                        <p class="text-white/80 text-center mb-4 card-text-shadow-light">491 adds a decisive +15 points</p>
-                        <div class="chart-container h-64 bg-white/5 rounded-lg p-4">
-                            <canvas id="visaPointsChart"></canvas>
+                            <div class="relative">
+                                <div class="md:flex items-center">
+                                    <div class="md:w-1/2 md:pl-8 md:text-left text-right">
+                                        <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                                            <h4 class="text-lg font-bold text-blue-400 mb-2">Phase 2: Skills Assessment</h4>
+                                            <p class="text-white/80 text-sm">Months 4-7: Lodge completed skills assessment applications with VETASSESS for both partners, ensuring perfect alignment with ANZSCO requirements.</p>
+                    </div>
+                </div>
+                                    </div>
+                                <div class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-blue-500 border-4 border-white"></div>
+                                </div>
+                            <div class="relative">
+                                <div class="md:flex items-center md:justify-end">
+                                    <div class="md:w-1/2 md:pr-8">
+                                        <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                                            <h4 class="text-lg font-bold text-blue-400 mb-2">Phase 3: EOI & ROI Submission</h4>
+                                            <p class="text-white/80 text-sm">Month 8: Upon receiving positive assessments, submit a unified Expression of Interest (EOI) and a high-quality Registration of Interest (ROI) to Victoria.</p>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-blue-500 border-4 border-white"></div>
+                        </div>
+                            <div class="relative">
+                                <div class="md:flex items-center">
+                                    <div class="md:w-1/2 md:pl-8 md:text-left text-right">
+                                        <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20">
+                                            <h4 class="text-lg font-bold text-blue-400 mb-2">Phase 4: Invitation & Lodgement</h4>
+                                            <p class="text-white/80 text-sm">Month 9+: Await invitation from the Victorian Government and lodge the formal Subclass 491 visa application within the 60-day timeframe.</p>
+                                    </div>
+                                </div>
+                                    </div>
+                                <div class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-blue-500 border-4 border-white"></div>
                         </div>
                     </div>
                 </div>
-
-                <div class="glass-morphism paper-card p-8 rounded-xl mb-16">
-                    <h3 class="text-2xl font-bold text-white text-center mb-2 card-text-shadow">Alignment with Victorian Priorities</h3>
-                    <p class="text-white/80 text-center mb-4 card-text-shadow-light">Strategic layers vs 491 program priorities</p>
-                    <div class="chart-container h-80 bg-white/5 rounded-lg p-4">
-                        <canvas id="alignmentChart"></canvas>
-                    </div>
+            </div>
+        </section>
+        <!-- WA Infographic Embed -->
+        <section id="wa-section" class="mb-32 gsap-slide-up">
+            <h2 class="text-4xl font-bold text-center mb-8 card-text-shadow">Western Australia Strategy Infographic</h2>
+            <div class="w-full" style="height:2000px;">
+                <iframe src="reports/wa2.html" class="w-full h-full border-0 rounded-xl shadow-2xl"></iframe>
+            </div>
+        </section>
+        <!-- Key Data Points at a Glance -->
+        <div class="glass-morphism p-8 text-center mb-16">
+            <h3 class="text-3xl font-bold mb-8 card-text-shadow">Key Data Points at a Glance</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-6 bg-white/5 rounded-lg border border-white/20">
+                    <p class="text-4xl font-extrabold text-blue-400 mb-2">95</p>
+                    <p class="text-white/80 text-sm">Total Points</p>
                 </div>
-
-                <div class="glass-morphism paper-card p-8 rounded-xl mb-16">
-                    <h3 class="text-2xl font-bold text-white text-center mb-6 card-text-shadow">Roadmap to Nomination</h3>
-                    <div class="space-y-4">
-                        <div class="p-4 bg-white/5 rounded-lg border-l-4 border-blue-400">
-                            <div class="font-semibold text-white card-text-shadow">Phase 1: Portfolio Development (Months 1–3)</div>
-                            <div class="text-white/80 text-sm mt-2 card-text-shadow-light">English tests, documents, and Strategic Evidence Portfolio.</div>
-                        </div>
-                        <div class="p-4 bg-white/5 rounded-lg border-l-4 border-green-400">
-                            <div class="font-semibold text-white card-text-shadow">Phase 2: Skills Assessment (Months 4–7)</div>
-                            <div class="text-white/80 text-sm mt-2 card-text-shadow-light">VETASSESS lodgements aligned with ANZSCO.</div>
-                        </div>
-                        <div class="p-4 bg-white/5 rounded-lg border-l-4 border-yellow-400">
-                            <div class="font-semibold text-white card-text-shadow">Phase 3: EOI & ROI (Month 8)</div>
-                            <div class="text-white/80 text-sm mt-2 card-text-shadow-light">Submit EOI and high-quality ROI to Victoria.</div>
-                        </div>
-                        <div class="p-4 bg-white/5 rounded-lg border-l-4 border-purple-400">
-                            <div class="font-semibold text-white card-text-shadow">Phase 4: Invitation & Lodgement (Month 9+)</div>
-                            <div class="text-white/80 text-sm mt-2 card-text-shadow-light">Lodge Subclass 491 within 60 days after invitation.</div>
-                        </div>
-                    </div>
+                <div class="p-6 bg-white/5 rounded-lg border border-white/20">
+                    <p class="text-4xl font-extrabold text-green-400 mb-2">Victoria</p>
+                    <p class="text-white/80 text-sm">Target State</p>
                 </div>
-            </section>
-
-            <!-- Audio Section -->
-            <section id="audio" class="mb-32 gsap-slide-up">
-                <div class="glass-morphism paper-card p-8 text-center">
-                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center justify-center card-text-shadow">
-                        <i class="fas fa-music mr-3"></i>
-                        Interview Audio Files
-                    </h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-white/20 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold text-white mb-1">Audio Files</h3>
-                            <div class="text-white/80 text-sm mb-3">Count: <span id="audio-count">0</span></div>
-                            <ul id="audio-list" class="space-y-3">
-                                <li class="text-white/60"><em>No audio files found</em></li>
-                            </ul>
-                        </div>
-                        <div class="bg-white/20 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold text-white mb-4">Now Playing</h3>
-                            <div id="audio-player-container" class="hidden">
-                                <audio id="main-audio-player" controls class="w-full mb-4">
-                                    Your browser does not support the audio element.
-                                </audio>
-                                <div id="current-track" class="text-white text-center">No track selected</div>
-                            </div>
-                            <div id="audio-placeholder" class="text-center text-white/60">
-                                <i class="fas fa-headphones text-4xl mb-3"></i>
-                                <p>Add audio files to start playing</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="p-6 bg-white/5 rounded-lg border border-white/20">
+                    <p class="text-4xl font-extrabold text-yellow-400 mb-2">491</p>
+                    <p class="text-white/80 text-sm">Visa Subclass</p>
                 </div>
-            </section>
+                <div class="p-6 bg-white/5 rounded-lg border border-white/20">
+                    <p class="text-4xl font-extrabold text-pink-400 mb-2">Geelong</p>
+                    <p class="text-white/80 text-sm">Target City</p>
+                </div>
+            </div>
+        </div>
+        <!-- Document Hub -->
+        <div class="glass-morphism p-8 text-center mb-32">
+            <h3 class="text-3xl font-bold mb-8 card-text-shadow">Document Hub</h3>
+            <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-6">
+                <a href="https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">NotebookLM (Main)</a>
+                <a href="https://notebooklm.google.com/notebook/2f8d2eab-xxxx-mike-gration" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">NotebookLM – Mike Gration Immigration Extraordinaire</a>
+                <a href="reports/SGVSAUS-strategy.pdf" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">Australia Pathway PDF</a>
+                <a href="reports/Singapore-Roadmap.docx" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">Singapore Pathway DOCX</a>
+                <a href="reports/SGVSAUS-strategy.pdf" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">Singapore vs Australia (Autism)</a>
+                <a href="reports/WA-strat.docx" target="_blank" class="liquid-glass-btn-primary px-6 py-4 rounded-lg text-lg font-semibold">WA Strategy</a>
+            </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="glass-morphism paper-card mx-4 mb-4 mt-8">
-        <div class="container mx-auto px-6 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Brand Section -->
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center mb-4">
-                        <img src="media/Good.svg" alt="Migration Strategy Logo" class="w-12 h-12 mr-3" loading="lazy">
-                        <h3 class="text-xl font-bold text-white card-text-shadow">Brand Powerhouse Duo</h3>
-                    </div>
-                    <p class="text-white/80 mb-4 card-text-shadow-light">
-                        A comprehensive Australian skilled migration strategy guide designed for marketing specialists and graphic designers targeting Victoria's 491 regional visa program.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4" 
-                           target="_blank" rel="noopener noreferrer" 
-                           class="text-blue-300 hover:text-blue-200 transition-colors duration-300">
-                            <i class="fas fa-brain text-xl"></i>
-                        </a>
-                        <a href="#stats" class="text-white/60 hover:text-white transition-colors duration-300">
-                            <i class="fas fa-chart-line text-xl"></i>
-                        </a>
-                        <a href="#audio" class="text-white/60 hover:text-white transition-colors duration-300">
-                            <i class="fas fa-music text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="text-white font-semibold mb-4 card-text-shadow">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#stats" class="text-white/80 hover:text-white transition-colors duration-300 card-text-shadow-light">Strategy Overview</a></li>
-                        <li><a href="#audio" class="text-white/80 hover:text-white transition-colors duration-300 card-text-shadow-light">Audio Interviews</a></li>
-                    </ul>
-                </div>
-
-                <!-- Resources -->
-                <div>
-                    <h4 class="text-white font-semibold mb-4 card-text-shadow">Resources</h4>
-                    <ul class="space-y-2">
-                        <li><a href="https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4" 
-                               target="_blank" rel="noopener noreferrer" 
-                               class="text-white/80 hover:text-blue-300 transition-colors duration-300 card-text-shadow-light">
-                               <i class="fas fa-brain mr-2"></i>NotebookLM AI Assistant</a></li>
-                        <li><a href="reports/website_e-mail.html" 
-                               target="_blank" 
-                               class="text-white/80 hover:text-white transition-colors duration-300 card-text-shadow-light">
-                               <i class="fas fa-file-alt mr-2"></i>Complete Strategy Guide</a></li>
-                    </ul>
-                </div>
+    <footer class="bg-slate-900/40 backdrop-blur-sm text-white pt-16">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <!-- Brand -->
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Brand Powerhouse Duo</h3>
+                <p class="text-white/70 text-sm">Australian Migration Strategy &copy; 2024. All Rights Reserved.</p>
             </div>
-
-            <div class="border-t border-white/20 mt-8 pt-6 text-center">
-                <p class="text-white/60 text-sm card-text-shadow-light">
-                    © 2024 Brand Powerhouse Duo Migration Strategy. 
-                    <span class="text-white/40">Built with</span> 
-                    <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer" 
-                       class="text-blue-300 hover:text-blue-200 transition-colors duration-300">Claude Code</a>
-                </p>
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-xl font-semibold mb-3">Quick Links</h4>
+                <ul class="space-y-2 text-white/80 text-sm">
+                    <li><a href="#stats" class="hover:underline">Strategy</a></li>
+                    <li><a href="#" class="hover:underline">Document Hub</a></li>
+                    <li><a href="#" class="hover:underline">Roadmap</a></li>
+                </ul>
+            </div>
+            <!-- Government Resources -->
+            <div>
+                <h4 class="text-xl font-semibold mb-3">Gov Resources</h4>
+                <ul class="space-y-2 text-white/80 text-sm">
+                    <li><a href="https://immi.homeaffairs.gov.au" class="hover:underline" target="_blank" rel="noopener">Home Affairs</a></li>
+                    <li><a href="https://liveinmelbourne.vic.gov.au" class="hover:underline" target="_blank" rel="noopener">Live in Melbourne</a></li>
+                </ul>
+            </div>
+            <!-- Social -->
+            <div>
+                <h4 class="text-xl font-semibold mb-3">Connect</h4>
+                <div class="flex space-x-4 text-2xl">
+                    <a href="#" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        let audioFiles = [];
-        let currentAudioIndex = -1;
-
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize custom cursor
-            initCustomCursor();
+            gsap.registerPlugin(ScrollTrigger);
             
-            // Initialize GSAP animations
-            initGSAP();
+            // Dramatic Hero Opening Sequence
+            initHeroAnimation();
             
-            // Load initial file listings
-            refreshFileList();
-            
-            // Setup audio player events
-            const audioPlayer = document.getElementById('main-audio-player');
-            audioPlayer.addEventListener('ended', () => {
-                playNextTrack();
+            // Other scroll animations
+            gsap.utils.toArray('.gsap-slide-up').forEach(element => {
+                gsap.fromTo(element,
+                    { opacity: 0, y: 50 },
+                    {
+                        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                        scrollTrigger: { trigger: element, start: 'top 85%', toggleActions: 'play none none reverse' }
+                    }
+                );
             });
-
-            // Initialize charts
+            
             initPointsChart();
             initAlignmentChart();
+            initLiquidGlassEffects();
         });
 
-        function initCustomCursor() {
-            const cursor = document.querySelector('.custom-cursor');
-            if (!cursor) return;
-            
-            document.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-            });
-            
-            // Add hover effects to interactive elements
-            document.querySelectorAll('a, button, .glass-morphism, .scroll-card').forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
-                });
+        function typeWriter(element, text, speed = 100) {
+            return new Promise((resolve) => {
+                let i = 0;
+                element.innerHTML = '';
                 
-                el.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
-                });
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        element.classList.add('typing-complete');
+                        setTimeout(resolve, 500); // Brief pause after typing
+                    }
+                }
+                type();
             });
         }
 
-        function initGSAP() {
-            // Use gsap.context() for better organization and cleanup
-            let ctx = gsap.context(() => {
-                // Register ScrollTrigger plugin
-                gsap.registerPlugin(ScrollTrigger);
+        function animateClaudeEmotions() {
+            const claudeFace = document.getElementById('claude-face');
+            const emotions = ['1.svg', '2.svg', '3.svg', '4.svg'];
+            let currentEmotion = 0;
+            
+            // Start with neutral, then progress through happy emotions
+            function changeEmotion() {
+                if (currentEmotion < emotions.length - 1) {
+                    currentEmotion++;
+                    claudeFace.src = `media/claude/${emotions[currentEmotion]}`;
+                    
+                    // Add a little bounce when changing emotions
+                    gsap.to('#claude-face', {
+                        scale: 1.1,
+                        duration: 0.2,
+                        ease: 'back.out(1.5)',
+                        yoyo: true,
+                        repeat: 1
+                    });
+                }
+            }
+            
+            // Change emotions gradually as conversation progresses
+            setTimeout(() => changeEmotion(), 8000);   // After "Sure" finishes
+            setTimeout(() => changeEmotion(), 12000);  // After "Team?" finishes  
+            setTimeout(() => changeEmotion(), 16000);  // After "Let's go Claude!" finishes
+        }
+
+        function initHeroAnimation() {
+            const masterTL = gsap.timeline({ delay: 1.5 });
+            
+            masterTL
+                // Bubbles appear like raindrops with typewriter
+                .to('[data-line="1"]', { opacity: 1, duration: 0.5, onComplete: () => typeWriter(document.querySelector('[data-line="1"] .typewriter-text'), document.querySelector('[data-line="1"]').getAttribute('data-text'), 80) })
+                .to('[data-line="2"]', { opacity: 1, duration: 0.5, onComplete: () => typeWriter(document.querySelector('[data-line="2"] .typewriter-text'), document.querySelector('[data-line="2"]').getAttribute('data-text'), 120) }, '+=2.5')
+                .to('[data-line="3"]', { opacity: 1, duration: 0.5, onComplete: () => typeWriter(document.querySelector('[data-line="3"] .typewriter-text'), document.querySelector('[data-line="3"]').getAttribute('data-text'), 120) }, '+=1.5')
+                .to('[data-line="4"]', { 
+                    opacity: 1, 
+                    duration: 0.5, 
+                    onComplete: async () => {
+                        // First type "ME"
+                        await typeWriter(document.querySelector('[data-line="4"] .typewriter-text'), document.querySelector('[data-line="4"]').getAttribute('data-text'), 150);
+                        
+                        // Then Claude appears in the bubble
+                        gsap.to('.claude-in-bubble', { 
+                            opacity: 1, 
+                            scale: 1.2,
+                            duration: 0.6, 
+                            ease: 'back.out(1.5)',
+                            onComplete: () => {
+                                // After a moment, animate to corner
+                                setTimeout(() => {
+                                    gsap.to('.claude-character', { 
+                                        opacity: 1, 
+                                        scale: 1, 
+                                        duration: 1, 
+                                        ease: 'power2.out'
+                                    });
+                                    gsap.to('.claude-in-bubble', { 
+                                        opacity: 0, 
+                                        duration: 0.5 
+                                    });
+                                    // Start floating and emotions
+                                    gsap.to('.claude-character', {
+                                        y: -8,
+                                        duration: 2,
+                                        ease: 'sine.inOut',
+                                        repeat: -1,
+                                        yoyo: true
+                                    });
+                                    animateClaudeEmotions();
+                                }, 1000);
+                            }
+                        });
+                    }
+                }, '+=1.2')
+                .to('[data-line="5"]', { opacity: 1, duration: 0.5, onComplete: () => typeWriter(document.querySelector('[data-line="5"] .typewriter-text'), document.querySelector('[data-line="5"]').getAttribute('data-text'), 80) }, '+=1')
                 
-                // Use ScrollTrigger.batch() for efficiency with multiple elements
-                ScrollTrigger.batch('.gsap-slide-up', {
-                    onEnter: batch => gsap.to(batch, { 
-                        opacity: 1, 
-                        y: 0, 
-                        duration: 0.8, 
-                        ease: 'power2.out',
-                        stagger: 0.1
-                    }),
-                    onLeave: batch => gsap.to(batch, { opacity: 0, y: 50 }),
-                    onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0 }),
-                    onLeaveBack: batch => gsap.to(batch, { opacity: 0, y: 50 }),
-                    start: 'top 80%',
-                    end: 'bottom 20%'
+                // Everything fades to reveal site
+                .to('.story-overlay', { opacity: 0, duration: 2, ease: 'power2.out' }, '+=2')
+                .to('.hero-content', { opacity: 1, duration: 1 }, '-=1')
+                .to('.hero-title', { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'elastic.out(1, 0.8)' }, '-=0.5')
+                .to('.hero-subtitle', { opacity: 1, x: 0, duration: 0.8 }, '-=0.4')
+                .to('.hero-description', { opacity: 1, x: 0, duration: 0.8 }, '-=0.6')
+                .to('.hero-buttons', { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+                .to('.hero-scroll-indicator', { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
+                .to('.hero-logo', { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.4');
+        }
+
+        function initLiquidGlassEffects() {
+            // Enhanced liquid glass interaction for cards
+            document.querySelectorAll('.glass-morphism').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    
+                    // Create dynamic gradient based on mouse position
+                    card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.02) 100%)`;
                 });
                 
-                // Stagger animation for cards using batch
-                ScrollTrigger.batch('.scroll-card', {
-                    onEnter: batch => gsap.to(batch, { 
-                        opacity: 1, 
-                        scale: 1, 
-                        duration: 0.6, 
-                        stagger: 0.1, 
-                        ease: 'back.out(1.7)' 
-                    }),
-                    start: 'top 80%'
+                card.addEventListener('mouseleave', () => {
+                    // Reset to original gradient
+                    card.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02))';
                 });
             });
-            
-            // Store context for potential cleanup
-            this.gsapContext = ctx;
+
+            // Enhanced liquid glass interaction for buttons
+            document.querySelectorAll('.liquid-glass-btn, .liquid-glass-btn-primary').forEach(button => {
+                button.addEventListener('mouseenter', (e) => {
+                    gsap.to(button, {
+                        scale: 1.05,
+                        rotationY: 5,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+                
+                button.addEventListener('mouseleave', (e) => {
+                    gsap.to(button, {
+                        scale: 1,
+                        rotationY: 0,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+            });
         }
 
         function initPointsChart() {
-            const canvas = document.getElementById('visaPointsChart');
-            if (!canvas || typeof Chart === 'undefined') return;
-            const ctx = canvas.getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Base Points (Est.)', 'Partner Skills', 'VIC 491 Nomination'],
-                    datasets: [{
-                        data: [70, 10, 15],
-                        backgroundColor: ['#A9CCE3', '#AED6F1', '#60A5FA'],
-                        borderColor: '#111827',
-                        borderWidth: 0,
-                        hoverOffset: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '60%',
-                    plugins: {
-                        legend: { position: 'bottom', labels: { color: '#E5E7EB' } },
-                        title: { display: false }
-                    }
+            const ctx = document.getElementById('visaPointsChart')?.getContext('2d');
+            if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                    labels: ['Base Points', 'Partner Skills', 'VIC 491 Nomination'],
+                        datasets: [{
+                            data: [70, 10, 15],
+                        backgroundColor: ['#3b82f6', '#60a5fa', '#93c5fd'],
+                        borderColor: 'rgba(15, 23, 42, 0.5)',
+                        borderWidth: 2,
+                        }]
+                    },
+                    options: {
+                    responsive: true, maintainAspectRatio: false, cutout: '70%',
+                    plugins: { legend: { display: false } }
                 }
             });
         }
 
         function initAlignmentChart() {
-            const canvas = document.getElementById('alignmentChart');
-            if (!canvas || typeof Chart === 'undefined') return;
-            const ctx = canvas.getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        'AI & Tech Advantage',
-                        'First Nations Engagement',
-                        'Remote & Regional',
-                        'Asia-Pacific Gateway'
-                    ],
-                    datasets: [
-                        {
-                            label: 'Digital Economy Priority',
-                            data: [5, 2, 4, 3],
-                            backgroundColor: 'rgba(96, 165, 250, 0.4)',
-                            borderColor: 'rgba(96, 165, 250, 1)',
-                            borderWidth: 1
+            const ctx = document.getElementById('alignmentChart')?.getContext('2d');
+            if (!ctx) return;
+            
+            const wrapLabel = (label) => {
+                const maxLength = 16;
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).length > maxLength && currentLine.length > 0) {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    } else {
+                        currentLine = currentLine ? currentLine + ' ' + word : word;
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+
+            const alignmentLabels = [
+                'AI & Tech Advantage', 
+                'First Nations Engagement Advantage', 
+                'Remote & Regional Advantage', 
+                'Asia-Pacific Gateway Advantage'
+            ];
+            
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                    labels: alignmentLabels.map(wrapLabel),
+                    datasets: [{
+                                label: 'Digital Economy Priority',
+                                data: [5, 2, 4, 3],
+                        backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                                borderWidth: 1
+                    }, {
+                                label: 'Tourism Priority',
+                                data: [2, 5, 4, 5],
+                        backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                                borderWidth: 1
+                    }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                        x: {
+                            stacked: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.2)' },
+                            ticks: { color: '#fff' }
                         },
-                        {
-                            label: 'Tourism Priority',
-                            data: [2, 5, 4, 5],
-                            backgroundColor: 'rgba(167, 139, 250, 0.4)',
-                            borderColor: 'rgba(167, 139, 250, 1)',
-                            borderWidth: 1
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.2)' },
+                            ticks: { color: '#fff' },
+                            title: {
+                                display: true,
+                                text: 'Strength of Alignment',
+                                color: '#fff'
+                            }
                         }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: { stacked: true, ticks: { color: '#E5E7EB' }, grid: { color: 'rgba(255,255,255,0.1)' } },
-                        y: { stacked: true, beginAtZero: true, ticks: { color: '#E5E7EB' }, grid: { color: 'rgba(255,255,255,0.1)' } }
                     },
                     plugins: {
-                        legend: { labels: { color: '#E5E7EB' } },
-                        title: { display: false }
+                        title: {
+                            display: true,
+                            text: 'Strategic Layers vs. Victorian 491 Visa Priorities',
+                            color: '#fff'
+                        },
+                        legend: {
+                            display: true,
+                            labels: { color: '#fff' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
                     }
                 }
             });
         }
-
-        function refreshFileList() {
-            // Show the actual migration guide file
-            const sampleFiles = {
-                audio: ['audio.mp3', 'audio_audio.mp3']
-            };
-
-            updateAudioList(sampleFiles.audio);
-            setCount('audio-count', sampleFiles.audio.length);
-        }
-
-        function setCount(id, value) {
-            const el = document.getElementById(id);
-            if (el) el.textContent = value;
-        }
-
-        function updateAudioList(files) {
-            const list = document.getElementById('audio-list');
-            audioFiles = files;
-
-            if (files.length === 0) {
-                list.innerHTML = '<li class="text-white/60"><em>No audio files found</em></li>';
-                document.getElementById('audio-player-container').classList.add('hidden');
-                document.getElementById('audio-placeholder').classList.remove('hidden');
-                return;
-            }
-
-            document.getElementById('audio-player-container').classList.remove('hidden');
-            document.getElementById('audio-placeholder').classList.add('hidden');
-
-            list.innerHTML = files.map((file, index) => `
-                <li class="bg-white/10 p-3 rounded cursor-pointer hover:bg-white/20 transition-colors duration-300" 
-                    onclick="playAudio(${index})">
-                    <div class="flex items-center justify-between">
-                        <div class="text-white">
-                            <i class="fas fa-music mr-2"></i>${file}
-                        </div>
-                        <button class="text-blue-300 hover:text-blue-200">
-                            <i class="fas fa-play"></i>
-                        </button>
-                    </div>
-                </li>
-            `).join('');
-        }
-
-        function playAudio(index) {
-            if (index < 0 || index >= audioFiles.length) return;
-            
-            currentAudioIndex = index;
-            const audioPlayer = document.getElementById('main-audio-player');
-            const fileName = audioFiles[index];
-            
-            // Use the actual file path
-            audioPlayer.src = `audio/${fileName}`;
-            audioPlayer.load();
-            audioPlayer.play().catch(error => {
-                console.log('Audio playback failed:', error);
-                document.getElementById('current-track').textContent = `Error playing ${fileName}`;
-            });
-            
-            document.getElementById('current-track').textContent = `Playing: ${fileName}`;
-        }
-
-        function playNextTrack() {
-            if (audioFiles.length === 0) return;
-            currentAudioIndex = (currentAudioIndex + 1) % audioFiles.length;
-            playAudio(currentAudioIndex);
-        }
-
-        // Header scroll hide functionality
-        let lastScrollY = 0;
-        const header = document.getElementById('minimal-header');
-        
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 100) { // Start hiding after 100px scroll
-                if (currentScrollY > lastScrollY) {
-                    // Scrolling down - hide header
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    // Scrolling up - show header
-                    header.style.transform = 'translateY(0)';
-                }
-            } else {
-                // Always show header when near top
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollY = currentScrollY;
-        });
     </script>
 </body>
 

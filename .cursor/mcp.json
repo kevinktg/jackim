@@ -1,0 +1,55 @@
+{
+"mcpServers": {
+    "task-master-ai": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "--package=task-master-ai",
+        "task-master-ai"
+      ],
+      "env": {
+        "ANTHROPIC_API_KEY": "YOUR_ANTHROPIC_API_KEY_HERE",
+        "PERPLEXITY_API_KEY": "YOUR_PERPLEXITY_API_KEY_HERE",
+        "OPENAI_API_KEY": "YOUR_OPENAI_KEY_HERE",
+        "GOOGLE_API_KEY": "YOUR_GOOGLE_KEY_HERE",
+        "MISTRAL_API_KEY": "YOUR_MISTRAL_KEY_HERE",
+        "GROQ_API_KEY": "YOUR_GROQ_KEY_HERE",
+        "OPENROUTER_API_KEY": "YOUR_OPENROUTER_KEY_HERE",
+        "XAI_API_KEY": "YOUR_XAI_KEY_HERE",
+        "AZURE_OPENAI_API_KEY": "YOUR_AZURE_KEY_HERE",
+        "OLLAMA_API_KEY": "YOUR_OLLAMA_API_KEY_HERE"
+      }
+    },
+    "Hive Mind": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "--package=@hive-mind/mcp",
+        "@hive-mind/mcp"
+      ],
+      "env": {
+        "HIVE_MIND_DB_PATH": ".hive-mind/hive.db"
+      }
+    },
+    "Linear": {
+      "url": "https://mcp.linear.app/sse",
+      "headers": {}
+    },
+    "Hugging Face": {
+      "url": "https://hf.co/mcp",
+      "headers": {}
+    },
+    "Context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {}
+    },
+    "Browserbase": {
+      "command": "npx @browserbasehq/mcp",
+      "env": {
+        "BROWSERBASE_API_KEY": "bb_live_lHyVmTgyEWKEh4DlYUkj9P_B270",
+        "BROWSERBASE_PROJECT_ID": "26a4fe7e-315c-440d-b7a6-f40bc64b216f"
+      },
+      "args": []
+    }
+  }
+}

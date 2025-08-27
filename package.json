@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@developer-hub/liquid-glass": "^1.2.3",
     "ai": "^5.0.24"
   }
 }
