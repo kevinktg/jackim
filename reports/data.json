@@ -1,0 +1,8 @@
+{
+  "tiles": [
+    {"title": "SG Road", "href": "report-sg.docx", "description": "Roadmap content for SG strategy.", "thumb": "reports/sg-info.html"},
+    {"title": "WA Road", "href": "report-wa.docx", "description": "Western Australia road plan.", "thumb": "reports/wa-info.html"},
+    {"title": "Vic Road", "href": "optimal.html", "description": "Victoria strategy & route optimization.", "thumb": "reports/optimal-info.html"},
+    {"title": "SG vs AUS", "href": "sgvsaus.html", "description": "Strategy comparison SG vs AUS.", "thumb": "reports/sgvsaus.html"}
+  ]
+}
