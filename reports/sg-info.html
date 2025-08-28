@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigating Autism Support in Singapore: A Family's Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 380px;
+            }
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .flow-icon {
+            flex-shrink: 0;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .flow-line {
+            flex-grow: 1;
+            height: 2px;
+            margin: 0 1rem;
+        }
+        .kpi-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-[#F0F4F8]">
+
+    <header class="bg-[#FF6B6B] text-white text-center py-12 px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-2">Navigating Your Child's Autism Journey</h1>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto">An Actionable Roadmap for Families in Singapore</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="diagnosis" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#4ECDC4]">The First Step: The Diagnostic Pathway</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <p class="text-lg text-gray-700 mb-6 text-center">Accessing Singapore's support system begins with a formal diagnosis. This flowchart outlines the typical journey through the public healthcare system, a path that unlocks crucial government-funded services.</p>
+                <div class="w-full max-w-4xl mx-auto">
+                    <div class="flow-step">
+                        <div class="flow-icon bg-[#FFD166] text-white">1</div>
+                        <div class="flex-grow pl-4">
+                            <h3 class="font-semibold text-xl">Polyclinic / GP Referral</h3>
+                            <p class="text-gray-600">Your journey starts with a developmental assessment, leading to a specialist referral.</p>
+                        </div>
+                    </div>
+                    <div class="h-12 w-12 flex justify-center ml-1">
+                        <div class="w-0.5 h-full bg-gray-300"></div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon bg-[#FFD166] text-white">2</div>
+                        <div class="flex-grow pl-4">
+                            <h3 class="font-semibold text-xl">Specialist Assessment</h3>
+                            <p class="text-gray-600">A comprehensive evaluation is done at KKH or NUH, which can take 3-4 hours over several sessions.</p>
+                        </div>
+                    </div>
+                    <div class="h-12 w-12 flex justify-center ml-1">
+                        <div class="w-0.5 h-full bg-gray-300"></div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon bg-[#118AB2] text-white">3</div>
+                        <div class="flex-grow pl-4">
+                            <h3 class="font-semibold text-xl">Receive Diagnostic Report</h3>
+                            <p class="text-gray-600">This critical document is your key to accessing subsidies and special educational programs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="intervention" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#4ECDC4]">Early Intervention: A Critical Choice</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto text-center">Once diagnosed, enrolling in an Early Intervention Programme for Infants & Children (EIPIC) is the priority. Families must weigh the trade-offs between cost, waiting time, and therapeutic approach.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-[#073B4C]">Comparing Intervention Pathways</h3>
+                    <p class="text-gray-600 mb-6">The chart below compares the estimated monthly costs and average wait times for the three main early intervention pathways available to a middle-income family in Singapore.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="interventionChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-[#073B4C]">Navigating the Wait</h3>
+                     <div class="space-y-6">
+                        <div class="kpi-card bg-yellow-50">
+                            <div class="text-5xl font-bold text-[#FFD166]">7.5+</div>
+                            <div class="text-lg font-semibold text-gray-700 mt-2">Months Average Wait</div>
+                            <p class="text-gray-600 mt-1">The average wait for a subsidized EIPIC spot highlights a critical intervention gap.</p>
+                        </div>
+                        <div class="kpi-card bg-blue-50">
+                             <h4 class="text-xl font-semibold text-[#118AB2] mb-2">Proactive Steps to Take</h4>
+                             <ul class="list-disc list-inside text-left text-gray-700 space-y-2">
+                                <li>Engage private therapy to start building skills immediately.</li>
+                                <li>Enroll in caregiver training workshops to learn strategies.</li>
+                                <li>Maintain regular contact with your SG Enable case officer.</li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#4ECDC4]">Primary School Pathways</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto text-center">As your child approaches age seven, you'll need to decide on the most suitable primary school pathway. The system is flexible, allowing for movement between options as a child's needs evolve.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="kpi-card bg-white">
+                    <div class="text-4xl mb-4">🏫</div>
+                    <h3 class="text-xl font-bold text-[#FF6B6B] mb-2">Mainstream School</h3>
+                    <p class="text-gray-600">For children who can access the national curriculum with moderate support from in-school Allied Educators.</p>
+                </div>
+                <div class="kpi-card bg-white">
+                    <div class="text-4xl mb-4">🌟</div>
+                    <h3 class="text-xl font-bold text-[#FFD166] mb-2">Pathlight School</h3>
+                    <p class="text-gray-600">Offers the MOE curriculum in an autism-focused environment with smaller classes and integrated life skills.</p>
+                </div>
+                <div class="kpi-card bg-white">
+                    <div class="text-4xl mb-4">🧩</div>
+                    <h3 class="text-xl font-bold text-[#118AB2] mb-2">SPED School</h3>
+                    <p class="text-gray-600">Provides a highly customized curriculum focused on functional academics, life skills, and vocational readiness.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="finance" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#4ECDC4]">Financial Support & Government Schemes</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto text-center">Singapore provides a multi-layered financial support system. The donut chart illustrates the key areas of support, while the list highlights actionable steps for families.</p>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-[#073B4C]">Key Financial Pillars</h3>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="financeChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-[#073B4C]">Your Financial Checklist</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-green-500 text-2xl mr-3">✔</span>
+                            <div>
+                                <h4 class="font-semibold">Maximize Your CDA</h4>
+                                <p class="text-gray-600">Use the Child Development Account's dollar-for-dollar matching to pay for private therapies at Approved Institutions.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 text-2xl mr-3">✔</span>
+                            <div>
+                                <h4 class="font-semibold">Claim Tax Reliefs</h4>
+                                <p class="text-gray-600">Apply for the Handicapped Child Relief ($7,500) to significantly reduce your annual tax burden.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 text-2xl mr-3">✔</span>
+                            <div>
+                                <h4 class="font-semibold">Plan for the Long Term</h4>
+                                <p class="text-gray-600">Explore setting up a Special Needs Trust (SNT) and nominating CPF savings via the SNSS for future security.</p>
+                            </div>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="text-green-500 text-2xl mr-3">✔</span>
+                            <div>
+                                <h4 class="font-semibold">Apply for Subsidies</h4>
+                                <p class="text-gray-600">Ensure you submit income documents for means-testing to get the maximum subsidy for EIPIC.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#4ECDC4]">A 5-Year Actionable Roadmap</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto text-center">This timeline provides a clear, step-by-step guide from diagnosis to your child's successful transition into primary school, helping you stay organized and proactive.</p>
+            <div class="relative border-l-4 border-[#FFD166] ml-4 md:ml-0 md:mx-auto md:max-w-3xl">
+                
+                <div class="mb-10 ml-8">
+                    <div class="absolute w-6 h-6 bg-[#FF6B6B] rounded-full -left-3.5 border-4 border-white"></div>
+                    <h3 class="text-xl font-bold text-[#FF6B6B]">Year 1 (Age 4): Foundation Building</h3>
+                    <p class="text-gray-600 mt-2">Submit EIPIC application, join parent support groups, maximize CDA contributions, and start private therapy while waiting for a placement.</p>
+                </div>
+
+                <div class="mb-10 ml-8">
+                    <div class="absolute w-6 h-6 bg-[#FFD166] rounded-full -left-3.5 border-4 border-white"></div>
+                    <h3 class="text-xl font-bold text-[#FFD166]">Years 2-3 (Ages 5-6): EIPIC & P1 Planning</h3>
+                    <p class="text-gray-600 mt-2">Actively participate in the EIPIC program. Begin researching primary school pathways and attend open houses. Discuss options with your EIPIC team.</p>
+                </div>
+
+                <div class="ml-8">
+                    <div class="absolute w-6 h-6 bg-[#118AB2] rounded-full -left-3.5 border-4 border-white"></div>
+                    <h3 class="text-xl font-bold text-[#118AB2]">Years 4-5 (Ages 7-8): School Transition</h3>
+                    <p class="text-gray-600 mt-2">Support your child's transition to Primary 1. Build a strong relationship with the school team and begin long-term financial planning with SNTC and the CPF Board.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#073B4C] text-white text-center p-6 mt-12">
+        <p>This guide is for informational purposes to empower families on their journey. Always consult with healthcare and financial professionals for personalized advice.</p>
+    </footer>
+
+    <script>
+        const energeticPlayful = {
+            red: '#FF6B6B',
+            green: '#4ECDC4',
+            yellow: '#FFD166',
+            darkBlue: '#073B4C',
+            lightBlue: '#118AB2',
+            background: '#F0F4F8'
+        };
+
+        const tooltipPlugin = {
+            tooltip: {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                            return label.join(' ');
+                        } else {
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines.filter(line => line.length > 0);
+        }
+
+        const interventionCtx = document.getElementById('interventionChart').getContext('2d');
+        const interventionLabels = ['EIPIC@Centre (SSA)', 'EIPIC-P (Private)', 'Purely Private Therapy'].map(label => wrapLabel(label, 16));
+        new Chart(interventionCtx, {
+            type: 'bar',
+            data: {
+                labels: interventionLabels,
+                datasets: [{
+                    label: 'Estimated Monthly Cost ($)',
+                    data: [170, 240, 1600],
+                    backgroundColor: energeticPlayful.red,
+                    borderColor: energeticPlayful.red,
+                    borderWidth: 1,
+                    yAxisID: 'y',
+                }, {
+                    label: 'Average Wait Time (Months)',
+                    data: [7.5, 9, 0],
+                    backgroundColor: energeticPlayful.yellow,
+                    borderColor: energeticPlayful.yellow,
+                    borderWidth: 1,
+                    yAxisID: 'y1',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                scales: {
+                    x: {
+                        stacked: false,
+                        ticks: {
+                            color: energeticPlayful.darkBlue,
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'Cost ($)',
+                            color: energeticPlayful.red,
+                        },
+                        ticks: {
+                            color: energeticPlayful.red,
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'Wait (Months)',
+                            color: energeticPlayful.yellow,
+                        },
+                        grid: {
+                            drawOnChartArea: false,
+                        },
+                        ticks: {
+                            color: energeticPlayful.yellow,
+                        }
+                    }
+                },
+                plugins: tooltipPlugin
+            }
+        });
+
+        const financeCtx = document.getElementById('financeChart').getContext('2d');
+        new Chart(financeCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['EIPIC Subsidies', 'Child Development Account (CDA)', 'Tax Reliefs', 'Long-Term Planning (SNTC/SNSS)'].map(label => wrapLabel(label, 16)),
+                datasets: [{
+                    label: 'Financial Support Pillars',
+                    data: [35, 30, 20, 15],
+                    backgroundColor: [
+                        energeticPlayful.green,
+                        energeticPlayful.lightBlue,
+                        energeticPlayful.yellow,
+                        energeticPlayful.red,
+                    ],
+                    borderColor: energeticPlayful.background,
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    ...tooltipPlugin,
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: energeticPlayful.darkBlue,
+                            padding: 15
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -7,9 +7,16 @@
       "WebFetch(domain:riseatseven.com)",
       "Bash(python:*)",
       "Bash(npx serve:*)",
-      "Bash(npx create-next-app:*)"
+      "Bash(npx create-next-app:*)",
+      "Bash(git checkout:*)",
+      "Bash(npm install:*)",
+      "Bash(robocopy:*)",
+      "Read(C:\\Users\\kevin\\Projects/**)"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "additionalDirectories": [
+      "C:\\Users\\kevin\\Projects\\jackim_bk"
+    ]
   }
 }

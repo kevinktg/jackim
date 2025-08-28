@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimal Migration Pathway to Western Australia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        .flowchart-step {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flowchart-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .arrow {
+            color: #FF6B6B;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50" style="background-color: #F0F4F8;">
+    <!-- Palette: Energetic & Playful -->
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4" style="color: #1A535C;">The Optimal Migration Pathway
+                to WA</h1>
+            <p class="text-lg md:text-xl" style="color: #4ECDC4;">A Strategic Infographic for High-Value Applicants with
+                Expertise in AI, Start-ups, and First Nations Engagement</p>
+        </header>
+
+        <main>
+            <section id="challenge" class="mb-16">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center mb-6" style="color: #FF6B6B;">The Core Challenge: A
+                        Pathway Blocked</h2>
+                    <p class="text-center max-w-3xl mx-auto mb-8" style="color: #00f0ff;">The primary obstacle for
+                        creative professionals (Marketing, Design) is that their occupations are not listed on the
+                        Western Australian Skilled Migration Occupation List (WASMOL). This makes a direct application
+                        through the standard State Nominated Migration Program (SNMP) impossible.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="text-center">
+                            <div class="text-8xl font-extrabold" style="color: #FF6B6B;">🚫</div>
+                            <h3 class="text-2xl font-bold mt-4" style="color: #1A535C;">No Direct Entry</h3>
+                            <p class="mt-2" style="color: #00f0ff;">'Marketing Specialist' & 'Graphic Designer' are
+                                absent from the WASMOL, creating a fundamental eligibility barrier.</p>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="pathwayStatusChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution" class="mb-16">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center mb-6" style="color: #1A535C;">The Strategic Pivot: Two
+                        Gates to WA</h2>
+                    <p class="text-center max-w-3xl mx-auto mb-8" style="color: #00f0ff;">The solution requires a
+                        strategic choice between two distinct pathways. This analysis compares the State Nominated
+                        Program (requiring an occupational pivot) against the highly competitive Family-Sponsored stream
+                        to identify the optimal route.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="border-2 rounded-xl p-6" style="border-color: #4ECDC4;">
+                            <h3 class="text-2xl font-bold mb-4 text-center" style="color: #1A535C;">Pathway A: State
+                                Nomination (SNMP)</h3>
+                            <ul class="space-y-3" style="color: #00f0ff;">
+                                <li class="flex items-start"><span class="text-xl mr-3" style="color: #4ECDC4;">✓</span>
+                                    <strong>Action:</strong> Pivot to a WASMOL-listed ICT occupation (e.g., Analyst
+                                    Programmer).</li>
+                                <li class="flex items-start"><span class="text-xl mr-3" style="color: #4ECDC4;">✓</span>
+                                    <strong>Advantage:</strong> More predictable, aligns with state priorities, lower
+                                    points threshold.</li>
+                                <li class="flex items-start"><span class="text-xl mr-3" style="color: #FF6B6B;">✗</span>
+                                    <strong>Risk:</strong> Success hinges on a positive skills assessment in the new
+                                    occupation.</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 rounded-xl p-6" style="border-color: #FF6B6B;">
+                            <h3 class="text-2xl font-bold mb-4 text-center" style="color: #1A535C;">Pathway B: Family
+                                Sponsored</h3>
+                            <ul class="space-y-3" style="color: #00f0ff;">
+                                <li class="flex items-start"><span class="text-xl mr-3" style="color: #4ECDC4;">✓</span>
+                                    <strong>Action:</strong> Use original occupation, sponsored by WA-based family.</li>
+                                <li class="flex items-start"><span class="text-xl mr-3" style="color: #4ECDC4;">✓</span>
+                                    <strong>Advantage:</strong> Bypasses the WASMOL; no need for occupational pivot.
+                                </li>
+                                <li class="flex items-start"><span class="text-xl mr-3" style="color: #FF6B6B;">✗</span>
+                                    <strong>Risk:</strong> Extremely high points (95+) required due to intense national
+                                    competition.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-bold text-center mb-4" style="color: #1A535C;">Comparative Risk &
+                            Opportunity</h3>
+                        <div class="chart-container">
+                            <canvas id="riskOpportunityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="recommendation" class="mb-16 text-center">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold mb-4" style="color: #1A535C;">Definitive Recommendation: The Optimal
+                        Pathway</h2>
+                    <p class="text-lg mb-6 max-w-3xl mx-auto" style="color: #00f0ff;">The analysis concludes that the
+                        **WA State Nominated Program (SNMP) via the Subclass 491 Visa** is the primary and optimal
+                        pathway. It offers greater strategic control and a higher probability of success by directly
+                        aligning with WA's economic needs.</p>
+                    <div class="inline-block bg-teal-100 rounded-full px-8 py-4" style="background-color: #E0F2F1;">
+                        <p class="text-2xl font-bold" style="color: #1A535C;">Primary Focus: SNMP (Subclass 491)</p>
+                        <p class="text-5xl font-extrabold my-2" style="color: #4ECDC4;">+15</p>
+                        <p class="font-semibold" style="color: #1A535C;">Points for State Nomination</p>
+                        <p class="mt-2 text-sm" style="color: #00f0ff;">No job offer required from offshore.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="value-proposition" class="mb-16">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center mb-2" style="color: #1A535C;">Crafting the Value
+                        Proposition</h2>
+                    <p class="text-center max-w-3xl mx-auto mb-10" style="color: #00f0ff;">Success depends on presenting
+                        the applicants as strategic assets. This is achieved through a four-pillar narrative, directly
+                        linking their expertise to WA's key government policies and objectives.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="flex flex-col items-center text-center p-6 rounded-lg"
+                            style="background-color: #F0F4F8;">
+                            <div class="text-5xl mb-4">🤖</div>
+                            <h3 class="text-xl font-bold mb-2" style="color: #1A535C;">1. AI & Digital Imperative</h3>
+                            <p style="color: #00f0ff;">Directly contribute to the <strong style="color: #4ECDC4;">`WA:
+                                    Digitally Evolved`</strong> strategy by helping regional SMEs adopt AI and boost
+                                productivity.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center p-6 rounded-lg"
+                            style="background-color: #F0F4F8;">
+                            <div class="text-5xl mb-4">💡</div>
+                            <h3 class="text-xl font-bold mb-2" style="color: #1A535C;">2. Innovation & Start-Up Catalyst
+                            </h3>
+                            <p style="color: #00f0ff;">Fuel the ecosystem supported by the <strong
+                                    style="color: #4ECDC4;">`New Industries Fund`</strong> by mentoring early-stage
+                                founders.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center p-6 rounded-lg"
+                            style="background-color: #F0F4F8;">
+                            <div class="text-5xl mb-4">🤝</div>
+                            <h3 class="text-xl font-bold mb-2" style="color: #1A535C;">3. First Nations Partnership</h3>
+                            <p style="color: #00f0ff;">Provide tangible support for the <strong
+                                    style="color: #4ECDC4;">`Jina Plan`</strong> by offering digital marketing skills to
+                                Aboriginal tourism operators.</p>
+                        </div>
+                        <div class="flex flex-col items-center text-center p-6 rounded-lg"
+                            style="background-color: #F0F4F8;">
+                            <div class="text-5xl mb-4">👨‍👩‍👧‍👦</div>
+                            <h3 class="text-xl font-bold mb-2" style="color: #1A535C;">4. Family & Community Anchor</h3>
+                            <p style="color: #00f0ff;">Utilize WA-based family network as verifiable proof of <strong
+                                    style="color: #4ECDC4;">long-term commitment</strong> and successful settlement.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="roadmap">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-center mb-8" style="color: #1A535C;">The Integrated Roadmap to
+                        Invitation</h2>
+                    <p class="text-center max-w-3xl mx-auto mb-12" style="color: #00f0ff;">A structured, project-managed
+                        approach is essential for executing this complex strategy. The following timeline outlines the
+                        key phases and milestones from preparation to final visa lodgement.</p>
+                    <div class="relative">
+                        <div class="hidden md:block absolute left-1/2 -ml-px w-0.5 h-full"
+                            style="background-color: #FF6B6B;"></div>
+                        <div class="space-y-12">
+                            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                                <div class="text-center md:text-right md:pr-8 mb-4 md:mb-0">
+                                    <div class="inline-block bg-white p-4 rounded-lg shadow-md">
+                                        <p class="text-xl font-bold" style="color: #1A535C;">Phase 1</p>
+                                        <p class="font-semibold" style="color: #4ECDC4;">Months 1-4</p>
+                                    </div>
+                                </div>
+                                <div class="flowchart-step bg-white p-6 rounded-lg shadow-md relative">
+                                    <div class="hidden md:block absolute top-1/2 -mt-2 -left-2 w-4 h-4 rounded-full"
+                                        style="background-color: #FF6B6B;"></div>
+                                    <h3 class="font-bold text-lg" style="color: #1A535C;">Foundational Readiness &
+                                        Skills Pivot</h3>
+                                    <p style="color: #00f0ff;">Achieve 'Superior' English scores and lodge a
+                                        comprehensive skills assessment application for the pivoted ICT occupation.</p>
+                                </div>
+                            </div>
+                            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                                <div
+                                    class="flowchart-step bg-white p-6 rounded-lg shadow-md relative order-last md:order-first">
+                                    <div class="hidden md:block absolute top-1/2 -mt-2 -right-2 w-4 h-4 rounded-full"
+                                        style="background-color: #FF6B6B;"></div>
+                                    <h3 class="font-bold text-lg" style="color: #1A535C;">Portfolio Completion & EOI
+                                    </h3>
+                                    <p style="color: #00f0ff;">Upon receiving positive skills assessments, lodge EOIs
+                                        for both SNMP and Family-Sponsored streams. Finalise the Strategic Evidence
+                                        Portfolio.</p>
+                                </div>
+                                <div class="text-center md:text-left md:pl-8 mb-4 md:mb-0 order-first md:order-last">
+                                    <div class="inline-block bg-white p-4 rounded-lg shadow-md">
+                                        <p class="text-xl font-bold" style="color: #1A535C;">Phase 2</p>
+                                        <p class="font-semibold" style="color: #4ECDC4;">Months 5-8</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                                <div class="text-center md:text-right md:pr-8 mb-4 md:mb-0">
+                                    <div class="inline-block bg-white p-4 rounded-lg shadow-md">
+                                        <p class="text-xl font-bold" style="color: #1A535C;">Phase 3</p>
+                                        <p class="font-semibold" style="color: #4ECDC4;">Months 9+</p>
+                                    </div>
+                                </div>
+                                <div class="flowchart-step bg-white p-6 rounded-lg shadow-md relative">
+                                    <div class="hidden md:block absolute top-1/2 -mt-2 -left-2 w-4 h-4 rounded-full"
+                                        style="background-color: #FF6B6B;"></div>
+                                    <h3 class="font-bold text-lg" style="color: #1A535C;">State Nomination & Invitation
+                                    </h3>
+                                    <p style="color: #00f0ff;">Await an invitation from the WA Government. Upon receipt,
+                                        immediately lodge the formal state nomination application with the full evidence
+                                        portfolio.</p>
+                                </div>
+                            </div>
+                            <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                                <div
+                                    class="flowchart-step bg-white p-6 rounded-lg shadow-md relative order-last md:order-first">
+                                    <div class="hidden md:block absolute top-1/2 -mt-2 -right-2 w-4 h-4 rounded-full"
+                                        style="background-color: #FF6B6B;"></div>
+                                    <h3 class="font-bold text-lg" style="color: #1A535C;">Final Visa Lodgement</h3>
+                                    <p style="color: #00f0ff;">After receiving state nomination approval, lodge the
+                                        final Subclass 491 visa application with the Department of Home Affairs within
+                                        the 60-day timeframe.</p>
+                                </div>
+                                <div class="text-center md:text-left md:pl-8 mb-4 md:mb-0 order-first md:order-last">
+                                    <div class="inline-block bg-white p-4 rounded-lg shadow-md">
+                                        <p class="text-xl font-bold" style="color: #1A535C;">Phase 4</p>
+                                        <p class="font-semibold" style="color: #4ECDC4;">Post-Nomination</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="text-center mt-12 py-6 border-t" style="border-color: #CFD8DC;">
+            <p style="color: #00f0ff;">This infographic visualizes a strategic approach to skilled migration to Western
+                Australia. Data and strategy are based on the provided research document. All visa criteria and policies
+                are subject to change.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const wrapLabel = (label) => {
+                const maxLength = 16;
+                if (label.length <= maxLength) return label;
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + word).length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                }
+                lines.push(currentLine.trim());
+                return lines.filter(line => line);
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                return Array.isArray(label) ? label.join(' ') : label;
+            };
+
+            const colors = {
+                teal: '#1A535C',
+                cyan: '#4ECDC4',
+                red: '#FF6B6B',
+                yellow: '#FFE66D',
+                lightGray: '#F0F4F8',
+                darkGray: '#00f0ff'
+            };
+
+            new Chart(document.getElementById('pathwayStatusChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['WASMOL Listed Occupations', 'Creative Occupations (Not Listed)'],
+                    datasets: [{
+                        data: [95, 5],
+                        backgroundColor: [colors.cyan, colors.red],
+                        borderColor: colors.lightGray,
+                        borderWidth: 4,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: colors.darkGray,
+                                font: { size: 14 }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'WASMOL Occupation List Status',
+                            color: colors.teal,
+                            font: { size: 18, weight: 'bold' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('riskOpportunityChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['State Nomination (SNMP)', 'Family Sponsored'],
+                    datasets: [{
+                        label: 'Opportunity / Predictability',
+                        data: [85, 30],
+                        backgroundColor: colors.cyan,
+                        borderColor: colors.teal,
+                        borderWidth: 2,
+                        borderRadius: 5
+                    }, {
+                        label: 'Risk / Competitiveness',
+                        data: [45, 95],
+                        backgroundColor: colors.red,
+                        borderColor: '#C44D56',
+                        borderWidth: 2,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: '#E0E0E0' },
+                            ticks: { color: colors.darkGray }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: colors.darkGray, font: { size: 14 } }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: colors.darkGray,
+                                font: { size: 14 }
+                            }
+                        },
+                        title: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

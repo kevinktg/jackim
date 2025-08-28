@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Dashboard: Autism Support - Singapore vs. Australia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals & Subtle Accents -->
+    <!-- Application Structure Plan: The SPA is designed as a strategic dashboard for a family. It follows a narrative flow: 1. High-level 'System Philosophy' comparison. 2. 'Early Intervention' deep-dive comparing program intensity vs. monetary value. 3. 'Financial Reality' with an interactive cost calculator. 4. 'School Pathways' showing divergent models. 5. A critical 'Systemic Risk' section on NDIS reforms. 6. A final 'Strategic Checklist'. This structure transforms the report into a decision-making tool, prioritizing user understanding of the core trade-offs (predictability vs. flexibility) over mirroring the report's linear sections. -->
+    <!-- Visualization & Content Choices: 
+        - System Philosophies: Goal: Compare. Method: Side-by-side text blocks (HTML/Tailwind) for direct comparison of core principles. Interaction: None. Justification: Clear, direct textual comparison is most effective for abstract concepts.
+        - Early Intervention Intensity: Goal: Compare. Method: Bar Chart (Chart.js) showing service hours. Interaction: Tooltips. Justification: Visually demonstrates the significant difference in service volume, a key report finding.
+        - NDIS Funding Value: Goal: Inform. Method: Donut Chart (Chart.js) showing purchasable hours. Interaction: Tooltips. Justification: Effectively contextualizes a large monetary value into a tangible outcome (hours of therapy).
+        - Financial Scenarios: Goal: Compare/Explore. Method: Interactive Bar Chart (Chart.js) updated by user-controlled sliders for therapy intensity and dropdowns for residency/income. Interaction: Sliders/Dropdowns update chart data. Justification: Empowers users to model their specific financial situation, making the data personally relevant and impactful.
+        - Educational Pathways: Goal: Organize/Compare. Method: Flow diagrams built with structured HTML/Tailwind. Interaction: None. Justification: Clearly visualizes the distinct, sequential processes in each country without needing complex graphics.
+        - Strengths/Weaknesses: Goal: Organize. Method: Matrix layout (HTML Grid/Tailwind). Interaction: None. Justification: A classic SWOT-style presentation for easy synthesis of qualitative data.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm Neutral Background */
+            color: #4A4A4A;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #A35638; /* Accent Color */
+            border-bottom-color: #A35638;
+        }
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.5rem 0;
+            color: #A35638;
+        }
+        .flow-arrow::after {
+            content: '▼';
+            font-size: 1.5rem;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #A35638;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #A35638;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold text-[#A35638]">Strategic Dashboard</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#intro" class="nav-link border-b-2 border-transparent pb-1">Overview</a>
+                    <a href="#early-years" class="nav-link border-b-2 border-transparent pb-1">Early Years</a>
+                    <a href="#financials" class="nav-link border-b-2 border-transparent pb-1">Financials</a>
+                    <a href="#school" class="nav-link border-b-2 border-transparent pb-1">School</a>
+                    <a href="#risk" class="nav-link border-b-2 border-transparent pb-1">Risk</a>
+                    <a href="#verdict" class="nav-link border-b-2 border-transparent pb-1">Verdict</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="intro" class="text-center py-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#4A4A4A] mb-4">A Family's Crossroads</h1>
+            <p class="text-xl max-w-3xl mx-auto text-gray-600">An Interactive Dashboard for Comparing Autism Support in Singapore and Australia</p>
+            <p class="mt-6 max-w-3xl mx-auto">This tool translates a complex strategic report into an interactive experience. It moves beyond simple funding numbers to explore the core trade-off: Singapore's <strong class="text-[#6C7A89]">predictability</strong> versus Australia's <strong class="text-[#A35638]">flexibility</strong>—a choice now defined by the critical uncertainty of Australia's NDIS reforms.</p>
+        </section>
+
+        <section id="early-years" class="py-12">
+            <h2 class="text-3xl font-bold text-center mb-4">The Early Years: A Clash of Models</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">Early intervention reveals the fundamental difference between the two systems. Singapore delivers a high volume of structured, programmatic support, while Australia provides a monetary budget for families to purchase services from an open market. This section visualizes the crucial distinction between service intensity and direct funding.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-[#6C7A89] mb-4">Singapore (EIPIC): Service Intensity</h3>
+                    <p class="mb-4">Singapore's state-guided EIPIC program focuses on delivering a high volume of structured, centre-based intervention hours per week at a heavily subsidized cost for citizens.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="eipicIntensityChart"></canvas>
+                    </div>
+                    <p class="text-center mt-4 text-sm text-gray-500">This chart highlights the sheer volume of programmed service hours delivered, a key strength of Singapore's structured model.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-[#A35638] mb-4">Australia (NDIS): Monetary Value</h3>
+                    <p class="mb-4">The NDIS provides a direct funding package. This visualization shows how an average early intervention budget translates into purchasable one-on-one therapy hours.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="ndisHoursChart"></canvas>
+                    </div>
+                    <p class="text-center mt-4 text-sm text-gray-500">This demonstrates the model's focus on "choice and control" through purchasing power, but also reveals the potential cap on service intensity.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="financials" class="py-12 bg-gray-100 rounded-lg">
+            <h2 class="text-3xl font-bold text-center mb-4">Financial Reality: Interactive Cost Modeler</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">While NDIS funding appears higher on paper, the actual out-of-pocket cost to families varies dramatically. Use the controls below to model your family's estimated annual costs based on residency, income, and desired therapy intensity. This reveals the "funding cliff" where NDIS packages may not cover high-intensity needs.</p>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 items-end">
+                    <div>
+                        <label for="residency" class="block text-sm font-medium text-gray-700">Residency & Income Status</label>
+                        <select id="residency" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-[#A35638] focus:border-[#A35638] sm:text-sm rounded-md">
+                            <option value="sg_citizen_low">SG Citizen (Low Income)</option>
+                            <option value="sg_citizen_high">SG Citizen (High Income)</option>
+                            <option value="sg_pr_low">SG PR (Low Income)</option>
+                            <option value="sg_pr_high">SG PR (High Income)</option>
+                            <option value="au_ndis_ei">AU NDIS (Early Intervention)</option>
+                            <option value="au_ndis_school">AU NDIS (School Age)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="therapyHours" class="block text-sm font-medium text-gray-700">Weekly Therapy Hours: <span id="hoursValue" class="font-bold text-[#A35638]">5</span></label>
+                        <input type="range" id="therapyHours" min="1" max="15" value="5" class="slider w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    <div id="cost-display" class="text-center p-4 bg-gray-50 rounded-lg">
+                        <p class="text-sm text-gray-600">Estimated Annual OOP Cost</p>
+                        <p id="estimatedCost" class="text-3xl font-bold text-[#A35638]">$10,900</p>
+                    </div>
+                </div>
+                <div class="chart-container h-[450px] max-h-[500px]">
+                    <canvas id="costComparisonChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="school" class="py-12">
+            <h2 class="text-3xl font-bold text-center mb-4">Navigating the School Years: Two Divergent Paths</h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-gray-600">During school years, the systems diverge completely. Singapore offers a clear, integrated choice between mainstream and specialized, low-cost SPED schools. Australia requires families to navigate two separate bureaucracies: the education system and the NDIS, creating a significant administrative burden.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-[#6C7A89] mb-4">Singapore: The Integrated SPED Pathway</h3>
+                    <div class="space-y-2">
+                        <div class="p-4 bg-gray-100 rounded-lg text-center"><p class="font-semibold">Diagnosis & EIPIC</p></div>
+                        <div class="flow-arrow"></div>
+                        <div class="p-4 bg-gray-100 rounded-lg text-center"><p class="font-semibold">Needs Assessment</p><p class="text-sm">Determines mainstream vs. specialized track</p></div>
+                        <div class="flow-arrow"></div>
+                        <div class="p-4 bg-[#D9D0C7] rounded-lg text-center text-[#4A4A4A]">
+                            <p class="font-bold">Enrollment in SPED School</p>
+                            <p class="text-sm">(e.g., Pathlight, Eden)</p>
+                            <p class="mt-2">Integrated education, therapy, and life skills in one location for a low, fixed monthly fee.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-[#A35638] mb-4">Australia: The Dual System Burden</h3>
+                    <div class="space-y-2">
+                        <div class="p-4 bg-gray-100 rounded-lg text-center"><p class="font-semibold">Mainstream School Enrollment</p></div>
+                        <div class="flow-arrow"></div>
+                        <div class="p-4 bg-gray-100 rounded-lg text-center"><p class="font-semibold">Family Must Manage Two Systems</p></div>
+                        <div class="flex gap-4 mt-2">
+                            <div class="flex-1 p-3 bg-[#D9D0C7] rounded-lg text-center text-[#4A4A4A]">
+                                <p class="font-bold">Education System</p>
+                                <p class="text-sm">Provides curriculum adjustments, teacher's aides.</p>
+                            </div>
+                            <div class="flex-1 p-3 bg-[#D9D0C7] rounded-lg text-center text-[#4A4A4A]">
+                                <p class="font-bold">NDIS</p>
+                                <p class="text-sm">Funds personal care, external therapies, assistive tech.</p>
+                            </div>
+                        </div>
+                        <p class="text-center mt-2 text-sm text-red-600 font-semibold">Risk of "boundary disputes" over who funds what, leaving the family to coordinate and advocate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="risk" class="py-12">
+            <div class="bg-red-50 border-l-4 border-red-500 text-red-800 p-8 rounded-r-lg shadow-lg">
+                <h2 class="text-3xl font-bold text-center mb-4">CRITICAL RISK: The Future of the NDIS</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto mb-6">The Australian NDIS is undergoing a fundamental, cost-driven overhaul. This is not a future possibility; it is happening now. The entire value proposition for migrating families, based on the 2021 landscape, is at risk.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mt-8">
+                    <div class="bg-white p-4 rounded-lg border border-red-200">
+                        <h3 class="font-bold text-xl mb-2">The "Foundational Supports" Shift</h3>
+                        <p>A new, parallel system is being created for children with "mild to moderate" needs, explicitly designed to divert them <strong class="text-red-600">away from the full NDIS</strong> from 2027 onwards.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-red-200">
+                        <h3 class="font-bold text-xl mb-2">The Risk of Ineligibility</h3>
+                        <p>A child who qualifies for a substantial NDIS package today may <strong class="text-red-600">not be eligible for the same scheme</strong> after migrating, as criteria tighten. The definition of "mild to moderate" remains dangerously ambiguous.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="verdict" class="py-12 text-center">
+            <h2 class="text-3xl font-bold mb-4">The Final Verdict: A Strategic Checklist</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-10 text-gray-600">The decision is not about which country is "better," but which system's risks and benefits align with your family's needs and risk tolerance. The stability of Singapore's system now stands in stark contrast to the uncertainty in Australia.</p>
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 text-left">
+                <ul class="space-y-6">
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 text-[#A35638] font-bold">1.</span>
+                        <div>
+                            <h4 class="font-bold text-lg">Assess Your Appetite for Systemic Risk</h4>
+                            <p class="text-gray-600">Are you comfortable relocating to a country in the midst of a fundamental overhaul of its flagship disability support system? Or do you prefer the stability of Singapore's state-managed pathway?</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 text-[#A35638] font-bold">2.</span>
+                        <div>
+                            <h4 class="font-bold text-lg">Evaluate Your Child's Clinical Profile</h4>
+                            <p class="text-gray-600">Critically assess if your child's needs would be classified as "severe and permanent" or "mild to moderate" under a stricter future NDIS framework. This is the key to potential eligibility.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-2xl mr-4 text-[#A35638] font-bold">3.</span>
+                        <div>
+                            <h4 class="font-bold text-lg">Model Your Financial Resilience</h4>
+                            <p class="text-gray-600">Can you afford the "PR penalty" in Singapore? Do you have the capacity to cover a potential 50%+ funding gap in Australia if NDIS support is reduced or insufficient?</p>
+                        </div>
+                    </li>
+                     <li class="flex items-start">
+                        <span class="text-2xl mr-4 text-[#A35638] font-bold">4.</span>
+                        <div>
+                            <h4 class="font-bold text-lg">Define Your Educational Preference</h4>
+                            <p class="text-gray-600">Do you value the all-in-one, specialized environment of a SPED school, or the philosophy of mainstream inclusion, with its associated administrative burden?</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-6 bg-[#4A4A4A] text-white mt-12">
+        <p class="text-sm">This interactive dashboard is a strategic visualization based on the "Comparative Analysis of Autism Support Frameworks" report. All data is for illustrative and planning purposes. Families should conduct their own detailed due diligence.</p>
+    </footer>
+
+    <script>
+        const palette = {
+            accent: '#A35638',
+            secondary: '#6C7A89',
+            neutralLight: '#D9D0C7',
+            neutralDark: '#4A4A4A',
+            background: '#FDFBF8'
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            return Array.isArray(label) ? label.join(' ') : label;
+        };
+        
+        // EIPIC Chart
+        const eipicCtx = document.getElementById('eipicIntensityChart').getContext('2d');
+        new Chart(eipicCtx, {
+            type: 'bar',
+            data: {
+                labels: ['EIPIC@Centre Program'],
+                datasets: [{
+                    label: 'Minimum Hours/Week',
+                    data: [5],
+                    backgroundColor: palette.secondary,
+                }, {
+                    label: 'Maximum Hours/Week',
+                    data: [12],
+                    backgroundColor: palette.neutralLight,
+                }]
+            },
+            options: {
+                maintainAspectRatio: false, responsive: true, indexAxis: 'y',
+                scales: { x: { beginAtZero: true, title: { display: true, text: 'Weekly Programmed Intervention Hours' } } },
+                plugins: { title: { display: true, text: 'EIPIC Weekly Service Volume' }, tooltip: { callbacks: { title: tooltipTitleCallback } } }
+            }
+        });
+
+        // NDIS Chart
+        const ndisCtx = document.getElementById('ndisHoursChart').getContext('2d');
+        const avgNdisFundingEI = 16700;
+        const therapyRate = 193.99;
+        const annualHours = avgNdisFundingEI / therapyRate;
+        new Chart(ndisCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Purchasable 1-on-1 Therapy Hours (Annual)'],
+                datasets: [{ data: [annualHours.toFixed(0)], backgroundColor: [palette.accent], hoverOffset: 4 }]
+            },
+            options: {
+                maintainAspectRatio: false, responsive: true,
+                plugins: { title: { display: true, text: `Avg. NDIS EI Budget (A$16.7k) Buys ~${annualHours.toFixed(0)} Hours/Year` }, tooltip: { callbacks: { title: tooltipTitleCallback } } }
+            }
+        });
+
+        // Interactive Cost Chart
+        const costCtx = document.getElementById('costComparisonChart').getContext('2d');
+        const costData = {
+            sg_citizen_low: [89, 89, 107],
+            sg_citizen_high: [4706, 4706, 5417],
+            sg_pr_low: [699, 699, 835],
+            sg_pr_high: [13987, 13987, 16783],
+            au_ndis_ei: [2000, 21500, 54000],
+            au_ndis_school: [0, 10900, 43400]
+        };
+
+        const therapyCost = 130; // USD per hour
+        const ndisFunding = {
+            au_ndis_ei: 11000,
+            au_ndis_school: 21600
+        };
+
+        let costChart;
+
+        function updateCostChart(residency, hours) {
+            const annualHours = hours * 52;
+            const totalCost = annualHours * therapyCost;
+            let oopCost = 0;
+
+            const dataPoints = {
+                sg_citizen_low: [89, 89, 107],
+                sg_citizen_high: [4706, 4706, 5417],
+                sg_pr_low: [699, 699, 835],
+                sg_pr_high: [13987, 13987, 16783],
+            };
+
+            if (residency.startsWith('sg')) {
+                if (hours <= 5) oopCost = dataPoints[residency][1];
+                else if (hours <= 2) oopCost = dataPoints[residency][0];
+                else oopCost = dataPoints[residency][2];
+            } else {
+                oopCost = Math.max(0, totalCost - ndisFunding[residency]);
+            }
+            
+            document.getElementById('estimatedCost').textContent = `$${Math.round(oopCost).toLocaleString()}`;
+
+            const chartData = Object.keys(costData).map(key => {
+                let scenarioOop = 0;
+                if (key.startsWith('sg')) {
+                    if (hours <= 5) scenarioOop = dataPoints[key][1];
+                    else if (hours <= 2) scenarioOop = dataPoints[key][0];
+                    else scenarioOop = dataPoints[key][2];
+                } else {
+                    scenarioOop = Math.max(0, totalCost - ndisFunding[key]);
+                }
+                return scenarioOop;
+            });
+            
+            costChart.data.datasets[0].data = chartData;
+            costChart.update();
+        }
+
+        function createCostChart() {
+            costChart = new Chart(costCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['SG Citizen (Low)', 'SG Citizen (High)', 'SG PR (Low)', 'SG PR (High)', 'AU NDIS (EI)', 'AU NDIS (School)'],
+                    datasets: [{
+                        label: 'Annual Out-of-Pocket Cost (USD)',
+                        data: [],
+                        backgroundColor: [palette.secondary, palette.secondary, palette.neutralDark, palette.neutralDark, palette.accent, palette.accent],
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false, responsive: true,
+                    scales: { y: { beginAtZero: true, ticks: { callback: value => '$' + value.toLocaleString() } } },
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Comparative Annual Out-of-Pocket Costs (USD)' },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback,
+                                label: context => `Cost: $${Math.round(context.parsed.y).toLocaleString()}`
+                            }
+                        }
+                    }
+                }
+            });
+            updateCostChart('au_ndis_school', 5);
+        }
+        
+        createCostChart();
+
+        const residencySelect = document.getElementById('residency');
+        const hoursSlider = document.getElementById('therapyHours');
+        const hoursValueSpan = document.getElementById('hoursValue');
+
+        residencySelect.addEventListener('change', () => {
+            updateCostChart(residencySelect.value, hoursSlider.value);
+        });
+
+        hoursSlider.addEventListener('input', () => {
+            hoursValueSpan.textContent = hoursSlider.value;
+            updateCostChart(residencySelect.value, hoursSlider.value);
+        });
+
+        // Active Nav Link on Scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.onscroll = () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+</html>
