@@ -1,0 +1,160 @@
+{
+  "templateName": "Signature Dark Template",
+  "version": "1.0",
+  "description": "Ultra-distinctive template with magnetic cards, diagonal reveals, text scrambling, custom cursor, and particle effects",
+  
+  "templateVariables": {
+    "hero": {
+      "LOGO_PATH": {
+        "description": "Path to project logo (SVG, PNG)",
+        "example": "media/Good.svg",
+        "required": true
+      },
+      "PROJECT_NAME": {
+        "description": "Name of the project/company for alt text",
+        "example": "JacKim Strategy",
+        "required": true
+      },
+      "MAIN_TITLE": {
+        "description": "Main hero title (will have text scrambling effect)",
+        "example": "Strategic Australian Migration Planning",
+        "required": true
+      },
+      "HERO_SUBTITLE": {
+        "description": "Hero subtitle text",
+        "example": "Data-Driven Visa Strategy & Professional Consultation Services",
+        "required": true
+      },
+      "HERO_DESCRIPTION": {
+        "description": "Hero description paragraph",
+        "example": "Comprehensive migration strategy with AI-powered research, state nomination analysis, and interactive documentation hub",
+        "required": true
+      }
+    },
+    
+    "cta": {
+      "PRIMARY_CTA_LINK": {
+        "description": "Main call-to-action link",
+        "example": "#stats",
+        "required": true
+      },
+      "PRIMARY_CTA_TEXT": {
+        "description": "Primary button text",
+        "example": "View Strategy Analysis",
+        "required": true
+      },
+      "PRIMARY_CTA_ICON": {
+        "description": "Font Awesome icon class for primary CTA",
+        "example": "fas fa-chart-line",
+        "required": true
+      },
+      "SECONDARY_CTA_LINK": {
+        "description": "Secondary call-to-action link",
+        "example": "https://notebooklm.google.com/notebook/5c3fa3d0-0ed2-48c0-869f-faf47abf98b4",
+        "required": true
+      },
+      "SECONDARY_CTA_TEXT": {
+        "description": "Secondary button text",
+        "example": "AI Research Hub",
+        "required": true
+      },
+      "SECONDARY_CTA_ICON": {
+        "description": "Font Awesome icon class for secondary CTA",
+        "example": "fas fa-robot",
+        "required": true
+      }
+    },
+    
+    "insightCards": {
+      "INSIGHTS_SECTION_TITLE": {
+        "description": "Title for the scrolling cards section",
+        "example": "Strategic Migration Insights",
+        "required": true
+      },
+      "CARD_0_EMOJI": {
+        "description": "Emoji for first insight card",
+        "example": "🎯",
+        "required": true
+      },
+      "CARD_0_TITLE": {
+        "description": "Title for first insight card",
+        "example": "Strategic Pivot",
+        "required": true
+      },
+      "CARD_0_DESCRIPTION": {
+        "description": "Description for first insight card",
+        "example": "From NSW to Victoria: Data-driven risk mitigation",
+        "required": true
+      },
+      "CARD_1_EMOJI": {
+        "description": "Emoji for second insight card",
+        "example": "📈",
+        "required": true
+      },
+      "CARD_1_TITLE": {
+        "description": "Title for second insight card",
+        "example": "Points Optimization",
+        "required": true
+      },
+      "CARD_1_DESCRIPTION": {
+        "description": "Description for second insight card",
+        "example": "VIC 491 adds decisive +15 nomination points",
+        "required": true
+      },
+      "CARD_2_EMOJI": {
+        "description": "Emoji for third insight card",
+        "example": "🏆",
+        "required": true
+      },
+      "CARD_2_TITLE": {
+        "description": "Title for third insight card",
+        "example": "Four Strategic Layers",
+        "required": true
+      },
+      "CARD_2_DESCRIPTION": {
+        "description": "Description for third insight card",
+        "example": "AI, First Nations, Regional, Asia-Pacific alignment",
+        "required": true
+      }
+    }
+  },
+  
+  "signature_features": [
+    "Custom magnetic cursor with particle trail",
+    "Diagonal reveal animations instead of basic fade-ins",
+    "Text scrambling effects on hero title",
+    "Magnetic 3D hover cards",
+    "Multi-layer parallax scrolling",
+    "Floating particle system with mouse interactions",
+    "Morphing background shapes",
+    "Elastic hover animations",
+    "Signature gradient text effects"
+  ],
+  
+  "customization_guide": {
+    "colors": {
+      "primary_bg": "var(--primary-bg) - Main background color",
+      "secondary_bg": "var(--secondary-bg) - Card background color",
+      "accent_1": "var(--accent-1) - First accent color (cyan)",
+      "accent_2": "var(--accent-2) - Second accent color (magenta)",
+      "accent_3": "var(--accent-3) - Third accent color (yellow)",
+      "text_primary": "var(--text-primary) - Main text color",
+      "text_secondary": "var(--text-secondary) - Secondary text color"
+    },
+    "animations": {
+      "diagonal_reveals": "Elements slide in diagonally with clip-path animations",
+      "magnetic_cards": "Cards follow mouse with 3D transforms",
+      "text_scrambling": "Hero title scrambles characters before revealing",
+      "particle_system": "50 floating particles that react to mouse movement",
+      "morphing_shapes": "Background shapes continuously morph and float"
+    }
+  },
+  
+  "usage_instructions": {
+    "step_1": "Replace all {{VARIABLE}} placeholders with actual content",
+    "step_2": "Update asset paths (logo, videos, documents) to match project structure",
+    "step_3": "Customize CSS variables in :root for brand colors",
+    "step_4": "Test all animations and interactions across devices",
+    "step_5": "Update meta tags and SEO information"
+  }
+}
