@@ -37,3 +37,7 @@ fastmcp/
 # Task files
 # tasks.json
 # tasks/ 
+
+# Crush artifacts
+.crush/
+
